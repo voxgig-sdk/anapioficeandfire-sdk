@@ -1,0 +1,182 @@
+# Entity: character
+
+main: kit: entity: character: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "alias"
+      req: false
+      type: "`$ARRAY`"
+    }
+    {
+      name: "allegiance"
+      req: false
+      type: "`$ARRAY`"
+    }
+    {
+      name: "book"
+      req: false
+      type: "`$ARRAY`"
+    }
+    {
+      name: "born"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "culture"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "died"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "father"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "mother"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "name"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "played_by"
+      req: false
+      type: "`$ARRAY`"
+    }
+    {
+      name: "pov_book"
+      req: false
+      type: "`$ARRAY`"
+    }
+    {
+      name: "spouse"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "title"
+      req: false
+      type: "`$ARRAY`"
+    }
+    {
+      name: "tv_series"
+      req: false
+      type: "`$ARRAY`"
+    }
+    {
+      name: "url"
+      req: false
+      type: "`$STRING`"
+    }
+  ]
+
+  name: "character"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          args: {
+            query: [
+              {
+                kind: "query"
+                name: "culture"
+                orig: "culture"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                kind: "query"
+                name: "name"
+                orig: "name"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                example: 1
+                kind: "query"
+                name: "page"
+                orig: "page"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                example: 10
+                kind: "query"
+                name: "page_size"
+                orig: "page_size"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/characters"
+          parts: [
+            "characters"
+          ]
+          select: {
+            exist: [
+              "culture"
+              "name"
+              "page"
+              "page_size"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    load: {
+      name: "load"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "id"
+                orig: "id"
+                reqd: true
+                type: "`$INTEGER`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/characters/{id}"
+          parts: [
+            "characters"
+            "{id}"
+          ]
+          select: {
+            exist: [
+              "id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

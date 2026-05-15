@@ -1,0 +1,24 @@
+# API Information
+
+
+main: {
+  kit: {
+    info: {
+      contact: {
+        name: "Joakim Skoog"
+        url: "https://anapioficeandfire.com/"
+      }
+      description: "API providing data from the universe of Ice and Fire (Game of Thrones) including characters, houses, and books. Open source and accessible through HTTP with SDKs available in multiple languages."
+      servers: [
+        {
+          description: "Production server"
+          url: "https://anapioficeandfire.com/api"
+        }
+      ]
+      title: "AnApiOfIceAndFire"
+      version: "1.0.0"
+    }
+  }
+}
+
+}

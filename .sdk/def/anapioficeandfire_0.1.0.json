@@ -1,0 +1,614 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "AnApiOfIceAndFire",
+    "description": "API providing data from the universe of Ice and Fire (Game of Thrones) including characters, houses, and books. Open source and accessible through HTTP with SDKs available in multiple languages.",
+    "version": "1.0.0",
+    "contact": {
+      "name": "Joakim Skoog",
+      "url": "https://anapioficeandfire.com/"
+    }
+  },
+  "servers": [
+    {
+      "url": "https://anapioficeandfire.com/api",
+      "description": "Production server"
+    }
+  ],
+  "paths": {
+    "/books": {
+      "get": {
+        "summary": "List all books",
+        "description": "Returns a list of books from the Ice and Fire universe",
+        "operationId": "listBooks",
+        "tags": [
+          "Books"
+        ],
+        "parameters": [
+          {
+            "name": "page",
+            "in": "query",
+            "description": "Page number for pagination",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "default": 1
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "description": "Number of items per page",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "default": 10,
+              "maximum": 50
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Book"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/books/{id}": {
+      "get": {
+        "summary": "Get a specific book",
+        "description": "Returns a single book by ID",
+        "operationId": "getBookById",
+        "tags": [
+          "Books"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID of the book to retrieve",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Book"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Book not found"
+          }
+        }
+      }
+    },
+    "/characters": {
+      "get": {
+        "summary": "List all characters",
+        "description": "Returns a list of characters from the Ice and Fire universe",
+        "operationId": "listCharacters",
+        "tags": [
+          "Characters"
+        ],
+        "parameters": [
+          {
+            "name": "page",
+            "in": "query",
+            "description": "Page number for pagination",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "default": 1
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "description": "Number of items per page",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "default": 10,
+              "maximum": 50
+            }
+          },
+          {
+            "name": "name",
+            "in": "query",
+            "description": "Filter by character name",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "culture",
+            "in": "query",
+            "description": "Filter by culture",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Character"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/characters/{id}": {
+      "get": {
+        "summary": "Get a specific character",
+        "description": "Returns a single character by ID",
+        "operationId": "getCharacterById",
+        "tags": [
+          "Characters"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID of the character to retrieve",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Character"
+                },
+                "example": {
+                  "url": "https://anapioficeandfire.com/api/characters/583",
+                  "name": "Jon Snow",
+                  "culture": "Northmen",
+                  "born": "In 283 AC",
+                  "died": "",
+                  "titles": [
+                    "Lord Commander of the Night's Watch"
+                  ],
+                  "aliases": [
+                    "Lord Snow",
+                    "Ned Stark's Bastard",
+                    "The Snow of Winterfell",
+                    "The Crow-Come-Over",
+                    "The 998th Lord Commander of the Night's Watch",
+                    "The Bastard of Winterfell",
+                    "The Black Bastard of the Wall",
+                    "Lord Crow"
+                  ],
+                  "father": "",
+                  "mother": "",
+                  "spouse": "",
+                  "allegiances": [
+                    "https://anapioficeandfire.com/api/houses/362"
+                  ],
+                  "books": [
+                    "https://anapioficeandfire.com/api/books/5"
+                  ],
+                  "povBooks": [
+                    "https://anapioficeandfire.com/api/books/1",
+                    "https://anapioficeandfire.com/api/books/2",
+                    "https://anapioficeandfire.com/api/books/3",
+                    "https://anapioficeandfire.com/api/books/8"
+                  ],
+                  "tvSeries": [
+                    "Season 1",
+                    "Season 2",
+                    "Season 3",
+                    "Season 4",
+                    "Season 5"
+                  ],
+                  "playedBy": [
+                    "Kit Harington"
+                  ]
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Character not found"
+          }
+        }
+      }
+    },
+    "/houses": {
+      "get": {
+        "summary": "List all houses",
+        "description": "Returns a list of houses from the Ice and Fire universe",
+        "operationId": "listHouses",
+        "tags": [
+          "Houses"
+        ],
+        "parameters": [
+          {
+            "name": "page",
+            "in": "query",
+            "description": "Page number for pagination",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "default": 1
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "description": "Number of items per page",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "default": 10,
+              "maximum": 50
+            }
+          },
+          {
+            "name": "name",
+            "in": "query",
+            "description": "Filter by house name",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "region",
+            "in": "query",
+            "description": "Filter by region",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/House"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/houses/{id}": {
+      "get": {
+        "summary": "Get a specific house",
+        "description": "Returns a single house by ID",
+        "operationId": "getHouseById",
+        "tags": [
+          "Houses"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID of the house to retrieve",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/House"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "House not found"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Character": {
+        "type": "object",
+        "properties": {
+          "url": {
+            "type": "string",
+            "format": "uri",
+            "description": "The hypermedia URL of this resource"
+          },
+          "name": {
+            "type": "string",
+            "description": "The name of this character"
+          },
+          "culture": {
+            "type": "string",
+            "description": "The culture that this character belongs to"
+          },
+          "born": {
+            "type": "string",
+            "description": "Textual representation of when and where this character was born"
+          },
+          "died": {
+            "type": "string",
+            "description": "Textual representation of when and where this character died"
+          },
+          "titles": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "The titles that this character holds"
+          },
+          "aliases": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "The aliases that this character goes by"
+          },
+          "father": {
+            "type": "string",
+            "description": "The character resource URL of this character's father"
+          },
+          "mother": {
+            "type": "string",
+            "description": "The character resource URL of this character's mother"
+          },
+          "spouse": {
+            "type": "string",
+            "description": "The character resource URL of this character's spouse"
+          },
+          "allegiances": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "format": "uri"
+            },
+            "description": "An array of house resource URLs that this character is loyal to"
+          },
+          "books": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "format": "uri"
+            },
+            "description": "An array of book resource URLs that this character has been in"
+          },
+          "povBooks": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "format": "uri"
+            },
+            "description": "An array of book resource URLs that this character has had a POV-chapter in"
+          },
+          "tvSeries": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "An array of season names that this character has been in"
+          },
+          "playedBy": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "An array of actor names that have played this character in the TV show"
+          }
+        }
+      },
+      "House": {
+        "type": "object",
+        "properties": {
+          "url": {
+            "type": "string",
+            "format": "uri",
+            "description": "The hypermedia URL of this resource"
+          },
+          "name": {
+            "type": "string",
+            "description": "The name of this house"
+          },
+          "region": {
+            "type": "string",
+            "description": "The region that this house resides in"
+          },
+          "coatOfArms": {
+            "type": "string",
+            "description": "Text describing the coat of arms of this house"
+          },
+          "words": {
+            "type": "string",
+            "description": "The words of this house"
+          },
+          "titles": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "The titles that this house holds"
+          },
+          "seats": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "The seats that this house holds"
+          },
+          "currentLord": {
+            "type": "string",
+            "format": "uri",
+            "description": "The character resource URL of this house's current lord"
+          },
+          "heir": {
+            "type": "string",
+            "format": "uri",
+            "description": "The character resource URL of this house's heir"
+          },
+          "overlord": {
+            "type": "string",
+            "format": "uri",
+            "description": "The house resource URL that this house answers to"
+          },
+          "founded": {
+            "type": "string",
+            "description": "The year that this house was founded"
+          },
+          "founder": {
+            "type": "string",
+            "format": "uri",
+            "description": "The character resource URL that founded this house"
+          },
+          "diedOut": {
+            "type": "string",
+            "description": "The year that this house died out"
+          },
+          "ancestralWeapons": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "An array of names of the ancestral weapons of this house"
+          },
+          "cadetBranches": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "format": "uri"
+            },
+            "description": "An array of house resource URLs that was founded from this house"
+          },
+          "swornMembers": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "format": "uri"
+            },
+            "description": "An array of character resource URLs that are sworn to this house"
+          }
+        }
+      },
+      "Book": {
+        "type": "object",
+        "properties": {
+          "url": {
+            "type": "string",
+            "format": "uri",
+            "description": "The hypermedia URL of this resource"
+          },
+          "name": {
+            "type": "string",
+            "description": "The name of this book"
+          },
+          "isbn": {
+            "type": "string",
+            "description": "The International Standard Book Number (ISBN-13) that uniquely identifies this book"
+          },
+          "authors": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "An array of names of the authors that wrote this book"
+          },
+          "numberOfPages": {
+            "type": "integer",
+            "description": "The number of pages in this book"
+          },
+          "publisher": {
+            "type": "string",
+            "description": "The company that published this book"
+          },
+          "country": {
+            "type": "string",
+            "description": "The country that this book was published in"
+          },
+          "mediaType": {
+            "type": "string",
+            "description": "The type of media this book was released in"
+          },
+          "released": {
+            "type": "string",
+            "format": "date-time",
+            "description": "The date (ISO 8601) when this book was released"
+          },
+          "characters": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "format": "uri"
+            },
+            "description": "An array of character resource URLs that has been in this book"
+          },
+          "povCharacters": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "format": "uri"
+            },
+            "description": "An array of character resource URLs that has had a POV-chapter in this book"
+          }
+        }
+      }
+    }
+  },
+  "tags": [
+    {
+      "name": "Books",
+      "description": "Operations related to books from the Ice and Fire universe"
+    },
+    {
+      "name": "Characters",
+      "description": "Operations related to characters from the Ice and Fire universe"
+    },
+    {
+      "name": "Houses",
+      "description": "Operations related to houses from the Ice and Fire universe"
+    }
+  ]
+}

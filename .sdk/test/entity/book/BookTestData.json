@@ -1,0 +1,62 @@
+{
+  "existing": {
+    "book": {
+      "BOOK00": {
+        "author": [],
+        "character": [],
+        "country": "s70",
+        "isbn": "s71",
+        "media_type": "s72",
+        "name": "s73",
+        "number_of_page": "s74",
+        "pov_character": [],
+        "publisher": "s76",
+        "released": "s77",
+        "url": "s78"
+      },
+      "BOOK01": {
+        "author": [],
+        "character": [],
+        "country": "sde",
+        "isbn": "sdf",
+        "media_type": "se0",
+        "name": "se1",
+        "number_of_page": "se2",
+        "pov_character": [],
+        "publisher": "se4",
+        "released": "se5",
+        "url": "se6"
+      },
+      "BOOK02": {
+        "author": [],
+        "character": [],
+        "country": "s14c",
+        "isbn": "s14d",
+        "media_type": "s14e",
+        "name": "s14f",
+        "number_of_page": "s150",
+        "pov_character": [],
+        "publisher": "s152",
+        "released": "s153",
+        "url": "s154"
+      }
+    }
+  },
+  "new": {
+    "book": {
+      "book_ref01": {
+        "author": [],
+        "character": [],
+        "country": "s1ba",
+        "isbn": "s1bb",
+        "media_type": "s1bc",
+        "name": "s1bd",
+        "number_of_page": "s1be",
+        "pov_character": [],
+        "publisher": "s1c0",
+        "released": "s1c1",
+        "url": "s1c2"
+      }
+    }
+  }
+}

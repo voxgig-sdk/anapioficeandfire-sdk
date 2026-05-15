@@ -1,0 +1,78 @@
+{
+  "existing": {
+    "character": {
+      "CHARACTER00": {
+        "alias": [],
+        "allegiance": [],
+        "book": [],
+        "born": "s99",
+        "culture": "s9a",
+        "died": "s9b",
+        "father": "s9c",
+        "mother": "s9d",
+        "name": "s9e",
+        "played_by": [],
+        "pov_book": [],
+        "spouse": "sa1",
+        "title": [],
+        "tv_series": [],
+        "url": "sa4"
+      },
+      "CHARACTER01": {
+        "alias": [],
+        "allegiance": [],
+        "book": [],
+        "born": "s12f",
+        "culture": "s130",
+        "died": "s131",
+        "father": "s132",
+        "mother": "s133",
+        "name": "s134",
+        "played_by": [],
+        "pov_book": [],
+        "spouse": "s137",
+        "title": [],
+        "tv_series": [],
+        "url": "s13a"
+      },
+      "CHARACTER02": {
+        "alias": [],
+        "allegiance": [],
+        "book": [],
+        "born": "s1c5",
+        "culture": "s1c6",
+        "died": "s1c7",
+        "father": "s1c8",
+        "mother": "s1c9",
+        "name": "s1ca",
+        "played_by": [],
+        "pov_book": [],
+        "spouse": "s1cd",
+        "title": [],
+        "tv_series": [],
+        "url": "s1d0"
+      }
+    }
+  },
+  "new": {
+    "character": {
+      "character_ref01": {
+        "alias": [],
+        "allegiance": [],
+        "book": [],
+        "born": "s25b",
+        "culture": "s25c",
+        "died": "s25d",
+        "father": "s25e",
+        "mother": "s25f",
+        "name": "s260",
+        "played_by": [],
+        "pov_book": [],
+        "spouse": "s263",
+        "title": [],
+        "tv_series": [],
+        "url": "s266"
+      }
+    }
+  }
+}
