@@ -55,7 +55,7 @@ func registerSDKWords(r *eng.Registry, client *sdk.AnapioficeandfireSDK) {
 // query coerced to the SDK's `map[string]any` argument shape.
 //
 // Query coercion:
-//   - Map  → underlying Go map (via eng.ToGo)
+//   - Map  → underlying Go map (via eng.ToNative)
 //   - Scalar → {"id": <scalar>} (lenient default so `load 1 book` works
 //     as shorthand for `load {id:1} book`)
 //   - nil → nil (the SDK defaults match)
@@ -94,7 +94,7 @@ func runOp(client *sdk.AnapioficeandfireSDK, op string, query *eng.Value, entity
 	// SDK list/load returns either an entity wrapper or a slice of
 	// them; unwrap each via .Data() so the AQL output is plain data
 	// rather than opaque *Entity pointers.
-	return []eng.Value{eng.FromGo(extractData(result))}, nil
+	return []eng.Value{eng.FromNative(extractData(result))}, nil
 }
 
 func entityFor(client *sdk.AnapioficeandfireSDK, name string) (sdk.AnapioficeandfireEntity, error) {
@@ -111,18 +111,18 @@ func entityFor(client *sdk.AnapioficeandfireSDK, name string) (sdk.Anapioficeand
 
 // queryToMap converts an AQL Value (Map or Scalar) into the
 // `map[string]any` shape the SDK expects. Maps are unwrapped via
-// eng.ToGo. Scalars are wrapped as {"id": <value>} so the shorthand
+// eng.ToNative. Scalars are wrapped as {"id": <value>} so the shorthand
 // `load 1 book` becomes `load {id:1} book`.
 func queryToMap(v eng.Value) (map[string]any, error) {
 	if v.VType.Matches(eng.TMap) {
-		m, ok := eng.ToGo(v).(map[string]any)
+		m, ok := eng.ToNative(v).(map[string]any)
 		if !ok {
 			return nil, fmt.Errorf("query map could not be unwrapped")
 		}
 		return m, nil
 	}
 	if v.VType.Matches(eng.TScalar) {
-		return map[string]any{"id": eng.ToGo(v)}, nil
+		return map[string]any{"id": eng.ToNative(v)}, nil
 	}
 	return nil, fmt.Errorf("query must be a Map or Scalar, got %s", v.VType)
 }
