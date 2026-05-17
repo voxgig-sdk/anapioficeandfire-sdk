@@ -2,7 +2,7 @@
 
 
 
-Available for [Golang](go/).
+Available for [Golang](go/) and [Lua](lua/) and [PHP](php/) and [Python](py/) and [Ruby](rb/) and [TypeScript](ts/).
 
 
 ## Entities
@@ -71,6 +71,93 @@ client := sdk.NewAnapioficeandfireSDK(map[string]any{
 books, err := client.Book(nil).List(nil, nil)
 ```
 
+### Lua
+
+```lua
+local sdk = require("anapioficeandfire_sdk")
+
+local client = sdk.new({
+  apikey = os.getenv("ANAPIOFICEANDFIRE_APIKEY"),
+})
+
+-- List all books
+local books, err = client:Book(nil):list(nil, nil)
+
+-- Load a specific book
+local book, err = client:Book(nil):load(
+  { id = "example_id" }, nil
+)
+```
+
+### PHP
+
+```php
+<?php
+require_once 'anapioficeandfire_sdk.php';
+
+$client = new AnapioficeandfireSDK([
+    "apikey" => getenv("ANAPIOFICEANDFIRE_APIKEY"),
+]);
+
+// List all books
+[$books, $err] = $client->Book(null)->list(null, null);
+
+// Load a specific book
+[$book, $err] = $client->Book(null)->load(
+    ["id" => "example_id"], null
+);
+```
+
+### Python
+
+```python
+import os
+from anapioficeandfire_sdk import AnapioficeandfireSDK
+
+client = AnapioficeandfireSDK({
+    "apikey": os.environ.get("ANAPIOFICEANDFIRE_APIKEY"),
+})
+
+# List all books
+books, err = client.Book(None).list(None, None)
+
+# Load a specific book
+book, err = client.Book(None).load(
+    {"id": "example_id"}, None
+)
+```
+
+### Ruby
+
+```ruby
+require_relative "Anapioficeandfire_sdk"
+
+client = AnapioficeandfireSDK.new({
+  "apikey" => ENV["ANAPIOFICEANDFIRE_APIKEY"],
+})
+
+# List all books
+books, err = client.Book(nil).list(nil, nil)
+
+# Load a specific book
+book, err = client.Book(nil).load(
+  { "id" => "example_id" }, nil
+)
+```
+
+### TypeScript
+
+```ts
+import { AnapioficeandfireSDK } from 'anapioficeandfire'
+
+const client = new AnapioficeandfireSDK({
+  apikey: process.env.ANAPIOFICEANDFIRE_APIKEY,
+})
+
+// List all books
+const books = await client.Book().list()
+```
+
 
 ## Testing
 
@@ -84,6 +171,50 @@ client := sdk.TestSDK(nil, nil)
 result, err := client.Book(nil).Load(
     map[string]any{"id": "test01"}, nil,
 )
+```
+
+### Lua
+
+```lua
+local client = sdk.test(nil, nil)
+local result, err = client:Book(nil):load(
+  { id = "test01" }, nil
+)
+```
+
+### PHP
+
+```php
+$client = AnapioficeandfireSDK::test(null, null);
+[$result, $err] = $client->Book(null)->load(
+    ["id" => "test01"], null
+);
+```
+
+### Python
+
+```python
+client = AnapioficeandfireSDK.test(None, None)
+result, err = client.Book(None).load(
+    {"id": "test01"}, None
+)
+```
+
+### Ruby
+
+```ruby
+client = AnapioficeandfireSDK.test(nil, nil)
+result, err = client.Book(nil).load(
+  { "id" => "test01" }, nil
+)
+```
+
+### TypeScript
+
+```ts
+const client = AnapioficeandfireSDK.test()
+const result = await client.Book().load({ id: 'test01' })
+// result.ok === true, result.data contains mock data
 ```
 
 
@@ -102,8 +233,59 @@ result, err := client.Direct(map[string]any{
 })
 ```
 
+**Lua:**
+```lua
+local result, err = client:direct({
+  path = "/api/resource/{id}",
+  method = "GET",
+  params = { id = "example" },
+})
+```
+
+**PHP:**
+```php
+[$result, $err] = $client->direct([
+    "path" => "/api/resource/{id}",
+    "method" => "GET",
+    "params" => ["id" => "example"],
+]);
+```
+
+**Python:**
+```python
+result, err = client.direct({
+    "path": "/api/resource/{id}",
+    "method": "GET",
+    "params": {"id": "example"},
+})
+```
+
+**Ruby:**
+```ruby
+result, err = client.direct({
+  "path" => "/api/resource/{id}",
+  "method" => "GET",
+  "params" => { "id" => "example" },
+})
+```
+
+**TypeScript:**
+```ts
+const result = await client.direct({
+  path: '/api/resource/{id}',
+  method: 'GET',
+  params: { id: 'example' },
+})
+console.log(result.data)
+```
+
 
 ## Language-specific documentation
 
 - [Golang SDK](go/README.md)
+- [Lua SDK](lua/README.md)
+- [PHP SDK](php/README.md)
+- [Python SDK](py/README.md)
+- [Ruby SDK](rb/README.md)
+- [TypeScript SDK](ts/README.md)
 

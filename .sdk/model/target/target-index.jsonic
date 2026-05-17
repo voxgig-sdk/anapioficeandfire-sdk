@@ -2,3 +2,8 @@
 
 
 @"go.jsonic"
+@"ts.jsonic"
+@"lua.jsonic"
+@"php.jsonic"
+@"py.jsonic"
+@"rb.jsonic"
