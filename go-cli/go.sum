@@ -1,0 +1,4 @@
+github.com/jsonicjs/jsonic/go v0.1.6 h1:oUw4vxCK6tqa7SGN87vjCtx3sCpeHXdqfl25hx5LKP0=
+github.com/jsonicjs/jsonic/go v0.1.6/go.mod h1:ObNKlCG7esWoi4AHCpdgkILvPINV8bpvkbCd4llGGUg=
+github.com/voxgig-sdk/anapioficeandfire-sdk/go v0.2.0 h1:0CmMlE80g1kSmG+ZZ0+o6i/wMAFd0jv4iZ32Xs7f4wE=
+github.com/voxgig-sdk/anapioficeandfire-sdk/go v0.2.0/go.mod h1:ccAkfTo9O6GmZEH4D2I5BXGztyaJZWtS8zEDwE9HfQ0=
