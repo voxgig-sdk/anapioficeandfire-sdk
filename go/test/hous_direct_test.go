@@ -6,8 +6,8 @@ import (
 	"strings"
 	"testing"
 
-	sdk "github.com/voxgig-sdk/anapioficeandfire-sdk"
-	"github.com/voxgig-sdk/anapioficeandfire-sdk/core"
+	sdk "github.com/voxgig-sdk/anapioficeandfire-sdk/go"
+	"github.com/voxgig-sdk/anapioficeandfire-sdk/go/core"
 )
 
 func TestHousDirect(t *testing.T) {

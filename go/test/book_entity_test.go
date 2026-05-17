@@ -9,10 +9,10 @@ import (
 	"testing"
 	"time"
 
-	sdk "github.com/voxgig-sdk/anapioficeandfire-sdk"
-	"github.com/voxgig-sdk/anapioficeandfire-sdk/core"
+	sdk "github.com/voxgig-sdk/anapioficeandfire-sdk/go"
+	"github.com/voxgig-sdk/anapioficeandfire-sdk/go/core"
 
-	vs "github.com/voxgig/struct"
+	vs "github.com/voxgig-sdk/anapioficeandfire-sdk/go/utility/struct"
 )
 
 func TestBookEntity(t *testing.T) {

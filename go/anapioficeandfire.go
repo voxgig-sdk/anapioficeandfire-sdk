@@ -1,10 +1,10 @@
 package voxgiganapioficeandfiresdk
 
 import (
-	"github.com/voxgig-sdk/anapioficeandfire-sdk/core"
-	"github.com/voxgig-sdk/anapioficeandfire-sdk/entity"
-	"github.com/voxgig-sdk/anapioficeandfire-sdk/feature"
-	_ "github.com/voxgig-sdk/anapioficeandfire-sdk/utility"
+	"github.com/voxgig-sdk/anapioficeandfire-sdk/go/core"
+	"github.com/voxgig-sdk/anapioficeandfire-sdk/go/entity"
+	"github.com/voxgig-sdk/anapioficeandfire-sdk/go/feature"
+	_ "github.com/voxgig-sdk/anapioficeandfire-sdk/go/utility"
 )
 
 // Type aliases preserve external API.
