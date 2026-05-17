@@ -877,14 +877,7 @@
             "name": "anapioficeandfire"
           },
           "srcfeature": false,
-          "deps": {
-            "github.com/voxgig/struct": {
-              "active": true,
-              "version": "v0.0.0",
-              "replace": "./utility/struct",
-              "kind": "prod"
-            }
-          },
+          "deps": {},
           "name": "go",
           "active": true
         },
@@ -972,15 +965,6 @@
     },
     "def": {
       "desc": ""
-    },
-    "api": {
-      "guide": {},
-      "entity": {}
     }
-  },
-  "name__orig": "anapioficeandfire",
-  "Name": "Anapioficeandfire",
-  "name_": "anapioficeandfire",
-  "name-": "anapioficeandfire",
-  "NAME": "ANAPIOFICEANDFIRE"
+  }
 }

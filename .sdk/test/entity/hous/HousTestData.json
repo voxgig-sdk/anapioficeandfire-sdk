@@ -17,7 +17,8 @@
         "sworn_member": [],
         "title": [],
         "url": "sae",
-        "word": "saf"
+        "word": "saf",
+        "id": "HOUS00"
       },
       "HOUS01": {
         "ancestral_weapon": [],
@@ -35,7 +36,8 @@
         "sworn_member": [],
         "title": [],
         "url": "s14e",
-        "word": "s14f"
+        "word": "s14f",
+        "id": "HOUS01"
       },
       "HOUS02": {
         "ancestral_weapon": [],
@@ -53,7 +55,8 @@
         "sworn_member": [],
         "title": [],
         "url": "s1ee",
-        "word": "s1ef"
+        "word": "s1ef",
+        "id": "HOUS02"
       }
     }
   },

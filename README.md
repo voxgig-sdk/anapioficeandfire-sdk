@@ -61,7 +61,7 @@ and `body`.
 ### Golang
 
 ```go
-import sdk "github.com/voxgig-sdk/anapioficeandfire-sdk"
+import sdk "github.com/voxgig-sdk/anapioficeandfire-sdk/go"
 
 client := sdk.NewAnapioficeandfireSDK(map[string]any{
     "apikey": os.Getenv("ANAPIOFICEANDFIRE_APIKEY"),

@@ -16,7 +16,8 @@
         "spouse": "sa1",
         "title": [],
         "tv_series": [],
-        "url": "sa4"
+        "url": "sa4",
+        "id": "CHARACTER00"
       },
       "CHARACTER01": {
         "alias": [],
@@ -33,7 +34,8 @@
         "spouse": "s137",
         "title": [],
         "tv_series": [],
-        "url": "s13a"
+        "url": "s13a",
+        "id": "CHARACTER01"
       },
       "CHARACTER02": {
         "alias": [],
@@ -50,7 +52,8 @@
         "spouse": "s1cd",
         "title": [],
         "tv_series": [],
-        "url": "s1d0"
+        "url": "s1d0",
+        "id": "CHARACTER02"
       }
     }
   },

@@ -12,7 +12,8 @@
         "pov_character": [],
         "publisher": "s76",
         "released": "s77",
-        "url": "s78"
+        "url": "s78",
+        "id": "BOOK00"
       },
       "BOOK01": {
         "author": [],
@@ -25,7 +26,8 @@
         "pov_character": [],
         "publisher": "se4",
         "released": "se5",
-        "url": "se6"
+        "url": "se6",
+        "id": "BOOK01"
       },
       "BOOK02": {
         "author": [],
@@ -38,7 +40,8 @@
         "pov_character": [],
         "publisher": "s152",
         "released": "s153",
-        "url": "s154"
+        "url": "s154",
+        "id": "BOOK02"
       }
     }
   },
