@@ -205,7 +205,7 @@ Creates a test-mode client with mock transport. Both arguments may be `nil`.
 | `Direct` | `(fetchargs map[string]any) (map[string]any, error)` | Build and send an HTTP request. |
 | `Book` | `(data map[string]any) AnapioficeandfireEntity` | Create a Book entity instance. |
 | `Character` | `(data map[string]any) AnapioficeandfireEntity` | Create a Character entity instance. |
-| `Hous` | `(data map[string]any) AnapioficeandfireEntity` | Create a Hous entity instance. |
+| `House` | `(data map[string]any) AnapioficeandfireEntity` | Create a House entity instance. |
 
 ### Entity interface (AnapioficeandfireEntity)
 
@@ -283,7 +283,7 @@ Operations: List, Load.
 
 API path: `/characters`
 
-#### Hous
+#### House
 
 | Field | Description |
 | --- | --- |
@@ -397,9 +397,9 @@ results, err := client.Character(nil).List(nil, nil)
 ```
 
 
-### Hous
+### House
 
-Create an instance: `hous := client.Hous(nil)`
+Create an instance: `house := client.House(nil)`
 
 #### Operations
 
@@ -432,13 +432,13 @@ Create an instance: `hous := client.Hous(nil)`
 #### Example: Load
 
 ```go
-result, err := client.Hous(nil).Load(map[string]any{"id": "hous_id"}, nil)
+result, err := client.House(nil).Load(map[string]any{"id": "house_id"}, nil)
 ```
 
 #### Example: List
 
 ```go
-results, err := client.Hous(nil).List(nil, nil)
+results, err := client.House(nil).List(nil, nil)
 ```
 
 

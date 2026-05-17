@@ -38,8 +38,8 @@ func init() {
 	core.NewCharacterEntityFunc = func(client *core.AnapioficeandfireSDK, entopts map[string]any) core.AnapioficeandfireEntity {
 		return entity.NewCharacterEntity(client, entopts)
 	}
-	core.NewHousEntityFunc = func(client *core.AnapioficeandfireSDK, entopts map[string]any) core.AnapioficeandfireEntity {
-		return entity.NewHousEntity(client, entopts)
+	core.NewHouseEntityFunc = func(client *core.AnapioficeandfireSDK, entopts map[string]any) core.AnapioficeandfireEntity {
+		return entity.NewHouseEntity(client, entopts)
 	}
 }
 

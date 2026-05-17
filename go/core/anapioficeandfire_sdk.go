@@ -255,8 +255,8 @@ func (sdk *AnapioficeandfireSDK) Character(data map[string]any) Anapioficeandfir
 }
 
 
-func (sdk *AnapioficeandfireSDK) Hous(data map[string]any) AnapioficeandfireEntity {
-	return NewHousEntityFunc(sdk, data)
+func (sdk *AnapioficeandfireSDK) House(data map[string]any) AnapioficeandfireEntity {
+	return NewHouseEntityFunc(sdk, data)
 }
 
 

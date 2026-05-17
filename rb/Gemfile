@@ -1,6 +1,0 @@
-source "https://rubygems.org"
-
-gemspec
-
-gem "json", "~> 0"
-gem "voxgig-struct", "~> 0.0.10"

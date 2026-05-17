@@ -10,5 +10,5 @@ var NewBookEntityFunc func(client *AnapioficeandfireSDK, entopts map[string]any)
 
 var NewCharacterEntityFunc func(client *AnapioficeandfireSDK, entopts map[string]any) AnapioficeandfireEntity
 
-var NewHousEntityFunc func(client *AnapioficeandfireSDK, entopts map[string]any) AnapioficeandfireEntity
+var NewHouseEntityFunc func(client *AnapioficeandfireSDK, entopts map[string]any) AnapioficeandfireEntity
 

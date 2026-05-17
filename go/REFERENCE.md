@@ -48,9 +48,9 @@ Create a new `Book` entity instance. Pass `nil` for no initial data.
 
 Create a new `Character` entity instance. Pass `nil` for no initial data.
 
-#### `Hous(data map[string]any) AnapioficeandfireEntity`
+#### `House(data map[string]any) AnapioficeandfireEntity`
 
-Create a new `Hous` entity instance. Pass `nil` for no initial data.
+Create a new `House` entity instance. Pass `nil` for no initial data.
 
 #### `OptionsMap() map[string]any`
 
@@ -220,10 +220,10 @@ Return the entity name.
 
 ---
 
-## HousEntity
+## HouseEntity
 
 ```go
-hous := client.Hous(nil)
+house := client.House(nil)
 ```
 
 ### Fields
@@ -254,7 +254,7 @@ hous := client.Hous(nil)
 List entities matching the given criteria. Returns an array.
 
 ```go
-results, err := client.Hous(nil).List(nil, nil)
+results, err := client.House(nil).List(nil, nil)
 ```
 
 #### `Load(reqmatch, ctrl map[string]any) (any, error)`
@@ -262,7 +262,7 @@ results, err := client.Hous(nil).List(nil, nil)
 Load a single entity matching the given criteria.
 
 ```go
-result, err := client.Hous(nil).Load(map[string]any{"id": "hous_id"}, nil)
+result, err := client.House(nil).Load(map[string]any{"id": "house_id"}, nil)
 ```
 
 ### Common Methods
@@ -279,7 +279,7 @@ Get or set the entity match criteria. Works the same as `Data()`.
 
 #### `Make() Entity`
 
-Create a new `HousEntity` instance with the same client and
+Create a new `HouseEntity` instance with the same client and
 options.
 
 #### `GetName() string`

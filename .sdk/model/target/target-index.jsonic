@@ -1,9 +1,4 @@
 # SDK Targets.
 
 
-@"ts.jsonic"
 @"go.jsonic"
-@"lua.jsonic"
-@"php.jsonic"
-@"py.jsonic"
-@"rb.jsonic"

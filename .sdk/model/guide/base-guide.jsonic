@@ -23,7 +23,7 @@ guide: {
     }
   }
 
-  entity: hous: {
+  entity: house: {
     path: "/houses": {
       op: list: method: *GET
     }

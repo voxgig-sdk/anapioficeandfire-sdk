@@ -1,0 +1,85 @@
+{
+  "existing": {
+    "house": {
+      "HOUSE00": {
+        "ancestral_weapon": [],
+        "cadet_branch": [],
+        "coat_of_arm": "sa2",
+        "current_lord": "sa3",
+        "died_out": "sa4",
+        "founded": "sa5",
+        "founder": "sa6",
+        "heir": "sa7",
+        "name": "sa8",
+        "overlord": "sa9",
+        "region": "saa",
+        "seat": [],
+        "sworn_member": [],
+        "title": [],
+        "url": "sae",
+        "word": "saf",
+        "id": "HOUSE00"
+      },
+      "HOUSE01": {
+        "ancestral_weapon": [],
+        "cadet_branch": [],
+        "coat_of_arm": "s142",
+        "current_lord": "s143",
+        "died_out": "s144",
+        "founded": "s145",
+        "founder": "s146",
+        "heir": "s147",
+        "name": "s148",
+        "overlord": "s149",
+        "region": "s14a",
+        "seat": [],
+        "sworn_member": [],
+        "title": [],
+        "url": "s14e",
+        "word": "s14f",
+        "id": "HOUSE01"
+      },
+      "HOUSE02": {
+        "ancestral_weapon": [],
+        "cadet_branch": [],
+        "coat_of_arm": "s1e2",
+        "current_lord": "s1e3",
+        "died_out": "s1e4",
+        "founded": "s1e5",
+        "founder": "s1e6",
+        "heir": "s1e7",
+        "name": "s1e8",
+        "overlord": "s1e9",
+        "region": "s1ea",
+        "seat": [],
+        "sworn_member": [],
+        "title": [],
+        "url": "s1ee",
+        "word": "s1ef",
+        "id": "HOUSE02"
+      }
+    }
+  },
+  "new": {
+    "house": {
+      "house_ref01": {
+        "ancestral_weapon": [],
+        "cadet_branch": [],
+        "coat_of_arm": "s282",
+        "current_lord": "s283",
+        "died_out": "s284",
+        "founded": "s285",
+        "founder": "s286",
+        "heir": "s287",
+        "name": "s288",
+        "overlord": "s289",
+        "region": "s28a",
+        "seat": [],
+        "sworn_member": [],
+        "title": [],
+        "url": "s28e",
+        "word": "s28f"
+      }
+    }
+  }
+}

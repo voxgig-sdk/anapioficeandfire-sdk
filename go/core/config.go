@@ -23,7 +23,7 @@ func MakeConfig() map[string]any {
 			"entity": map[string]any{
 				"book": map[string]any{},
 				"character": map[string]any{},
-				"hous": map[string]any{},
+				"house": map[string]any{},
 			},
 		},
 		"entity": map[string]any{
@@ -419,7 +419,7 @@ func MakeConfig() map[string]any {
 					"ancestors": []any{},
 				},
 			},
-			"hous": map[string]any{
+			"house": map[string]any{
 				"fields": []any{
 					map[string]any{
 						"name": "ancestral_weapon",
@@ -534,7 +534,7 @@ func MakeConfig() map[string]any {
 						"index$": 15,
 					},
 				},
-				"name": "hous",
+				"name": "house",
 				"op": map[string]any{
 					"list": map[string]any{
 						"name": "list",
