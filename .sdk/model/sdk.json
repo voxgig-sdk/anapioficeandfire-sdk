@@ -669,10 +669,10 @@
             }
           },
           "target": {
-            "go": {
+            "ts": {
               "deps": {}
             },
-            "ts": {
+            "go": {
               "deps": {}
             },
             "lua": {
@@ -685,6 +685,9 @@
               "deps": {}
             },
             "rb": {
+              "deps": {}
+            },
+            "go-cli": {
               "deps": {}
             }
           }
@@ -837,8 +840,8 @@
         }
       },
       "target": {
-        "go": {
-          "title": "Golang",
+        "go-cli": {
+          "title": "Go CLI",
           "ext": "go",
           "comment": {
             "line": "//"
@@ -846,9 +849,22 @@
           "module": {
             "name": "anapioficeandfire"
           },
-          "srcfeature": false,
+          "phase": {
+            "entity": {
+              "active": false
+            },
+            "feature": {
+              "active": false
+            },
+            "readme": {
+              "active": false
+            },
+            "test": {
+              "active": false
+            }
+          },
           "deps": {},
-          "name": "go",
+          "name": "go-cli",
           "active": true
         },
         "ts": {
@@ -879,6 +895,20 @@
             }
           },
           "name": "ts",
+          "active": true
+        },
+        "go": {
+          "title": "Golang",
+          "ext": "go",
+          "comment": {
+            "line": "//"
+          },
+          "module": {
+            "name": "anapioficeandfire"
+          },
+          "srcfeature": false,
+          "deps": {},
+          "name": "go",
           "active": true
         },
         "lua": {
@@ -965,15 +995,6 @@
     },
     "def": {
       "desc": ""
-    },
-    "api": {
-      "guide": {},
-      "entity": {}
     }
-  },
-  "name__orig": "anapioficeandfire",
-  "Name": "Anapioficeandfire",
-  "name_": "anapioficeandfire",
-  "name-": "anapioficeandfire",
-  "NAME": "ANAPIOFICEANDFIRE"
+  }
 }
