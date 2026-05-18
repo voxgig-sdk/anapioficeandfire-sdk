@@ -1,10 +1,10 @@
-// Command Anapioficeandfire-mcp is an MCP server exposing the Anapioficeandfire
+// Command ProjectName-mcp is an MCP server exposing the ProjectName
 // SDK as MCP tools.
 //
 // Two tools are registered:
 //
-//	Anapioficeandfire_list  — list records of an entity
-//	Anapioficeandfire_load  — load a single record of an entity
+//	ProjectName_list  — list records of an entity
+//	ProjectName_load  — load a single record of an entity
 //
 // Each accepts an `entity` argument and an optional `query` object
 // (mapped 1:1 onto the SDK's reqmatch parameter).
@@ -29,7 +29,7 @@ import (
 	"os"
 
 	"github.com/modelcontextprotocol/go-sdk/mcp"
-	sdk "github.com/voxgig-sdk/anapioficeandfire-sdk/go"
+	sdk "GOMODULE"
 )
 
 func main() {
@@ -37,10 +37,10 @@ func main() {
 	addr := flag.String("addr", ":8080", "listen address for http transport")
 	flag.Parse()
 
-	client := sdk.NewAnapioficeandfireSDK(nil)
+	client := sdk.NewProjectNameSDK(nil)
 	server := mcp.NewServer(
 		&mcp.Implementation{
-			Name:    "anapioficeandfire",
+			Name:    "// <[SLOT:serverName]>",
 			Version: "0.0.0",
 		},
 		nil,

@@ -1,11 +1,10 @@
 module github.com/voxgig-sdk/anapioficeandfire-sdk/go-mcp
 
-go 1.26.1
+go 1.25.0
 
-require (
-	github.com/modelcontextprotocol/go-sdk v1.6.0
-	github.com/voxgig-sdk/anapioficeandfire-sdk/go v0.3.0
-)
+require github.com/voxgig-sdk/anapioficeandfire-sdk/go v0.0.0
+
+require github.com/modelcontextprotocol/go-sdk v1.6.0
 
 require (
 	github.com/google/jsonschema-go v0.4.3 // indirect
@@ -15,3 +14,5 @@ require (
 	golang.org/x/oauth2 v0.35.0 // indirect
 	golang.org/x/sys v0.41.0 // indirect
 )
+
+replace github.com/voxgig-sdk/anapioficeandfire-sdk/go => ../go

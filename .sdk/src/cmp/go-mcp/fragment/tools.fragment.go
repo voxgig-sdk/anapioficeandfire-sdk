@@ -8,7 +8,7 @@ import (
 	"strings"
 
 	"github.com/modelcontextprotocol/go-sdk/mcp"
-	sdk "github.com/voxgig-sdk/anapioficeandfire-sdk/go"
+	sdk "GOMODULE"
 )
 
 // Args is the common argument shape for both tools. `entity` selects
@@ -16,14 +16,14 @@ import (
 // reqdata map passed through to the SDK. For load, `query` should be
 // `{"id": <value>}`. For list, omit `query` or pass an empty map.
 type Args struct {
-	Entity string         `json:"entity" jsonschema:"book | character | house"`
+	Entity string         `json:"entity" jsonschema:"// <[SLOT:entityHelp]>"`
 	Query  map[string]any `json:"query,omitempty" jsonschema:"optional match map e.g. {\"id\":1} for load, omit for list"`
 }
 
-func registerTools(server *mcp.Server, client *sdk.AnapioficeandfireSDK) {
+func registerTools(server *mcp.Server, client *sdk.ProjectNameSDK) {
 	mcp.AddTool(server, &mcp.Tool{
-		Name: "anapioficeandfire_list",
-		Description: "List records from Anapioficeandfire. " +
+		Name: "// <[SLOT:toolPrefixList]>",
+		Description: "List records from ProjectName. " +
 			"Args: entity (one of the supported SDK entities), query (optional filter map). " +
 			"Returns the first page of records as JSON.",
 	}, func(ctx context.Context, req *mcp.CallToolRequest, args Args) (*mcp.CallToolResult, any, error) {
@@ -31,15 +31,15 @@ func registerTools(server *mcp.Server, client *sdk.AnapioficeandfireSDK) {
 	})
 
 	mcp.AddTool(server, &mcp.Tool{
-		Name: "anapioficeandfire_load",
-		Description: "Load a single record from Anapioficeandfire. " +
+		Name: "// <[SLOT:toolPrefixLoad]>",
+		Description: "Load a single record from ProjectName. " +
 			"Args: entity, query ({\"id\":N} required). Returns the record as JSON.",
 	}, func(ctx context.Context, req *mcp.CallToolRequest, args Args) (*mcp.CallToolResult, any, error) {
 		return runOp(client, "load", args)
 	})
 }
 
-func runOp(client *sdk.AnapioficeandfireSDK, op string, args Args) (*mcp.CallToolResult, any, error) {
+func runOp(client *sdk.ProjectNameSDK, op string, args Args) (*mcp.CallToolResult, any, error) {
 	ent, err := entityFor(client, args.Entity)
 	if err != nil {
 		return toolError(err.Error())
@@ -75,15 +75,9 @@ func runOp(client *sdk.AnapioficeandfireSDK, op string, args Args) (*mcp.CallToo
 
 // entityFor dispatches on the lowercase entity name. The generator
 // emits one `case "<name>":` per entity defined in the SDK model.
-func entityFor(client *sdk.AnapioficeandfireSDK, name string) (sdk.AnapioficeandfireEntity, error) {
+func entityFor(client *sdk.ProjectNameSDK, name string) (sdk.ProjectNameEntity, error) {
 	switch strings.ToLower(name) {
-	case "book":
-		return client.Book(nil), nil
-	case "character":
-		return client.Character(nil), nil
-	case "house":
-		return client.House(nil), nil
-
+	// <[SLOT:entityCases]>
 	}
 	return nil, fmt.Errorf("unknown entity %q", name)
 }
