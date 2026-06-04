@@ -92,7 +92,6 @@ function character_basic_setup($extra)
         "ANAPIOFICEANDFIRE_TEST_CHARACTER_ENTID" => $idmap,
         "ANAPIOFICEANDFIRE_TEST_LIVE" => "FALSE",
         "ANAPIOFICEANDFIRE_TEST_EXPLAIN" => "FALSE",
-        "ANAPIOFICEANDFIRE_APIKEY" => "NONE",
     ]);
 
     $idmap_resolved = Helpers::to_map(
@@ -104,7 +103,6 @@ function character_basic_setup($extra)
     if ($env["ANAPIOFICEANDFIRE_TEST_LIVE"] === "TRUE") {
         $merged_opts = Vs::merge([
             [
-                "apikey" => $env["ANAPIOFICEANDFIRE_APIKEY"],
             ],
             $extra ?? [],
         ]);

@@ -20,9 +20,6 @@ class AnapioficeandfireConfig
             ],
             "options" => [
                 "base" => "https://anapioficeandfire.com/api",
-                "auth" => [
-                    "prefix" => "Bearer",
-                ],
                 "headers" => [
           'content-type' => 'application/json',
         ],

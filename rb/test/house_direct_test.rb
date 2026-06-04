@@ -116,14 +116,12 @@ def house_direct_setup(mockres)
   env = Runner.env_override({
     "ANAPIOFICEANDFIRE_TEST_HOUSE_ENTID" => {},
     "ANAPIOFICEANDFIRE_TEST_LIVE" => "FALSE",
-    "ANAPIOFICEANDFIRE_APIKEY" => "NONE",
   })
 
   live = env["ANAPIOFICEANDFIRE_TEST_LIVE"] == "TRUE"
 
   if live
     merged_opts = {
-      "apikey" => env["ANAPIOFICEANDFIRE_APIKEY"],
     }
     client = AnapioficeandfireSDK.new(merged_opts)
     return {

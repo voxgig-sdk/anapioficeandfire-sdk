@@ -98,7 +98,6 @@ def _book_basic_setup(extra):
         "ANAPIOFICEANDFIRE_TEST_BOOK_ENTID": idmap,
         "ANAPIOFICEANDFIRE_TEST_LIVE": "FALSE",
         "ANAPIOFICEANDFIRE_TEST_EXPLAIN": "FALSE",
-        "ANAPIOFICEANDFIRE_APIKEY": "NONE",
     })
 
     idmap_resolved = helpers.to_map(
@@ -109,7 +108,6 @@ def _book_basic_setup(extra):
     if env.get("ANAPIOFICEANDFIRE_TEST_LIVE") == "TRUE":
         merged_opts = vs.merge([
             {
-                "apikey": env.get("ANAPIOFICEANDFIRE_APIKEY"),
             },
             extra or {},
         ])
