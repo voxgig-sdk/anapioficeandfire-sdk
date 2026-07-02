@@ -109,12 +109,14 @@ def _book_direct_setup(mockres):
     env = runner.env_override({
         "ANAPIOFICEANDFIRE_TEST_BOOK_ENTID": {},
         "ANAPIOFICEANDFIRE_TEST_LIVE": "FALSE",
+        "ANAPIOFICEANDFIRE_APIKEY": "NONE",
     })
 
     live = env.get("ANAPIOFICEANDFIRE_TEST_LIVE") == "TRUE"
 
     if live:
         merged_opts = {
+            "apikey": env.get("ANAPIOFICEANDFIRE_APIKEY"),
         }
         client = AnapioficeandfireSDK(merged_opts)
         return {

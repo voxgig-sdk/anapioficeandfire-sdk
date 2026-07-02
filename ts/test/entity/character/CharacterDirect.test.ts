@@ -136,12 +136,14 @@ function directSetup(mockres?: any) {
   const env = envOverride({
     'ANAPIOFICEANDFIRE_TEST_CHARACTER_ENTID': {},
     'ANAPIOFICEANDFIRE_TEST_LIVE': 'FALSE',
+    'ANAPIOFICEANDFIRE_APIKEY': 'NONE',
   })
 
   const live = 'TRUE' === env.ANAPIOFICEANDFIRE_TEST_LIVE
 
   if (live) {
     const client = new AnapioficeandfireSDK({
+      apikey: env.ANAPIOFICEANDFIRE_APIKEY,
     })
 
     let idmap: any = env['ANAPIOFICEANDFIRE_TEST_CHARACTER_ENTID']

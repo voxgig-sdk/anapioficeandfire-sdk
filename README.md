@@ -1,20 +1,8 @@
 # Anapioficeandfire SDK
 
-Quantified, structured data from the universe of A Song of Ice and Fire — books, characters, and houses
+AnApiOfIceAndFire client, generated from the OpenAPI spec.
 
 > TypeScript, Python, PHP, Golang, Ruby, Lua SDKs, a CLI, an interactive REPL, and an MCP server for AI agents — all generated from one OpenAPI spec by [@voxgig/sdkgen](https://github.com/voxgig/sdkgen).
-
-## About AnApiOfIceAndFire
-
-[An API of Ice and Fire](https://anapioficeandfire.com/) is a community-run, open-source HTTP API that exposes structured data from George R. R. Martin's *A Song of Ice and Fire* universe (the basis for HBO's *Game of Thrones*). It is maintained by [Joakim Skoog](https://anapioficeandfire.com/) and accompanied by SDKs in several languages.
-
-What you get from the API:
-
-- **Books** — metadata for each novel in the series, available under `/api/books`.
-- **Characters** — entries such as name, culture, birth/death dates, titles, aliases, family relations (father, mother, spouse), allegiances, book appearances, POV chapters, and TV-series cast info, served under `/api/characters`.
-- **Houses** — the noble houses of Westeros and Essos, with their seats, words, allegiances, and members, served under `/api/houses`.
-
-The API is served over HTTPS at `https://anapioficeandfire.com/api` and requires no authentication. Resources are addressable by numeric ID (for example `/api/characters/583`, `/api/houses/378`). An interactive sandbox is available on the project homepage for ad-hoc exploration.
 
 ## Try it
 
@@ -48,29 +36,31 @@ gem install anapioficeandfire-sdk
 luarocks install anapioficeandfire-sdk
 ```
 
-## 30-second quickstart
+## Quickstart
 
 ### TypeScript
 
 ```ts
 import { AnapioficeandfireSDK } from 'anapioficeandfire'
 
-const client = new AnapioficeandfireSDK({})
+const client = new AnapioficeandfireSDK({
+  apikey: process.env.ANAPIOFICEANDFIRE_APIKEY,
+})
 
 // List all books
 const books = await client.Book().list()
+console.log(books.data)
 ```
 
-See the [TypeScript README](ts/README.md) for the
-full guide, or scroll down for the same example in other languages.
+See the [TypeScript README](ts/README.md) for the full guide.
 
-## What's in the box
+## Surfaces
 
-| Surface | Use it for | Path |
-| --- | --- | --- |
-| **SDK** (TypeScript, Python, PHP, Golang, Ruby, Lua) | App integration | `ts/` `py/` `php/` `go/` `rb/` `lua/` |
-| **CLI** | Scripts, CI, ops, one-off API calls | `go-cli/` |
-| **MCP server** | AI agents (Claude, Cursor, Cline) | `go-mcp/` |
+| Surface | Path |
+| --- | --- |
+| **SDK** (TypeScript, Python, PHP, Golang, Ruby, Lua) | `ts/` `py/` `php/` `go/` `rb/` `lua/` |
+| **CLI** | `go-cli/` |
+| **MCP server** | `go-mcp/` |
 
 ## Use it from an AI agent (MCP)
 
@@ -100,9 +90,9 @@ The API exposes 3 entities:
 
 | Entity | Description | API path |
 | --- | --- | --- |
-| **Book** | A novel in the A Song of Ice and Fire series, fetched via `/api/books` and `/api/books/{id}`. | `/books` |
-| **Character** | A person from the books — including name, culture, titles, aliases, family relations, allegiances, and book/TV appearances — fetched via `/api/characters` and `/api/characters/{id}`. | `/characters` |
-| **House** | A noble house of Westeros or Essos with its seat, words, allegiances, and members, fetched via `/api/houses` and `/api/houses/{id}`. | `/houses` |
+| **Book** |  | `/books` |
+| **Character** |  | `/characters` |
+| **House** |  | `/houses` |
 
 Each entity supports the following operations where available: **load**,
 **list**, **create**, **update**, and **remove**.
@@ -112,17 +102,20 @@ Each entity supports the following operations where available: **load**,
 ### Python
 
 ```python
+import os
 from anapioficeandfire_sdk import AnapioficeandfireSDK
 
-client = AnapioficeandfireSDK({})
+client = AnapioficeandfireSDK({
+    "apikey": os.environ.get("ANAPIOFICEANDFIRE_APIKEY"),
+})
 
 # List all books
-books, err = client.Book(None).list(None, None)
+books, err = client.Book().list()
+print(books)
 
 # Load a specific book
-book, err = client.Book(None).load(
-    {"id": "example_id"}, None
-)
+book, err = client.Book().load({"id": "example_id"})
+print(book)
 ```
 
 ### PHP
@@ -131,15 +124,17 @@ book, err = client.Book(None).load(
 <?php
 require_once 'anapioficeandfire_sdk.php';
 
-$client = new AnapioficeandfireSDK([]);
+$client = new AnapioficeandfireSDK([
+    "apikey" => getenv("ANAPIOFICEANDFIRE_APIKEY"),
+]);
 
 // List all books
-[$books, $err] = $client->Book(null)->list(null, null);
+[$books, $err] = $client->Book()->list();
+print_r($books);
 
 // Load a specific book
-[$book, $err] = $client->Book(null)->load(
-    ["id" => "example_id"], null
-);
+[$book, $err] = $client->Book()->load(["id" => "example_id"]);
+print_r($book);
 ```
 
 ### Golang
@@ -147,10 +142,13 @@ $client = new AnapioficeandfireSDK([]);
 ```go
 import sdk "github.com/voxgig-sdk/anapioficeandfire-sdk/go"
 
-client := sdk.NewAnapioficeandfireSDK(map[string]any{})
+client := sdk.NewAnapioficeandfireSDK(map[string]any{
+    "apikey": os.Getenv("ANAPIOFICEANDFIRE_APIKEY"),
+})
 
 // List all books
 books, err := client.Book(nil).List(nil, nil)
+fmt.Println(books)
 ```
 
 ### Ruby
@@ -158,15 +156,17 @@ books, err := client.Book(nil).List(nil, nil)
 ```ruby
 require_relative "Anapioficeandfire_sdk"
 
-client = AnapioficeandfireSDK.new({})
+client = AnapioficeandfireSDK.new({
+  "apikey" => ENV["ANAPIOFICEANDFIRE_APIKEY"],
+})
 
 # List all books
-books, err = client.Book(nil).list(nil, nil)
+books, err = client.Book().list
+puts books
 
 # Load a specific book
-book, err = client.Book(nil).load(
-  { "id" => "example_id" }, nil
-)
+book, err = client.Book().load({ "id" => "example_id" })
+puts book
 ```
 
 ### Lua
@@ -174,15 +174,17 @@ book, err = client.Book(nil).load(
 ```lua
 local sdk = require("anapioficeandfire_sdk")
 
-local client = sdk.new({})
+local client = sdk.new({
+  apikey = os.getenv("ANAPIOFICEANDFIRE_APIKEY"),
+})
 
 -- List all books
-local books, err = client:Book(nil):list(nil, nil)
+local books, err = client:Book():list()
+print(books)
 
 -- Load a specific book
-local book, err = client:Book(nil):load(
-  { id = "example_id" }, nil
-)
+local book, err = client:Book():load({ id = "example_id" })
+print(book)
 ```
 
 ## Unit testing in offline mode
@@ -201,25 +203,21 @@ const result = await client.Book().load({ id: 'test01' })
 ### Python
 
 ```python
-client = AnapioficeandfireSDK.test(None, None)
-result, err = client.Book(None).load(
-    {"id": "test01"}, None
-)
+client = AnapioficeandfireSDK.test()
+result, err = client.Book().load({"id": "test01"})
 ```
 
 ### PHP
 
 ```php
-$client = AnapioficeandfireSDK::test(null, null);
-[$result, $err] = $client->Book(null)->load(
-    ["id" => "test01"], null
-);
+$client = AnapioficeandfireSDK::test();
+[$result, $err] = $client->Book()->load(["id" => "test01"]);
 ```
 
 ### Golang
 
 ```go
-client := sdk.TestSDK(nil, nil)
+client := sdk.Test()
 result, err := client.Book(nil).Load(
     map[string]any{"id": "test01"}, nil,
 )
@@ -228,19 +226,15 @@ result, err := client.Book(nil).Load(
 ### Ruby
 
 ```ruby
-client = AnapioficeandfireSDK.test(nil, nil)
-result, err = client.Book(nil).load(
-  { "id" => "test01" }, nil
-)
+client = AnapioficeandfireSDK.test
+result, err = client.Book().load({ "id" => "test01" })
 ```
 
 ### Lua
 
 ```lua
-local client = sdk.test(nil, nil)
-local result, err = client:Book(nil):load(
-  { id = "test01" }, nil
-)
+local client = sdk.test()
+local result, err = client:Book():load({ id = "test01" })
 ```
 
 ## How it works
@@ -344,16 +338,6 @@ local result, err = client:direct({
 - [Golang](go/README.md)
 - [Ruby](rb/README.md)
 - [Lua](lua/README.md)
-
-## Using the AnApiOfIceAndFire
-
-- Upstream: [https://anapioficeandfire.com/](https://anapioficeandfire.com/)
-- API docs: [https://anapioficeandfire.com/Documentation](https://anapioficeandfire.com/Documentation)
-
-- Open source community project maintained by Joakim Skoog (© 2016 onwards).
-- No authentication or API key is required to use the public HTTP endpoints.
-- Specific licence terms are published in the project's GitHub repository — check there before redistributing data.
-- Attribution to An API of Ice and Fire is appreciated when reusing the data.
 
 ---
 

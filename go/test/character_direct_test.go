@@ -194,12 +194,14 @@ func characterDirectSetup(mockres any) *characterDirectSetupResult {
 	env := envOverride(map[string]any{
 		"ANAPIOFICEANDFIRE_TEST_CHARACTER_ENTID": map[string]any{},
 		"ANAPIOFICEANDFIRE_TEST_LIVE":    "FALSE",
+		"ANAPIOFICEANDFIRE_APIKEY":       "NONE",
 	})
 
 	live := env["ANAPIOFICEANDFIRE_TEST_LIVE"] == "TRUE"
 
 	if live {
 		mergedOpts := map[string]any{
+			"apikey": env["ANAPIOFICEANDFIRE_APIKEY"],
 		}
 		client := sdk.NewAnapioficeandfireSDK(mergedOpts)
 

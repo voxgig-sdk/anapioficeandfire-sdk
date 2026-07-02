@@ -129,6 +129,7 @@ func houseBasicSetup(extra map[string]any) *entityTestSetup {
 		"ANAPIOFICEANDFIRE_TEST_HOUSE_ENTID": idmap,
 		"ANAPIOFICEANDFIRE_TEST_LIVE":      "FALSE",
 		"ANAPIOFICEANDFIRE_TEST_EXPLAIN":   "FALSE",
+		"ANAPIOFICEANDFIRE_APIKEY":         "NONE",
 	})
 
 	idmapResolved := core.ToMapAny(env["ANAPIOFICEANDFIRE_TEST_HOUSE_ENTID"])
@@ -139,6 +140,7 @@ func houseBasicSetup(extra map[string]any) *entityTestSetup {
 	if env["ANAPIOFICEANDFIRE_TEST_LIVE"] == "TRUE" {
 		mergedOpts := vs.Merge([]any{
 			map[string]any{
+				"apikey": env["ANAPIOFICEANDFIRE_APIKEY"],
 			},
 			extra,
 		})

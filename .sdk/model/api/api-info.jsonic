@@ -17,29 +17,7 @@ main: {
       ]
       title: "AnApiOfIceAndFire"
       version: "1.0.0"
-      tagline: "Quantified, structured data from the universe of A Song of Ice and Fire — books, characters, and houses"
-      homepage: "https://anapioficeandfire.com/"
-      docs_url: "https://anapioficeandfire.com/Documentation"
-      license_short: "Open source community project maintained by Joakim Skoog; no authentication required."
-      license_md: `- Open source community project maintained by Joakim Skoog (© 2016 onwards).
-- No authentication or API key is required to use the public HTTP endpoints.
-- Specific licence terms are published in the project's GitHub repository — check there before redistributing data.
-- Attribution to An API of Ice and Fire is appreciated when reusing the data.`
-      about_md: `[An API of Ice and Fire](https://anapioficeandfire.com/) is a community-run, open-source HTTP API that exposes structured data from George R. R. Martin's *A Song of Ice and Fire* universe (the basis for HBO's *Game of Thrones*). It is maintained by [Joakim Skoog](https://anapioficeandfire.com/) and accompanied by SDKs in several languages.
-
-What you get from the API:
-
-- **Books** — metadata for each novel in the series, available under \`/api/books\`.
-- **Characters** — entries such as name, culture, birth/death dates, titles, aliases, family relations (father, mother, spouse), allegiances, book appearances, POV chapters, and TV-series cast info, served under \`/api/characters\`.
-- **Houses** — the noble houses of Westeros and Essos, with their seats, words, allegiances, and members, served under \`/api/houses\`.
-
-The API is served over HTTPS at \`https://anapioficeandfire.com/api\` and requires no authentication. Resources are addressable by numeric ID (for example \`/api/characters/583\`, \`/api/houses/378\`). An interactive sandbox is available on the project homepage for ad-hoc exploration.`
-      entity_desc: {
-        book: "A novel in the A Song of Ice and Fire series, fetched via `/api/books` and `/api/books/{id}`."
-        character: "A person from the books — including name, culture, titles, aliases, family relations, allegiances, and book/TV appearances — fetched via `/api/characters` and `/api/characters/{id}`."
-        house: "A noble house of Westeros or Essos with its seat, words, allegiances, and members, fetched via `/api/houses` and `/api/houses/{id}`."
-      }
-      auth: false
     }
   }
 }
+

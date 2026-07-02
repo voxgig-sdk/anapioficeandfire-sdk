@@ -117,12 +117,14 @@ function character_direct_setup(mockres)
   local env = runner.env_override({
     ["ANAPIOFICEANDFIRE_TEST_CHARACTER_ENTID"] = {},
     ["ANAPIOFICEANDFIRE_TEST_LIVE"] = "FALSE",
+    ["ANAPIOFICEANDFIRE_APIKEY"] = "NONE",
   })
 
   local live = env["ANAPIOFICEANDFIRE_TEST_LIVE"] == "TRUE"
 
   if live then
     local merged_opts = {
+      apikey = env["ANAPIOFICEANDFIRE_APIKEY"],
     }
     local client = sdk.new(merged_opts)
     return {
