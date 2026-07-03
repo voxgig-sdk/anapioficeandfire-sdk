@@ -10,13 +10,13 @@ The Ruby SDK for the Anapioficeandfire API — an entity-oriented client using i
 
 ## Install
 ```bash
-gem install anapioficeandfire-sdk
+gem install voxgig-sdk-anapioficeandfire
 ```
 
 Or add to your `Gemfile`:
 
 ```ruby
-gem "anapioficeandfire-sdk"
+gem "voxgig-sdk-anapioficeandfire"
 ```
 
 Then run:

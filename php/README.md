@@ -10,7 +10,7 @@ The PHP SDK for the Anapioficeandfire API — an entity-oriented client using PH
 
 ## Install
 ```bash
-composer require voxgig/anapioficeandfire-sdk
+composer require voxgig-sdk/anapioficeandfire
 ```
 
 

@@ -10,7 +10,7 @@ The Lua SDK for the Anapioficeandfire API — an entity-oriented client using Lu
 
 ## Install
 ```bash
-luarocks install anapioficeandfire-sdk
+luarocks install voxgig-sdk-anapioficeandfire
 ```
 
 If the module is not yet published, add the source directory to

@@ -10,7 +10,7 @@ The TypeScript SDK for the Anapioficeandfire API — a type-safe, entity-oriente
 
 ## Install
 ```bash
-npm install anapioficeandfire
+npm install @voxgig-sdk/anapioficeandfire
 ```
 ## Tutorial: your first API call
 

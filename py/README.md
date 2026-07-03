@@ -10,7 +10,7 @@ The Python SDK for the Anapioficeandfire API — an entity-oriented client follo
 
 ## Install
 ```bash
-pip install anapioficeandfire-sdk
+pip install voxgig-sdk-anapioficeandfire
 ```
 
 Or install from source:
