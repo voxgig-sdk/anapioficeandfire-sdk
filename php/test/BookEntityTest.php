@@ -50,14 +50,12 @@ class BookEntityTest extends TestCase
         $book_ref01_ent = $client->Book(null);
         $book_ref01_match = [];
 
-        [$book_ref01_list_result, $err] = $book_ref01_ent->list($book_ref01_match, null);
-        $this->assertNull($err);
+        $book_ref01_list_result = $book_ref01_ent->list($book_ref01_match, null);
         $this->assertIsArray($book_ref01_list_result);
 
         // LOAD
         $book_ref01_match_dt0 = [];
-        [$book_ref01_data_dt0_loaded, $err] = $book_ref01_ent->load($book_ref01_match_dt0, null);
-        $this->assertNull($err);
+        $book_ref01_data_dt0_loaded = $book_ref01_ent->load($book_ref01_match_dt0, null);
         $this->assertNotNull($book_ref01_data_dt0_loaded);
 
     }
@@ -92,7 +90,6 @@ function book_basic_setup($extra)
         "ANAPIOFICEANDFIRE_TEST_BOOK_ENTID" => $idmap,
         "ANAPIOFICEANDFIRE_TEST_LIVE" => "FALSE",
         "ANAPIOFICEANDFIRE_TEST_EXPLAIN" => "FALSE",
-        "ANAPIOFICEANDFIRE_APIKEY" => "NONE",
     ]);
 
     $idmap_resolved = Helpers::to_map(
@@ -104,7 +101,6 @@ function book_basic_setup($extra)
     if ($env["ANAPIOFICEANDFIRE_TEST_LIVE"] === "TRUE") {
         $merged_opts = Vs::merge([
             [
-                "apikey" => $env["ANAPIOFICEANDFIRE_APIKEY"],
             ],
             $extra ?? [],
         ]);

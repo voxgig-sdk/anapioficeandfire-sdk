@@ -20,9 +20,6 @@ class AnapioficeandfireConfig
             ],
             "options" => [
                 "base" => "https://anapioficeandfire.com/api",
-                "auth" => [
-                    "prefix" => "Bearer",
-                ],
                 "headers" => [
           'content-type' => 'application/json',
         ],
@@ -178,6 +175,7 @@ class AnapioficeandfireConfig
                         'orig' => 'id',
                         'reqd' => true,
                         'type' => '`$INTEGER`',
+                        'index$' => 0,
                       ],
                     ],
                   ],
@@ -397,6 +395,7 @@ class AnapioficeandfireConfig
                         'orig' => 'id',
                         'reqd' => true,
                         'type' => '`$INTEGER`',
+                        'index$' => 0,
                       ],
                     ],
                   ],
@@ -623,6 +622,7 @@ class AnapioficeandfireConfig
                         'orig' => 'id',
                         'reqd' => true,
                         'type' => '`$INTEGER`',
+                        'index$' => 0,
                       ],
                     ],
                   ],

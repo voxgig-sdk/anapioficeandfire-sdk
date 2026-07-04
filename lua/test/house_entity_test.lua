@@ -98,7 +98,6 @@ function house_basic_setup(extra)
     ["ANAPIOFICEANDFIRE_TEST_HOUSE_ENTID"] = idmap,
     ["ANAPIOFICEANDFIRE_TEST_LIVE"] = "FALSE",
     ["ANAPIOFICEANDFIRE_TEST_EXPLAIN"] = "FALSE",
-    ["ANAPIOFICEANDFIRE_APIKEY"] = "NONE",
   })
 
   local idmap_resolved = helpers.to_map(
@@ -110,7 +109,6 @@ function house_basic_setup(extra)
   if env["ANAPIOFICEANDFIRE_TEST_LIVE"] == "TRUE" then
     local merged_opts = vs.merge({
       {
-        apikey = env["ANAPIOFICEANDFIRE_APIKEY"],
       },
       extra or {},
     })

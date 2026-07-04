@@ -50,14 +50,12 @@ class TestBookEntity:
         book_ref01_ent = client.Book(None)
         book_ref01_match = {}
 
-        book_ref01_list_result, err = book_ref01_ent.list(book_ref01_match, None)
-        assert err is None
+        book_ref01_list_result = book_ref01_ent.list(book_ref01_match, None)
         assert isinstance(book_ref01_list_result, list)
 
         # LOAD
         book_ref01_match_dt0 = {}
-        book_ref01_data_dt0_loaded, err = book_ref01_ent.load(book_ref01_match_dt0, None)
-        assert err is None
+        book_ref01_data_dt0_loaded = book_ref01_ent.load(book_ref01_match_dt0, None)
         assert book_ref01_data_dt0_loaded is not None
 
 
@@ -98,7 +96,6 @@ def _book_basic_setup(extra):
         "ANAPIOFICEANDFIRE_TEST_BOOK_ENTID": idmap,
         "ANAPIOFICEANDFIRE_TEST_LIVE": "FALSE",
         "ANAPIOFICEANDFIRE_TEST_EXPLAIN": "FALSE",
-        "ANAPIOFICEANDFIRE_APIKEY": "NONE",
     })
 
     idmap_resolved = helpers.to_map(
@@ -109,7 +106,6 @@ def _book_basic_setup(extra):
     if env.get("ANAPIOFICEANDFIRE_TEST_LIVE") == "TRUE":
         merged_opts = vs.merge([
             {
-                "apikey": env.get("ANAPIOFICEANDFIRE_APIKEY"),
             },
             extra or {},
         ])

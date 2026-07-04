@@ -15,9 +15,6 @@ module AnapioficeandfireConfig
       },
       "options" => {
         "base" => "https://anapioficeandfire.com/api",
-        "auth" => {
-          "prefix" => "Bearer",
-        },
         "headers" => {
           "content-type" => "application/json",
         },
@@ -173,6 +170,7 @@ module AnapioficeandfireConfig
                         "orig" => "id",
                         "reqd" => true,
                         "type" => "`$INTEGER`",
+                        "index$" => 0,
                       },
                     ],
                   },
@@ -392,6 +390,7 @@ module AnapioficeandfireConfig
                         "orig" => "id",
                         "reqd" => true,
                         "type" => "`$INTEGER`",
+                        "index$" => 0,
                       },
                     ],
                   },
@@ -618,6 +617,7 @@ module AnapioficeandfireConfig
                         "orig" => "id",
                         "reqd" => true,
                         "type" => "`$INTEGER`",
+                        "index$" => 0,
                       },
                     ],
                   },

@@ -114,7 +114,6 @@ function basicSetup(extra?: any) {
     'ANAPIOFICEANDFIRE_TEST_HOUSE_ENTID': idmap,
     'ANAPIOFICEANDFIRE_TEST_LIVE': 'FALSE',
     'ANAPIOFICEANDFIRE_TEST_EXPLAIN': 'FALSE',
-    'ANAPIOFICEANDFIRE_APIKEY': 'NONE',
   })
 
   idmap = env['ANAPIOFICEANDFIRE_TEST_HOUSE_ENTID']
@@ -124,7 +123,6 @@ function basicSetup(extra?: any) {
   if (live) {
     client = new AnapioficeandfireSDK(merge([
       {
-        apikey: env.ANAPIOFICEANDFIRE_APIKEY,
       },
       extra
     ]))

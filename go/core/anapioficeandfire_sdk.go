@@ -245,16 +245,25 @@ func (sdk *AnapioficeandfireSDK) Direct(fetchargs map[string]any) (map[string]an
 }
 
 
+// Book returns a Book entity bound to this client.
+// Idiomatic usage: client.Book(nil).List(nil, nil) or
+// client.Book(nil).Load(map[string]any{"id": ...}, nil).
 func (sdk *AnapioficeandfireSDK) Book(data map[string]any) AnapioficeandfireEntity {
 	return NewBookEntityFunc(sdk, data)
 }
 
 
+// Character returns a Character entity bound to this client.
+// Idiomatic usage: client.Character(nil).List(nil, nil) or
+// client.Character(nil).Load(map[string]any{"id": ...}, nil).
 func (sdk *AnapioficeandfireSDK) Character(data map[string]any) AnapioficeandfireEntity {
 	return NewCharacterEntityFunc(sdk, data)
 }
 
 
+// House returns a House entity bound to this client.
+// Idiomatic usage: client.House(nil).List(nil, nil) or
+// client.House(nil).Load(map[string]any{"id": ...}, nil).
 func (sdk *AnapioficeandfireSDK) House(data map[string]any) AnapioficeandfireEntity {
 	return NewHouseEntityFunc(sdk, data)
 }

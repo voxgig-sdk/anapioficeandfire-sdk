@@ -13,6 +13,9 @@ require_relative 'config'
 require_relative 'feature/base_feature'
 require_relative 'features'
 
+# Load typed models (Struct value objects).
+require_relative 'Anapioficeandfire_types'
+
 
 class AnapioficeandfireSDK
   attr_accessor :mode, :features, :options
@@ -131,7 +134,7 @@ class AnapioficeandfireSDK
     end
 
     _, err = utility.prepare_auth.call(ctx)
-    return nil, err if err
+    raise err if err
 
     utility.make_fetch_def.call(ctx)
   end
@@ -139,8 +142,14 @@ class AnapioficeandfireSDK
   def direct(fetchargs = {})
     utility = @_utility
 
-    fetchdef, err = prepare(fetchargs)
-    return { "ok" => false, "err" => err }, nil if err
+    # direct() is the raw-HTTP escape hatch: it always returns a result hash
+    # ({ "ok" => ..., ... }) and never raises. prepare() raises on error, so
+    # trap that and surface it in the hash.
+    begin
+      fetchdef = prepare(fetchargs)
+    rescue AnapioficeandfireError => err
+      return { "ok" => false, "err" => err }
+    end
 
     fetchargs ||= {}
     ctrl = AnapioficeandfireHelpers.to_map(VoxgigStruct.getprop(fetchargs, "ctrl")) || {}
@@ -153,13 +162,13 @@ class AnapioficeandfireSDK
     url = fetchdef["url"] || ""
     fetched, fetch_err = utility.fetcher.call(ctx, url, fetchdef)
 
-    return { "ok" => false, "err" => fetch_err }, nil if fetch_err
+    return { "ok" => false, "err" => fetch_err } if fetch_err
 
     if fetched.nil?
       return {
         "ok" => false,
         "err" => ctx.make_error("direct_no_response", "response: undefined"),
-      }, nil
+      }
     end
 
     if fetched.is_a?(Hash)
@@ -189,28 +198,49 @@ class AnapioficeandfireSDK
         "status" => status,
         "headers" => headers,
         "data" => json_data,
-      }, nil
+      }
     end
 
     return {
       "ok" => false,
       "err" => ctx.make_error("direct_invalid", "invalid response type"),
-    }, nil
+    }
   end
 
 
+  # Idiomatic facade: client.book.list / client.book.load({ "id" => ... })
+  def book
+    require_relative 'entity/book_entity'
+    @book ||= BookEntity.new(self, nil)
+  end
+
+  # Deprecated: use client.book instead.
   def Book(data = nil)
     require_relative 'entity/book_entity'
     BookEntity.new(self, data)
   end
 
 
+  # Idiomatic facade: client.character.list / client.character.load({ "id" => ... })
+  def character
+    require_relative 'entity/character_entity'
+    @character ||= CharacterEntity.new(self, nil)
+  end
+
+  # Deprecated: use client.character instead.
   def Character(data = nil)
     require_relative 'entity/character_entity'
     CharacterEntity.new(self, data)
   end
 
 
+  # Idiomatic facade: client.house.list / client.house.load({ "id" => ... })
+  def house
+    require_relative 'entity/house_entity'
+    @house ||= HouseEntity.new(self, nil)
+  end
+
+  # Deprecated: use client.house instead.
   def House(data = nil)
     require_relative 'entity/house_entity'
     HouseEntity.new(self, data)

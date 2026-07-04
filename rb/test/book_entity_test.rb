@@ -43,14 +43,12 @@ class BookEntityTest < Minitest::Test
     book_ref01_ent = client.Book(nil)
     book_ref01_match = {}
 
-    book_ref01_list_result, err = book_ref01_ent.list(book_ref01_match, nil)
-    assert_nil err
+    book_ref01_list_result = book_ref01_ent.list(book_ref01_match, nil)
     assert book_ref01_list_result.is_a?(Array)
 
     # LOAD
     book_ref01_match_dt0 = {}
-    book_ref01_data_dt0_loaded, err = book_ref01_ent.load(book_ref01_match_dt0, nil)
-    assert_nil err
+    book_ref01_data_dt0_loaded = book_ref01_ent.load(book_ref01_match_dt0, nil)
     assert !book_ref01_data_dt0_loaded.nil?
 
   end
@@ -89,7 +87,6 @@ def book_basic_setup(extra)
     "ANAPIOFICEANDFIRE_TEST_BOOK_ENTID" => idmap,
     "ANAPIOFICEANDFIRE_TEST_LIVE" => "FALSE",
     "ANAPIOFICEANDFIRE_TEST_EXPLAIN" => "FALSE",
-    "ANAPIOFICEANDFIRE_APIKEY" => "NONE",
   })
 
   idmap_resolved = Helpers.to_map(
@@ -101,7 +98,6 @@ def book_basic_setup(extra)
   if env["ANAPIOFICEANDFIRE_TEST_LIVE"] == "TRUE"
     merged_opts = Vs.merge([
       {
-        "apikey" => env["ANAPIOFICEANDFIRE_APIKEY"],
       },
       extra || {},
     ])

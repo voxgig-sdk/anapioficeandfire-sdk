@@ -244,18 +244,57 @@ end
 
 
 
+-- Idiomatic facade: client:book():list() / client:book():load({ id = ... })
+function AnapioficeandfireSDK:book(data)
+  local EntityMod = require("entity.book_entity")
+  if data == nil then
+    if self._book == nil then
+      self._book = EntityMod.new(self, nil)
+    end
+    return self._book
+  end
+  return EntityMod.new(self, data)
+end
+
+-- Deprecated: use client:book() instead.
 function AnapioficeandfireSDK:Book(data)
   local EntityMod = require("entity.book_entity")
   return EntityMod.new(self, data)
 end
 
 
+-- Idiomatic facade: client:character():list() / client:character():load({ id = ... })
+function AnapioficeandfireSDK:character(data)
+  local EntityMod = require("entity.character_entity")
+  if data == nil then
+    if self._character == nil then
+      self._character = EntityMod.new(self, nil)
+    end
+    return self._character
+  end
+  return EntityMod.new(self, data)
+end
+
+-- Deprecated: use client:character() instead.
 function AnapioficeandfireSDK:Character(data)
   local EntityMod = require("entity.character_entity")
   return EntityMod.new(self, data)
 end
 
 
+-- Idiomatic facade: client:house():list() / client:house():load({ id = ... })
+function AnapioficeandfireSDK:house(data)
+  local EntityMod = require("entity.house_entity")
+  if data == nil then
+    if self._house == nil then
+      self._house = EntityMod.new(self, nil)
+    end
+    return self._house
+  end
+  return EntityMod.new(self, data)
+end
+
+-- Deprecated: use client:house() instead.
 function AnapioficeandfireSDK:House(data)
   local EntityMod = require("entity.house_entity")
   return EntityMod.new(self, data)

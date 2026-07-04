@@ -43,14 +43,12 @@ class CharacterEntityTest < Minitest::Test
     character_ref01_ent = client.Character(nil)
     character_ref01_match = {}
 
-    character_ref01_list_result, err = character_ref01_ent.list(character_ref01_match, nil)
-    assert_nil err
+    character_ref01_list_result = character_ref01_ent.list(character_ref01_match, nil)
     assert character_ref01_list_result.is_a?(Array)
 
     # LOAD
     character_ref01_match_dt0 = {}
-    character_ref01_data_dt0_loaded, err = character_ref01_ent.load(character_ref01_match_dt0, nil)
-    assert_nil err
+    character_ref01_data_dt0_loaded = character_ref01_ent.load(character_ref01_match_dt0, nil)
     assert !character_ref01_data_dt0_loaded.nil?
 
   end
@@ -89,7 +87,6 @@ def character_basic_setup(extra)
     "ANAPIOFICEANDFIRE_TEST_CHARACTER_ENTID" => idmap,
     "ANAPIOFICEANDFIRE_TEST_LIVE" => "FALSE",
     "ANAPIOFICEANDFIRE_TEST_EXPLAIN" => "FALSE",
-    "ANAPIOFICEANDFIRE_APIKEY" => "NONE",
   })
 
   idmap_resolved = Helpers.to_map(
@@ -101,7 +98,6 @@ def character_basic_setup(extra)
   if env["ANAPIOFICEANDFIRE_TEST_LIVE"] == "TRUE"
     merged_opts = Vs.merge([
       {
-        "apikey" => env["ANAPIOFICEANDFIRE_APIKEY"],
       },
       extra || {},
     ])

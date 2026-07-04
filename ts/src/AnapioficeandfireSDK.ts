@@ -4,6 +4,8 @@ import { BookEntity } from './entity/BookEntity'
 import { CharacterEntity } from './entity/CharacterEntity'
 import { HouseEntity } from './entity/HouseEntity'
 
+export type * from './AnapioficeandfireTypes'
+
 
 import { inspect } from 'node:util'
 
@@ -204,18 +206,42 @@ class AnapioficeandfireSDK {
 
 
 
+  _book?: BookEntity
+
+  // Idiomatic facade: `client.book.list()` / `client.book.load({ id })`.
+  get book(): BookEntity {
+    return (this._book ??= new BookEntity(this, undefined))
+  }
+
+  /** @deprecated Use `client.book` instead. */
   Book(data?: any) {
     const self = this
     return new BookEntity(self,data)
   }
 
 
+  _character?: CharacterEntity
+
+  // Idiomatic facade: `client.character.list()` / `client.character.load({ id })`.
+  get character(): CharacterEntity {
+    return (this._character ??= new CharacterEntity(this, undefined))
+  }
+
+  /** @deprecated Use `client.character` instead. */
   Character(data?: any) {
     const self = this
     return new CharacterEntity(self,data)
   }
 
 
+  _house?: HouseEntity
+
+  // Idiomatic facade: `client.house.list()` / `client.house.load({ id })`.
+  get house(): HouseEntity {
+    return (this._house ??= new HouseEntity(this, undefined))
+  }
+
+  /** @deprecated Use `client.house` instead. */
   House(data?: any) {
     const self = this
     return new HouseEntity(self,data)
