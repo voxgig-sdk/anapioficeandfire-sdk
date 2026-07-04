@@ -31,24 +31,28 @@ from anapioficeandfire_sdk import AnapioficeandfireSDK
 client = AnapioficeandfireSDK()
 ```
 
-### 2. List books
+### 2. List book records
+
+`list()` returns a `list` of records (each a `dict`) and raises on
+error — iterate it directly.
 
 ```python
 try:
-    result = client.book.list()
-    for item in result:
-        d = item.data_get()
-        print(d["id"], d["name"])
+    books = client.Book().list({})
+    for book in books:
+        print(book)
 except Exception as err:
     print(f"list failed: {err}")
 ```
 
 ### 3. Load a book
 
+`load()` returns the bare record (a `dict`) and raises on error.
+
 ```python
 try:
-    result = client.book.load({"id": "example_id"})
-    print(result)
+    book = client.Book().load({"id": "example_id"})
+    print(book)
 except Exception as err:
     print(f"load failed: {err}")
 ```
@@ -96,8 +100,9 @@ Create a mock client for unit testing — no server required:
 ```python
 client = AnapioficeandfireSDK.test()
 
-result = client.book.load({"id": "test01"})
-# result contains mock response data
+# Entity ops return the bare record and raise on error.
+book = client.Book().load({"id": "test01"})
+# book contains the mock response record
 ```
 
 ### Use a custom fetch function
@@ -291,7 +296,7 @@ API path: `/houses`
 
 ### Book
 
-Create an instance: `const book = client.book`
+Create an instance: `book = client.Book()`
 
 #### Operations
 
@@ -318,20 +323,20 @@ Create an instance: `const book = client.book`
 
 #### Example: Load
 
-```ts
-const book = await client.book.load({ id: 'book_id' })
+```python
+book = client.Book().load({"id": "book_id"})
 ```
 
 #### Example: List
 
-```ts
-const books = await client.book.list()
+```python
+books = client.Book().list({})
 ```
 
 
 ### Character
 
-Create an instance: `const character = client.character`
+Create an instance: `character = client.Character()`
 
 #### Operations
 
@@ -362,20 +367,20 @@ Create an instance: `const character = client.character`
 
 #### Example: Load
 
-```ts
-const character = await client.character.load({ id: 'character_id' })
+```python
+character = client.Character().load({"id": "character_id"})
 ```
 
 #### Example: List
 
-```ts
-const characters = await client.character.list()
+```python
+characters = client.Character().list({})
 ```
 
 
 ### House
 
-Create an instance: `const house = client.house`
+Create an instance: `house = client.House()`
 
 #### Operations
 
@@ -407,14 +412,14 @@ Create an instance: `const house = client.house`
 
 #### Example: Load
 
-```ts
-const house = await client.house.load({ id: 'house_id' })
+```python
+house = client.House().load({"id": "house_id"})
 ```
 
 #### Example: List
 
-```ts
-const houses = await client.house.list()
+```python
+houses = client.House().list({})
 ```
 
 
@@ -488,7 +493,7 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```python
-book = client.book
+book = client.Book()
 book.load({"id": "example_id"})
 
 # book.data_get() now returns the loaded book data

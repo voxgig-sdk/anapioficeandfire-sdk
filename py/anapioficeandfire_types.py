@@ -4,132 +4,127 @@
 # params (op.<name>.points[].args.params[]). Field/param types come from the
 # canonical type sentinels via @voxgig/sdkgen canonToType (source of truth:
 # @voxgig/apidef VALID_CANON). Do not edit by hand.
+#
+# These are TypedDicts, not dataclasses: the SDK ops return/accept plain dicts
+# at runtime, and a TypedDict IS a dict shape, so the types match the runtime.
+# Optional (req:false) keys are modelled as TypedDict key-optionality
+# (total=False), split into a required base + total=False subclass when a type
+# has both required and optional keys.
 
 from __future__ import annotations
 
-from dataclasses import dataclass
-from typing import Optional, Any
+from typing import TypedDict, Any
 
 
-@dataclass
-class Book:
-    author: Optional[list] = None
-    character: Optional[list] = None
-    country: Optional[str] = None
-    isbn: Optional[str] = None
-    media_type: Optional[str] = None
-    name: Optional[str] = None
-    number_of_page: Optional[int] = None
-    pov_character: Optional[list] = None
-    publisher: Optional[str] = None
-    released: Optional[str] = None
-    url: Optional[str] = None
+class Book(TypedDict, total=False):
+    author: list
+    character: list
+    country: str
+    isbn: str
+    media_type: str
+    name: str
+    number_of_page: int
+    pov_character: list
+    publisher: str
+    released: str
+    url: str
 
 
-@dataclass
-class BookLoadMatch:
+class BookLoadMatch(TypedDict):
     id: int
 
 
-@dataclass
-class BookListMatch:
-    author: Optional[list] = None
-    character: Optional[list] = None
-    country: Optional[str] = None
-    isbn: Optional[str] = None
-    media_type: Optional[str] = None
-    name: Optional[str] = None
-    number_of_page: Optional[int] = None
-    pov_character: Optional[list] = None
-    publisher: Optional[str] = None
-    released: Optional[str] = None
-    url: Optional[str] = None
+class BookListMatch(TypedDict, total=False):
+    author: list
+    character: list
+    country: str
+    isbn: str
+    media_type: str
+    name: str
+    number_of_page: int
+    pov_character: list
+    publisher: str
+    released: str
+    url: str
 
 
-@dataclass
-class Character:
-    alias: Optional[list] = None
-    allegiance: Optional[list] = None
-    book: Optional[list] = None
-    born: Optional[str] = None
-    culture: Optional[str] = None
-    died: Optional[str] = None
-    father: Optional[str] = None
-    mother: Optional[str] = None
-    name: Optional[str] = None
-    played_by: Optional[list] = None
-    pov_book: Optional[list] = None
-    spouse: Optional[str] = None
-    title: Optional[list] = None
-    tv_series: Optional[list] = None
-    url: Optional[str] = None
+class Character(TypedDict, total=False):
+    alias: list
+    allegiance: list
+    book: list
+    born: str
+    culture: str
+    died: str
+    father: str
+    mother: str
+    name: str
+    played_by: list
+    pov_book: list
+    spouse: str
+    title: list
+    tv_series: list
+    url: str
 
 
-@dataclass
-class CharacterLoadMatch:
+class CharacterLoadMatch(TypedDict):
     id: int
 
 
-@dataclass
-class CharacterListMatch:
-    alias: Optional[list] = None
-    allegiance: Optional[list] = None
-    book: Optional[list] = None
-    born: Optional[str] = None
-    culture: Optional[str] = None
-    died: Optional[str] = None
-    father: Optional[str] = None
-    mother: Optional[str] = None
-    name: Optional[str] = None
-    played_by: Optional[list] = None
-    pov_book: Optional[list] = None
-    spouse: Optional[str] = None
-    title: Optional[list] = None
-    tv_series: Optional[list] = None
-    url: Optional[str] = None
+class CharacterListMatch(TypedDict, total=False):
+    alias: list
+    allegiance: list
+    book: list
+    born: str
+    culture: str
+    died: str
+    father: str
+    mother: str
+    name: str
+    played_by: list
+    pov_book: list
+    spouse: str
+    title: list
+    tv_series: list
+    url: str
 
 
-@dataclass
-class House:
-    ancestral_weapon: Optional[list] = None
-    cadet_branch: Optional[list] = None
-    coat_of_arm: Optional[str] = None
-    current_lord: Optional[str] = None
-    died_out: Optional[str] = None
-    founded: Optional[str] = None
-    founder: Optional[str] = None
-    heir: Optional[str] = None
-    name: Optional[str] = None
-    overlord: Optional[str] = None
-    region: Optional[str] = None
-    seat: Optional[list] = None
-    sworn_member: Optional[list] = None
-    title: Optional[list] = None
-    url: Optional[str] = None
-    word: Optional[str] = None
+class House(TypedDict, total=False):
+    ancestral_weapon: list
+    cadet_branch: list
+    coat_of_arm: str
+    current_lord: str
+    died_out: str
+    founded: str
+    founder: str
+    heir: str
+    name: str
+    overlord: str
+    region: str
+    seat: list
+    sworn_member: list
+    title: list
+    url: str
+    word: str
 
 
-@dataclass
-class HouseLoadMatch:
+class HouseLoadMatch(TypedDict):
     id: int
 
 
-@dataclass
-class HouseListMatch:
-    ancestral_weapon: Optional[list] = None
-    cadet_branch: Optional[list] = None
-    coat_of_arm: Optional[str] = None
-    current_lord: Optional[str] = None
-    died_out: Optional[str] = None
-    founded: Optional[str] = None
-    founder: Optional[str] = None
-    heir: Optional[str] = None
-    name: Optional[str] = None
-    overlord: Optional[str] = None
-    region: Optional[str] = None
-    seat: Optional[list] = None
-    sworn_member: Optional[list] = None
-    title: Optional[list] = None
-    url: Optional[str] = None
-    word: Optional[str] = None
-
+class HouseListMatch(TypedDict, total=False):
+    ancestral_weapon: list
+    cadet_branch: list
+    coat_of_arm: str
+    current_lord: str
+    died_out: str
+    founded: str
+    founder: str
+    heir: str
+    name: str
+    overlord: str
+    region: str
+    seat: list
+    sworn_member: list
+    title: list
+    url: str
+    word: str

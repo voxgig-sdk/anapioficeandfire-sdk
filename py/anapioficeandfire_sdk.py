@@ -220,57 +220,27 @@ class AnapioficeandfireSDK:
         }
 
 
-    @property
-    def book(self):
-        """Idiomatic facade: client.book.list() / client.book.load({"id": ...})."""
-        from entity.book_entity import BookEntity
-        cached = getattr(self, "_book", None)
-        if cached is None:
-            cached = BookEntity(self, None)
-            self._book = cached
-        return cached
-
-    def Book(self, data=None):
-        # Deprecated: use client.book instead.
+    def Book(self, data=None) -> "BookEntity":
+        """Entity factory: client.Book().list({}) / client.Book().load({"id": ...})."""
         from entity.book_entity import BookEntity
         return BookEntity(self, data)
 
 
-    @property
-    def character(self):
-        """Idiomatic facade: client.character.list() / client.character.load({"id": ...})."""
-        from entity.character_entity import CharacterEntity
-        cached = getattr(self, "_character", None)
-        if cached is None:
-            cached = CharacterEntity(self, None)
-            self._character = cached
-        return cached
-
-    def Character(self, data=None):
-        # Deprecated: use client.character instead.
+    def Character(self, data=None) -> "CharacterEntity":
+        """Entity factory: client.Character().list({}) / client.Character().load({"id": ...})."""
         from entity.character_entity import CharacterEntity
         return CharacterEntity(self, data)
 
 
-    @property
-    def house(self):
-        """Idiomatic facade: client.house.list() / client.house.load({"id": ...})."""
-        from entity.house_entity import HouseEntity
-        cached = getattr(self, "_house", None)
-        if cached is None:
-            cached = HouseEntity(self, None)
-            self._house = cached
-        return cached
-
-    def House(self, data=None):
-        # Deprecated: use client.house instead.
+    def House(self, data=None) -> "HouseEntity":
+        """Entity factory: client.House().list({}) / client.House().load({"id": ...})."""
         from entity.house_entity import HouseEntity
         return HouseEntity(self, data)
 
 
 
     @classmethod
-    def test(cls, testopts=None, sdkopts=None):
+    def test(cls, testopts=None, sdkopts=None) -> "AnapioficeandfireSDK":
         if sdkopts is None:
             sdkopts = {}
         sdkopts = vs.clone(sdkopts)
@@ -290,3 +260,11 @@ class AnapioficeandfireSDK:
         sdk.mode = "test"
 
         return sdk
+
+
+from typing import TYPE_CHECKING
+
+if TYPE_CHECKING:
+    from entity.book_entity import BookEntity
+    from entity.character_entity import CharacterEntity
+    from entity.house_entity import HouseEntity

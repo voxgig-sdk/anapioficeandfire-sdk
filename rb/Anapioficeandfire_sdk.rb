@@ -208,39 +208,21 @@ class AnapioficeandfireSDK
   end
 
 
-  # Idiomatic facade: client.book.list / client.book.load({ "id" => ... })
-  def book
-    require_relative 'entity/book_entity'
-    @book ||= BookEntity.new(self, nil)
-  end
-
-  # Deprecated: use client.book instead.
+  # Canonical facade: client.Book.list / client.Book.load({ "id" => ... })
   def Book(data = nil)
     require_relative 'entity/book_entity'
     BookEntity.new(self, data)
   end
 
 
-  # Idiomatic facade: client.character.list / client.character.load({ "id" => ... })
-  def character
-    require_relative 'entity/character_entity'
-    @character ||= CharacterEntity.new(self, nil)
-  end
-
-  # Deprecated: use client.character instead.
+  # Canonical facade: client.Character.list / client.Character.load({ "id" => ... })
   def Character(data = nil)
     require_relative 'entity/character_entity'
     CharacterEntity.new(self, data)
   end
 
 
-  # Idiomatic facade: client.house.list / client.house.load({ "id" => ... })
-  def house
-    require_relative 'entity/house_entity'
-    @house ||= HouseEntity.new(self, nil)
-  end
-
-  # Deprecated: use client.house instead.
+  # Canonical facade: client.House.list / client.House.load({ "id" => ... })
   def House(data = nil)
     require_relative 'entity/house_entity'
     HouseEntity.new(self, data)

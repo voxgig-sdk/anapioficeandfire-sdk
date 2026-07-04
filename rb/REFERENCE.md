@@ -94,7 +94,7 @@ same parameters as `direct()`. Raises on error.
 ## BookEntity
 
 ```ruby
-book = client.book
+book = client.Book
 ```
 
 ### Fields
@@ -120,7 +120,7 @@ book = client.book
 List entities matching the given criteria. Returns an array. Raises on error.
 
 ```ruby
-results = client.book.list(nil)
+results = client.Book.list(nil)
 ```
 
 #### `load(reqmatch, ctrl = nil) -> result`
@@ -128,7 +128,7 @@ results = client.book.list(nil)
 Load a single entity matching the given criteria. Raises on error.
 
 ```ruby
-result = client.book.load({ "id" => "book_id" })
+result = client.Book.load({ "id" => "book_id" })
 ```
 
 ### Common Methods
@@ -164,7 +164,7 @@ Return the entity name.
 ## CharacterEntity
 
 ```ruby
-character = client.character
+character = client.Character
 ```
 
 ### Fields
@@ -194,7 +194,7 @@ character = client.character
 List entities matching the given criteria. Returns an array. Raises on error.
 
 ```ruby
-results = client.character.list(nil)
+results = client.Character.list(nil)
 ```
 
 #### `load(reqmatch, ctrl = nil) -> result`
@@ -202,7 +202,7 @@ results = client.character.list(nil)
 Load a single entity matching the given criteria. Raises on error.
 
 ```ruby
-result = client.character.load({ "id" => "character_id" })
+result = client.Character.load({ "id" => "character_id" })
 ```
 
 ### Common Methods
@@ -238,7 +238,7 @@ Return the entity name.
 ## HouseEntity
 
 ```ruby
-house = client.house
+house = client.House
 ```
 
 ### Fields
@@ -269,7 +269,7 @@ house = client.house
 List entities matching the given criteria. Returns an array. Raises on error.
 
 ```ruby
-results = client.house.list(nil)
+results = client.House.list(nil)
 ```
 
 #### `load(reqmatch, ctrl = nil) -> result`
@@ -277,7 +277,7 @@ results = client.house.list(nil)
 Load a single entity matching the given criteria. Raises on error.
 
 ```ruby
-result = client.house.load({ "id" => "house_id" })
+result = client.House.load({ "id" => "house_id" })
 ```
 
 ### Common Methods

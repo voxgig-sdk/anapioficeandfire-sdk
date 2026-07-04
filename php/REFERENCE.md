@@ -93,7 +93,7 @@ Prepare a fetch definition without sending the request. Returns the
 ## BookEntity
 
 ```php
-$book = $client->book();
+$book = $client->Book();
 ```
 
 ### Fields
@@ -119,7 +119,7 @@ $book = $client->book();
 List entities matching the given criteria. Returns an array. Throws on error.
 
 ```php
-$results = $client->book()->list([]);
+$results = $client->Book()->list([]);
 ```
 
 #### `load(array $reqmatch, ?array $ctrl = null): mixed`
@@ -127,7 +127,7 @@ $results = $client->book()->list([]);
 Load a single entity matching the given criteria. Throws on error.
 
 ```php
-$result = $client->book()->load(["id" => "book_id"]);
+$result = $client->Book()->load(["id" => "book_id"]);
 ```
 
 ### Common Methods
@@ -163,7 +163,7 @@ Return the entity name.
 ## CharacterEntity
 
 ```php
-$character = $client->character();
+$character = $client->Character();
 ```
 
 ### Fields
@@ -193,7 +193,7 @@ $character = $client->character();
 List entities matching the given criteria. Returns an array. Throws on error.
 
 ```php
-$results = $client->character()->list([]);
+$results = $client->Character()->list([]);
 ```
 
 #### `load(array $reqmatch, ?array $ctrl = null): mixed`
@@ -201,7 +201,7 @@ $results = $client->character()->list([]);
 Load a single entity matching the given criteria. Throws on error.
 
 ```php
-$result = $client->character()->load(["id" => "character_id"]);
+$result = $client->Character()->load(["id" => "character_id"]);
 ```
 
 ### Common Methods
@@ -237,7 +237,7 @@ Return the entity name.
 ## HouseEntity
 
 ```php
-$house = $client->house();
+$house = $client->House();
 ```
 
 ### Fields
@@ -268,7 +268,7 @@ $house = $client->house();
 List entities matching the given criteria. Returns an array. Throws on error.
 
 ```php
-$results = $client->house()->list([]);
+$results = $client->House()->list([]);
 ```
 
 #### `load(array $reqmatch, ?array $ctrl = null): mixed`
@@ -276,7 +276,7 @@ $results = $client->house()->list([]);
 Load a single entity matching the given criteria. Throws on error.
 
 ```php
-$result = $client->house()->load(["id" => "house_id"]);
+$result = $client->House()->load(["id" => "house_id"]);
 ```
 
 ### Common Methods

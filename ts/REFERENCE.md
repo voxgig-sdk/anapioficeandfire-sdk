@@ -133,7 +133,7 @@ Alias for `AnapioficeandfireSDK.test()`.
 ## BookEntity
 
 ```ts
-const book = client.book
+const book = client.Book()
 ```
 
 ### Fields
@@ -159,7 +159,7 @@ const book = client.book
 List entities matching the given criteria. Returns an array.
 
 ```ts
-const results = await client.book.list()
+const results = await client.Book().list()
 ```
 
 #### `load(match: object, ctrl?: object)`
@@ -167,7 +167,7 @@ const results = await client.book.list()
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.book.load({ id: 'book_id' })
+const result = await client.Book().load({ id: 'book_id' })
 ```
 
 ### Common Methods
@@ -201,7 +201,7 @@ Return a copy of the entity options.
 ## CharacterEntity
 
 ```ts
-const character = client.character
+const character = client.Character()
 ```
 
 ### Fields
@@ -231,7 +231,7 @@ const character = client.character
 List entities matching the given criteria. Returns an array.
 
 ```ts
-const results = await client.character.list()
+const results = await client.Character().list()
 ```
 
 #### `load(match: object, ctrl?: object)`
@@ -239,7 +239,7 @@ const results = await client.character.list()
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.character.load({ id: 'character_id' })
+const result = await client.Character().load({ id: 'character_id' })
 ```
 
 ### Common Methods
@@ -273,7 +273,7 @@ Return a copy of the entity options.
 ## HouseEntity
 
 ```ts
-const house = client.house
+const house = client.House()
 ```
 
 ### Fields
@@ -304,7 +304,7 @@ const house = client.house
 List entities matching the given criteria. Returns an array.
 
 ```ts
-const results = await client.house.list()
+const results = await client.House().list()
 ```
 
 #### `load(match: object, ctrl?: object)`
@@ -312,7 +312,7 @@ const results = await client.house.list()
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.house.load({ id: 'house_id' })
+const result = await client.House().load({ id: 'house_id' })
 ```
 
 ### Common Methods

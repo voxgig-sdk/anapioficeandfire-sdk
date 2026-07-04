@@ -206,42 +206,21 @@ class AnapioficeandfireSDK {
 
 
 
-  _book?: BookEntity
-
-  // Idiomatic facade: `client.book.list()` / `client.book.load({ id })`.
-  get book(): BookEntity {
-    return (this._book ??= new BookEntity(this, undefined))
-  }
-
-  /** @deprecated Use `client.book` instead. */
+  // Entity access: `client.Book().list()` / `client.Book().load({ id })`.
   Book(data?: any) {
     const self = this
     return new BookEntity(self,data)
   }
 
 
-  _character?: CharacterEntity
-
-  // Idiomatic facade: `client.character.list()` / `client.character.load({ id })`.
-  get character(): CharacterEntity {
-    return (this._character ??= new CharacterEntity(this, undefined))
-  }
-
-  /** @deprecated Use `client.character` instead. */
+  // Entity access: `client.Character().list()` / `client.Character().load({ id })`.
   Character(data?: any) {
     const self = this
     return new CharacterEntity(self,data)
   }
 
 
-  _house?: HouseEntity
-
-  // Idiomatic facade: `client.house.list()` / `client.house.load({ id })`.
-  get house(): HouseEntity {
-    return (this._house ??= new HouseEntity(this, undefined))
-  }
-
-  /** @deprecated Use `client.house` instead. */
+  // Entity access: `client.House().list()` / `client.House().load({ id })`.
   House(data?: any) {
     const self = this
     return new HouseEntity(self,data)

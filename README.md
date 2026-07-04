@@ -26,9 +26,11 @@ import { AnapioficeandfireSDK } from '@voxgig-sdk/anapioficeandfire'
 
 const client = new AnapioficeandfireSDK()
 
-// List all books
-const books = await client.book.list()
-console.log(books.data)
+// List all books (returns Book[])
+const books = await client.Book().list()
+for (const book of books) {
+  console.log(book)
+}
 ```
 
 See the [TypeScript README](ts/README.md) for the full guide.
@@ -85,12 +87,13 @@ from anapioficeandfire_sdk import AnapioficeandfireSDK
 
 client = AnapioficeandfireSDK()
 
-# List all books
-books = client.book.list()
-print(books)
+# List all books (returns a list, raises on error)
+books = client.Book().list({})
+for book in books:
+    print(book)
 
-# Load a specific book
-book = client.book.load({"id": "example_id"})
+# Load a specific book (returns the record, raises on error)
+book = client.Book().load({"id": "example_id"})
 print(book)
 ```
 
@@ -102,12 +105,12 @@ require_once 'anapioficeandfire_sdk.php';
 
 $client = new AnapioficeandfireSDK();
 
-// List all books (throws on error)
-$books = $client->book()->list();
+// List all books (returns an array; throws on error)
+$books = $client->Book()->list();
 print_r($books);
 
-// Load a specific book
-$book = $client->book()->load(["id" => "example_id"]);
+// Load a specific book (returns the bare record; throws on error)
+$book = $client->Book()->load(["id" => "example_id"]);
 print_r($book);
 ```
 
@@ -130,12 +133,12 @@ require_relative "Anapioficeandfire_sdk"
 
 client = AnapioficeandfireSDK.new
 
-# List all books
-books = client.book.list
+# List all books (returns an Array; raises on error)
+books = client.Book.list
 puts books
 
-# Load a specific book
-book = client.book.load({ "id" => "example_id" })
+# Load a specific book (returns the bare record; raises on error)
+book = client.Book.load({ "id" => "example_id" })
 puts book
 ```
 
@@ -147,11 +150,11 @@ local sdk = require("anapioficeandfire_sdk")
 local client = sdk.new()
 
 -- List all books
-local books, err = client:book():list()
+local books, err = client:Book():list()
 print(books)
 
 -- Load a specific book
-local book, err = client:book():load({ id = "example_id" })
+local book, err = client:Book():load({ id = "example_id" })
 print(book)
 ```
 
@@ -164,22 +167,27 @@ in-memory mock, so unit tests run offline.
 
 ```ts
 const client = AnapioficeandfireSDK.test()
-const result = await client.book.load({ id: 'test01' })
-// result.ok === true, result.data contains mock data
+const book = await client.Book().load({ id: 'test01' })
+// book is a bare Book populated with mock data
+console.log(book)
 ```
 
 ### Python
 
 ```python
 client = AnapioficeandfireSDK.test()
-result = client.book.load({"id": "test01"})
+book = client.Book().load({"id": "test01"})
+print(book)
 ```
 
 ### PHP
 
 ```php
-$client = AnapioficeandfireSDK::test();
-$result = $client->book()->load(["id" => "test01"]);
+// Seed fixture data so offline calls resolve without a live server.
+$client = AnapioficeandfireSDK::test([
+    "entity" => ["book" => ["test01" => ["id" => "test01"]]],
+]);
+$book = $client->Book()->load(["id" => "test01"]);
 ```
 
 ### Golang
@@ -194,15 +202,18 @@ result, err := client.Book(nil).Load(
 ### Ruby
 
 ```ruby
-client = AnapioficeandfireSDK.test
-result = client.book.load({ "id" => "test01" })
+# Seed fixture data so offline calls resolve without a live server.
+client = AnapioficeandfireSDK.test({
+  "entity" => { "book" => { "test01" => { "id" => "test01" } } },
+})
+book = client.Book.load({ "id" => "test01" })
 ```
 
 ### Lua
 
 ```lua
 local client = sdk.test()
-local result, err = client:book():load({ id = "test01" })
+local result, err = client:Book():load({ id = "test01" })
 ```
 
 ## How it works
@@ -250,6 +261,9 @@ const result = await client.direct({
   method: 'GET',
   params: { id: 'example' },
 })
+if (result instanceof Error) {
+  throw result
+}
 console.log(result.data)
 ```
 

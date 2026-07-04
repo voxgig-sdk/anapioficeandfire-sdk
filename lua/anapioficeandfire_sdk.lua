@@ -244,8 +244,9 @@ end
 
 
 
--- Idiomatic facade: client:book():list() / client:book():load({ id = ... })
-function AnapioficeandfireSDK:book(data)
+-- Idiomatic facade: client:Book():list() / client:Book():load({ id = ... })
+-- Entity access is capitalised (PascalCase) for parity with the other SDKs.
+function AnapioficeandfireSDK:Book(data)
   local EntityMod = require("entity.book_entity")
   if data == nil then
     if self._book == nil then
@@ -256,15 +257,10 @@ function AnapioficeandfireSDK:book(data)
   return EntityMod.new(self, data)
 end
 
--- Deprecated: use client:book() instead.
-function AnapioficeandfireSDK:Book(data)
-  local EntityMod = require("entity.book_entity")
-  return EntityMod.new(self, data)
-end
 
-
--- Idiomatic facade: client:character():list() / client:character():load({ id = ... })
-function AnapioficeandfireSDK:character(data)
+-- Idiomatic facade: client:Character():list() / client:Character():load({ id = ... })
+-- Entity access is capitalised (PascalCase) for parity with the other SDKs.
+function AnapioficeandfireSDK:Character(data)
   local EntityMod = require("entity.character_entity")
   if data == nil then
     if self._character == nil then
@@ -275,15 +271,10 @@ function AnapioficeandfireSDK:character(data)
   return EntityMod.new(self, data)
 end
 
--- Deprecated: use client:character() instead.
-function AnapioficeandfireSDK:Character(data)
-  local EntityMod = require("entity.character_entity")
-  return EntityMod.new(self, data)
-end
 
-
--- Idiomatic facade: client:house():list() / client:house():load({ id = ... })
-function AnapioficeandfireSDK:house(data)
+-- Idiomatic facade: client:House():list() / client:House():load({ id = ... })
+-- Entity access is capitalised (PascalCase) for parity with the other SDKs.
+function AnapioficeandfireSDK:House(data)
   local EntityMod = require("entity.house_entity")
   if data == nil then
     if self._house == nil then
@@ -291,12 +282,6 @@ function AnapioficeandfireSDK:house(data)
     end
     return self._house
   end
-  return EntityMod.new(self, data)
-end
-
--- Deprecated: use client:house() instead.
-function AnapioficeandfireSDK:House(data)
-  local EntityMod = require("entity.house_entity")
   return EntityMod.new(self, data)
 end
 

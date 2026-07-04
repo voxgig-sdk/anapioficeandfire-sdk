@@ -233,10 +233,10 @@ class AnapioficeandfireSDK
 
     private $_book = null;
 
-    // Idiomatic facade: $client->book()->list() / ->load(["id" => ...]).
-    // Also serves the deprecated PascalCase alias Book() (PHP method
-    // names are case-insensitive).
-    public function book($data = null)
+    // Canonical facade: $client->Book()->list() / ->load(["id" => ...]).
+    // PHP method names are case-insensitive, so lowercase $client->book()
+    // resolves here too.
+    public function Book($data = null)
     {
         require_once __DIR__ . '/entity/book_entity.php';
         if ($data === null) {
@@ -251,10 +251,10 @@ class AnapioficeandfireSDK
 
     private $_character = null;
 
-    // Idiomatic facade: $client->character()->list() / ->load(["id" => ...]).
-    // Also serves the deprecated PascalCase alias Character() (PHP method
-    // names are case-insensitive).
-    public function character($data = null)
+    // Canonical facade: $client->Character()->list() / ->load(["id" => ...]).
+    // PHP method names are case-insensitive, so lowercase $client->character()
+    // resolves here too.
+    public function Character($data = null)
     {
         require_once __DIR__ . '/entity/character_entity.php';
         if ($data === null) {
@@ -269,10 +269,10 @@ class AnapioficeandfireSDK
 
     private $_house = null;
 
-    // Idiomatic facade: $client->house()->list() / ->load(["id" => ...]).
-    // Also serves the deprecated PascalCase alias House() (PHP method
-    // names are case-insensitive).
-    public function house($data = null)
+    // Canonical facade: $client->House()->list() / ->load(["id" => ...]).
+    // PHP method names are case-insensitive, so lowercase $client->house()
+    // resolves here too.
+    public function House($data = null)
     {
         require_once __DIR__ . '/entity/house_entity.php';
         if ($data === null) {
