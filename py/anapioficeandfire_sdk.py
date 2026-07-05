@@ -221,19 +221,19 @@ class AnapioficeandfireSDK:
 
 
     def Book(self, data=None) -> "BookEntity":
-        """Entity factory: client.Book().list({}) / client.Book().load({"id": ...})."""
+        """Entity factory: client.Book().list() / client.Book().load({"id": ...})."""
         from entity.book_entity import BookEntity
         return BookEntity(self, data)
 
 
     def Character(self, data=None) -> "CharacterEntity":
-        """Entity factory: client.Character().list({}) / client.Character().load({"id": ...})."""
+        """Entity factory: client.Character().list() / client.Character().load({"id": ...})."""
         from entity.character_entity import CharacterEntity
         return CharacterEntity(self, data)
 
 
     def House(self, data=None) -> "HouseEntity":
-        """Entity factory: client.House().list({}) / client.House().load({"id": ...})."""
+        """Entity factory: client.House().list() / client.House().load({"id": ...})."""
         from entity.house_entity import HouseEntity
         return HouseEntity(self, data)
 

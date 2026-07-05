@@ -4,6 +4,8 @@
 
 The Ruby SDK for the Anapioficeandfire API — an entity-oriented client using idiomatic Ruby conventions.
 
+The SDK exposes the API as capitalised, semantic **Entities** — for example `client.Book` — with named operations (`list`/`load`) instead of raw URL paths and query strings. Working with resources and verbs keeps call sites self-describing and reduces cognitive load.
+
 > Other languages, the CLI, and MCP server live alongside this one — see
 > the [top-level README](../README.md).
 
@@ -35,7 +37,7 @@ begin
   # list returns an Array of Book records — iterate directly.
   books = client.Book.list
   books.each do |item|
-    puts "#{item["id"]} #{item["name"]}"
+    puts "#{item["author"]}"
   end
 rescue => err
   warn "list failed: #{err}"
@@ -52,6 +54,33 @@ begin
 rescue => err
   warn "load failed: #{err}"
 end
+```
+
+
+## Error handling
+
+Entity operations raise on failure, so rescue them:
+
+```ruby
+begin
+  books = client.Book.list()
+rescue => err
+  warn "list failed: #{err}"
+end
+```
+
+`direct` does **not** raise — it returns the result hash. Branch on
+`ok`; on failure `status` holds the HTTP status (for error responses) and
+`err` holds a transport error, so read both defensively:
+
+```ruby
+result = client.direct({
+  "path" => "/api/resource/{id}",
+  "method" => "GET",
+  "params" => { "id" => "example_id" },
+})
+
+warn "request failed: #{result["err"] || "HTTP #{result["status"]}"}" unless result["ok"]
 ```
 
 
@@ -72,7 +101,9 @@ if result["ok"]
   puts result["status"]  # 200
   puts result["data"]    # response body
 else
-  warn result["err"]
+  # On an HTTP error status there is no err (only a transport failure sets
+  # it), so fall back to the status code.
+  warn(result["err"] || "HTTP #{result["status"]}")
 end
 ```
 
@@ -103,8 +134,8 @@ client = AnapioficeandfireSDK.test({
   "entity" => { "book" => { "test01" => { "id" => "test01" } } },
 })
 
-# load returns the bare mock record (raises on error).
-book = client.Book.load({ "id" => "test01" })
+# Entity ops return the bare mock record (raises on error).
+book = client.Book.list()
 puts book
 ```
 
@@ -192,10 +223,7 @@ All entities share the same interface.
 | Method | Signature | Description |
 | --- | --- | --- |
 | `load` | `(reqmatch, ctrl) -> any` | Load a single entity by match criteria. Raises on error. |
-| `list` | `(reqmatch, ctrl) -> Array` | List entities matching the criteria. Raises on error. |
-| `create` | `(reqdata, ctrl) -> any` | Create a new entity. Raises on error. |
-| `update` | `(reqdata, ctrl) -> any` | Update an existing entity. Raises on error. |
-| `remove` | `(reqmatch, ctrl) -> any` | Remove an entity. Raises on error. |
+| `list` | `(reqmatch = nil, ctrl) -> Array` | List entities matching the criteria (call with no argument to list all). Raises on error. |
 | `data_get` | `() -> Hash` | Get entity data. |
 | `data_set` | `(data)` | Set entity data. |
 | `match_get` | `() -> Hash` | Get entity match criteria. |
@@ -311,17 +339,17 @@ Create an instance: `book = client.Book`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `author` | ``$ARRAY`` |  |
-| `character` | ``$ARRAY`` |  |
-| `country` | ``$STRING`` |  |
-| `isbn` | ``$STRING`` |  |
-| `media_type` | ``$STRING`` |  |
-| `name` | ``$STRING`` |  |
-| `number_of_page` | ``$INTEGER`` |  |
-| `pov_character` | ``$ARRAY`` |  |
-| `publisher` | ``$STRING`` |  |
-| `released` | ``$STRING`` |  |
-| `url` | ``$STRING`` |  |
+| `author` | `Array` |  |
+| `character` | `Array` |  |
+| `country` | `String` |  |
+| `isbn` | `String` |  |
+| `media_type` | `String` |  |
+| `name` | `String` |  |
+| `number_of_page` | `Integer` |  |
+| `pov_character` | `Array` |  |
+| `publisher` | `String` |  |
+| `released` | `String` |  |
+| `url` | `String` |  |
 
 #### Example: Load
 
@@ -353,21 +381,21 @@ Create an instance: `character = client.Character`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `alias` | ``$ARRAY`` |  |
-| `allegiance` | ``$ARRAY`` |  |
-| `book` | ``$ARRAY`` |  |
-| `born` | ``$STRING`` |  |
-| `culture` | ``$STRING`` |  |
-| `died` | ``$STRING`` |  |
-| `father` | ``$STRING`` |  |
-| `mother` | ``$STRING`` |  |
-| `name` | ``$STRING`` |  |
-| `played_by` | ``$ARRAY`` |  |
-| `pov_book` | ``$ARRAY`` |  |
-| `spouse` | ``$STRING`` |  |
-| `title` | ``$ARRAY`` |  |
-| `tv_series` | ``$ARRAY`` |  |
-| `url` | ``$STRING`` |  |
+| `alias` | `Array` |  |
+| `allegiance` | `Array` |  |
+| `book` | `Array` |  |
+| `born` | `String` |  |
+| `culture` | `String` |  |
+| `died` | `String` |  |
+| `father` | `String` |  |
+| `mother` | `String` |  |
+| `name` | `String` |  |
+| `played_by` | `Array` |  |
+| `pov_book` | `Array` |  |
+| `spouse` | `String` |  |
+| `title` | `Array` |  |
+| `tv_series` | `Array` |  |
+| `url` | `String` |  |
 
 #### Example: Load
 
@@ -399,22 +427,22 @@ Create an instance: `house = client.House`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `ancestral_weapon` | ``$ARRAY`` |  |
-| `cadet_branch` | ``$ARRAY`` |  |
-| `coat_of_arm` | ``$STRING`` |  |
-| `current_lord` | ``$STRING`` |  |
-| `died_out` | ``$STRING`` |  |
-| `founded` | ``$STRING`` |  |
-| `founder` | ``$STRING`` |  |
-| `heir` | ``$STRING`` |  |
-| `name` | ``$STRING`` |  |
-| `overlord` | ``$STRING`` |  |
-| `region` | ``$STRING`` |  |
-| `seat` | ``$ARRAY`` |  |
-| `sworn_member` | ``$ARRAY`` |  |
-| `title` | ``$ARRAY`` |  |
-| `url` | ``$STRING`` |  |
-| `word` | ``$STRING`` |  |
+| `ancestral_weapon` | `Array` |  |
+| `cadet_branch` | `Array` |  |
+| `coat_of_arm` | `String` |  |
+| `current_lord` | `String` |  |
+| `died_out` | `String` |  |
+| `founded` | `String` |  |
+| `founder` | `String` |  |
+| `heir` | `String` |  |
+| `name` | `String` |  |
+| `overlord` | `String` |  |
+| `region` | `String` |  |
+| `seat` | `Array` |  |
+| `sworn_member` | `Array` |  |
+| `title` | `Array` |  |
+| `url` | `String` |  |
+| `word` | `String` |  |
 
 #### Example: Load
 
@@ -431,12 +459,16 @@ houses = client.House.list
 ```
 
 
-## Explanation
+## Advanced
+
+> The sections above cover everyday use. The material below explains the
+> SDK's internals — useful when extending it with custom features, but not
+> needed for normal use.
 
 ### The operation pipeline
 
-Every entity operation (load, list, create, update, remove) follows a
-six-stage pipeline. Each stage fires a feature hook before executing:
+Every entity operation follows a six-stage pipeline. Each stage fires a
+feature hook before executing:
 
 ```
 PrePoint → PreSpec → PreRequest → PreResponse → PreResult → PreDone
@@ -453,8 +485,9 @@ PrePoint → PreSpec → PreRequest → PreResponse → PreResult → PreDone
 - **PreDone**: Final stage before returning to the caller. Entity
   state (match, data) is updated here.
 
-If any stage returns an error, the pipeline short-circuits and the
-error is returned to the caller as a second return value.
+If any stage errors, the pipeline short-circuits and the error surfaces
+to the caller — see [Error handling](#error-handling) for how that looks
+in this language.
 
 ### Features and hooks
 
@@ -498,14 +531,14 @@ when needed.
 
 ### Entity state
 
-Entity instances are stateful. After a successful `load`, the entity
+Entity instances are stateful. After a successful `list`, the entity
 stores the returned data and match criteria internally.
 
 ```ruby
 book = client.Book
-book.load({ "id" => "example_id" })
+book.list()
 
-# book.data_get now returns the loaded book data
+# book.data_get now returns the book data from the last list
 # book.match_get returns the last match criteria
 ```
 

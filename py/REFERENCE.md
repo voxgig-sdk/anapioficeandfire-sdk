@@ -95,26 +95,26 @@ book = client.Book()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `author` | ``$ARRAY`` | No |  |
-| `character` | ``$ARRAY`` | No |  |
-| `country` | ``$STRING`` | No |  |
-| `isbn` | ``$STRING`` | No |  |
-| `media_type` | ``$STRING`` | No |  |
-| `name` | ``$STRING`` | No |  |
-| `number_of_page` | ``$INTEGER`` | No |  |
-| `pov_character` | ``$ARRAY`` | No |  |
-| `publisher` | ``$STRING`` | No |  |
-| `released` | ``$STRING`` | No |  |
-| `url` | ``$STRING`` | No |  |
+| `author` | `list` | No |  |
+| `character` | `list` | No |  |
+| `country` | `str` | No |  |
+| `isbn` | `str` | No |  |
+| `media_type` | `str` | No |  |
+| `name` | `str` | No |  |
+| `number_of_page` | `int` | No |  |
+| `pov_character` | `list` | No |  |
+| `publisher` | `str` | No |  |
+| `released` | `str` | No |  |
+| `url` | `str` | No |  |
 
 ### Operations
 
-#### `list(reqmatch, ctrl=None) -> list`
+#### `list(reqmatch=None, ctrl=None) -> list`
 
-List entities matching the given criteria. Returns a list and raises on error.
+List entities matching the given criteria. The match is optional — call `list()` with no argument to list all records. Returns a list and raises on error.
 
 ```python
-results = client.Book().list({})
+results = client.Book().list()
 for book in results:
     print(book)
 ```
@@ -166,30 +166,30 @@ character = client.Character()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `alias` | ``$ARRAY`` | No |  |
-| `allegiance` | ``$ARRAY`` | No |  |
-| `book` | ``$ARRAY`` | No |  |
-| `born` | ``$STRING`` | No |  |
-| `culture` | ``$STRING`` | No |  |
-| `died` | ``$STRING`` | No |  |
-| `father` | ``$STRING`` | No |  |
-| `mother` | ``$STRING`` | No |  |
-| `name` | ``$STRING`` | No |  |
-| `played_by` | ``$ARRAY`` | No |  |
-| `pov_book` | ``$ARRAY`` | No |  |
-| `spouse` | ``$STRING`` | No |  |
-| `title` | ``$ARRAY`` | No |  |
-| `tv_series` | ``$ARRAY`` | No |  |
-| `url` | ``$STRING`` | No |  |
+| `alias` | `list` | No |  |
+| `allegiance` | `list` | No |  |
+| `book` | `list` | No |  |
+| `born` | `str` | No |  |
+| `culture` | `str` | No |  |
+| `died` | `str` | No |  |
+| `father` | `str` | No |  |
+| `mother` | `str` | No |  |
+| `name` | `str` | No |  |
+| `played_by` | `list` | No |  |
+| `pov_book` | `list` | No |  |
+| `spouse` | `str` | No |  |
+| `title` | `list` | No |  |
+| `tv_series` | `list` | No |  |
+| `url` | `str` | No |  |
 
 ### Operations
 
-#### `list(reqmatch, ctrl=None) -> list`
+#### `list(reqmatch=None, ctrl=None) -> list`
 
-List entities matching the given criteria. Returns a list and raises on error.
+List entities matching the given criteria. The match is optional — call `list()` with no argument to list all records. Returns a list and raises on error.
 
 ```python
-results = client.Character().list({})
+results = client.Character().list()
 for character in results:
     print(character)
 ```
@@ -241,31 +241,31 @@ house = client.House()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `ancestral_weapon` | ``$ARRAY`` | No |  |
-| `cadet_branch` | ``$ARRAY`` | No |  |
-| `coat_of_arm` | ``$STRING`` | No |  |
-| `current_lord` | ``$STRING`` | No |  |
-| `died_out` | ``$STRING`` | No |  |
-| `founded` | ``$STRING`` | No |  |
-| `founder` | ``$STRING`` | No |  |
-| `heir` | ``$STRING`` | No |  |
-| `name` | ``$STRING`` | No |  |
-| `overlord` | ``$STRING`` | No |  |
-| `region` | ``$STRING`` | No |  |
-| `seat` | ``$ARRAY`` | No |  |
-| `sworn_member` | ``$ARRAY`` | No |  |
-| `title` | ``$ARRAY`` | No |  |
-| `url` | ``$STRING`` | No |  |
-| `word` | ``$STRING`` | No |  |
+| `ancestral_weapon` | `list` | No |  |
+| `cadet_branch` | `list` | No |  |
+| `coat_of_arm` | `str` | No |  |
+| `current_lord` | `str` | No |  |
+| `died_out` | `str` | No |  |
+| `founded` | `str` | No |  |
+| `founder` | `str` | No |  |
+| `heir` | `str` | No |  |
+| `name` | `str` | No |  |
+| `overlord` | `str` | No |  |
+| `region` | `str` | No |  |
+| `seat` | `list` | No |  |
+| `sworn_member` | `list` | No |  |
+| `title` | `list` | No |  |
+| `url` | `str` | No |  |
+| `word` | `str` | No |  |
 
 ### Operations
 
-#### `list(reqmatch, ctrl=None) -> list`
+#### `list(reqmatch=None, ctrl=None) -> list`
 
-List entities matching the given criteria. Returns a list and raises on error.
+List entities matching the given criteria. The match is optional — call `list()` with no argument to list all records. Returns a list and raises on error.
 
 ```python
-results = client.House().list({})
+results = client.House().list()
 for house in results:
     print(house)
 ```

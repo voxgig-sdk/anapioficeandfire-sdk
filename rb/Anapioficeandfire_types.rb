@@ -66,7 +66,7 @@ BookLoadMatch = Struct.new(
   keyword_init: true
 )
 
-# Match filter for Book#list (any subset of Book fields).
+# Request payload for Book#list.
 #
 # @!attribute [rw] author
 #   @return [Array, nil]
@@ -189,7 +189,7 @@ CharacterLoadMatch = Struct.new(
   keyword_init: true
 )
 
-# Match filter for Character#list (any subset of Character fields).
+# Request payload for Character#list.
 #
 # @!attribute [rw] alias
 #   @return [Array, nil]
@@ -332,7 +332,7 @@ HouseLoadMatch = Struct.new(
   keyword_init: true
 )
 
-# Match filter for House#list (any subset of House fields).
+# Request payload for House#list.
 #
 # @!attribute [rw] ancestral_weapon
 #   @return [Array, nil]

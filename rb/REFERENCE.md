@@ -8,7 +8,7 @@ Complete API reference for the Anapioficeandfire Ruby SDK.
 ### Constructor
 
 ```ruby
-require_relative 'anapioficeandfire_sdk'
+require_relative 'Anapioficeandfire_sdk'
 
 client = AnapioficeandfireSDK.new(options)
 ```
@@ -101,26 +101,26 @@ book = client.Book
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `author` | ``$ARRAY`` | No |  |
-| `character` | ``$ARRAY`` | No |  |
-| `country` | ``$STRING`` | No |  |
-| `isbn` | ``$STRING`` | No |  |
-| `media_type` | ``$STRING`` | No |  |
-| `name` | ``$STRING`` | No |  |
-| `number_of_page` | ``$INTEGER`` | No |  |
-| `pov_character` | ``$ARRAY`` | No |  |
-| `publisher` | ``$STRING`` | No |  |
-| `released` | ``$STRING`` | No |  |
-| `url` | ``$STRING`` | No |  |
+| `author` | `Array` | No |  |
+| `character` | `Array` | No |  |
+| `country` | `String` | No |  |
+| `isbn` | `String` | No |  |
+| `media_type` | `String` | No |  |
+| `name` | `String` | No |  |
+| `number_of_page` | `Integer` | No |  |
+| `pov_character` | `Array` | No |  |
+| `publisher` | `String` | No |  |
+| `released` | `String` | No |  |
+| `url` | `String` | No |  |
 
 ### Operations
 
-#### `list(reqmatch, ctrl = nil) -> Array`
+#### `list(reqmatch = nil, ctrl = nil) -> Array`
 
-List entities matching the given criteria. Returns an array. Raises on error.
+List entities matching the given criteria (call with no argument to list all). Returns an array. Raises on error.
 
 ```ruby
-results = client.Book.list(nil)
+results = client.Book.list
 ```
 
 #### `load(reqmatch, ctrl = nil) -> result`
@@ -171,30 +171,30 @@ character = client.Character
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `alias` | ``$ARRAY`` | No |  |
-| `allegiance` | ``$ARRAY`` | No |  |
-| `book` | ``$ARRAY`` | No |  |
-| `born` | ``$STRING`` | No |  |
-| `culture` | ``$STRING`` | No |  |
-| `died` | ``$STRING`` | No |  |
-| `father` | ``$STRING`` | No |  |
-| `mother` | ``$STRING`` | No |  |
-| `name` | ``$STRING`` | No |  |
-| `played_by` | ``$ARRAY`` | No |  |
-| `pov_book` | ``$ARRAY`` | No |  |
-| `spouse` | ``$STRING`` | No |  |
-| `title` | ``$ARRAY`` | No |  |
-| `tv_series` | ``$ARRAY`` | No |  |
-| `url` | ``$STRING`` | No |  |
+| `alias` | `Array` | No |  |
+| `allegiance` | `Array` | No |  |
+| `book` | `Array` | No |  |
+| `born` | `String` | No |  |
+| `culture` | `String` | No |  |
+| `died` | `String` | No |  |
+| `father` | `String` | No |  |
+| `mother` | `String` | No |  |
+| `name` | `String` | No |  |
+| `played_by` | `Array` | No |  |
+| `pov_book` | `Array` | No |  |
+| `spouse` | `String` | No |  |
+| `title` | `Array` | No |  |
+| `tv_series` | `Array` | No |  |
+| `url` | `String` | No |  |
 
 ### Operations
 
-#### `list(reqmatch, ctrl = nil) -> Array`
+#### `list(reqmatch = nil, ctrl = nil) -> Array`
 
-List entities matching the given criteria. Returns an array. Raises on error.
+List entities matching the given criteria (call with no argument to list all). Returns an array. Raises on error.
 
 ```ruby
-results = client.Character.list(nil)
+results = client.Character.list
 ```
 
 #### `load(reqmatch, ctrl = nil) -> result`
@@ -245,31 +245,31 @@ house = client.House
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `ancestral_weapon` | ``$ARRAY`` | No |  |
-| `cadet_branch` | ``$ARRAY`` | No |  |
-| `coat_of_arm` | ``$STRING`` | No |  |
-| `current_lord` | ``$STRING`` | No |  |
-| `died_out` | ``$STRING`` | No |  |
-| `founded` | ``$STRING`` | No |  |
-| `founder` | ``$STRING`` | No |  |
-| `heir` | ``$STRING`` | No |  |
-| `name` | ``$STRING`` | No |  |
-| `overlord` | ``$STRING`` | No |  |
-| `region` | ``$STRING`` | No |  |
-| `seat` | ``$ARRAY`` | No |  |
-| `sworn_member` | ``$ARRAY`` | No |  |
-| `title` | ``$ARRAY`` | No |  |
-| `url` | ``$STRING`` | No |  |
-| `word` | ``$STRING`` | No |  |
+| `ancestral_weapon` | `Array` | No |  |
+| `cadet_branch` | `Array` | No |  |
+| `coat_of_arm` | `String` | No |  |
+| `current_lord` | `String` | No |  |
+| `died_out` | `String` | No |  |
+| `founded` | `String` | No |  |
+| `founder` | `String` | No |  |
+| `heir` | `String` | No |  |
+| `name` | `String` | No |  |
+| `overlord` | `String` | No |  |
+| `region` | `String` | No |  |
+| `seat` | `Array` | No |  |
+| `sworn_member` | `Array` | No |  |
+| `title` | `Array` | No |  |
+| `url` | `String` | No |  |
+| `word` | `String` | No |  |
 
 ### Operations
 
-#### `list(reqmatch, ctrl = nil) -> Array`
+#### `list(reqmatch = nil, ctrl = nil) -> Array`
 
-List entities matching the given criteria. Returns an array. Raises on error.
+List entities matching the given criteria (call with no argument to list all). Returns an array. Raises on error.
 
 ```ruby
-results = client.House.list(nil)
+results = client.House.list
 ```
 
 #### `load(reqmatch, ctrl = nil) -> result`

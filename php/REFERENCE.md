@@ -53,11 +53,11 @@ Create a new `CharacterEntity` instance. Pass `null` for no initial data.
 
 Create a new `HouseEntity` instance. Pass `null` for no initial data.
 
-#### `optionsMap(): array`
+#### `options_map(): array`
 
 Return a deep copy of the current SDK options.
 
-#### `getUtility(): ProjectNameUtility`
+#### `get_utility(): AnapioficeandfireUtility`
 
 Return a copy of the SDK utility object.
 
@@ -100,26 +100,26 @@ $book = $client->Book();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `author` | ``$ARRAY`` | No |  |
-| `character` | ``$ARRAY`` | No |  |
-| `country` | ``$STRING`` | No |  |
-| `isbn` | ``$STRING`` | No |  |
-| `media_type` | ``$STRING`` | No |  |
-| `name` | ``$STRING`` | No |  |
-| `number_of_page` | ``$INTEGER`` | No |  |
-| `pov_character` | ``$ARRAY`` | No |  |
-| `publisher` | ``$STRING`` | No |  |
-| `released` | ``$STRING`` | No |  |
-| `url` | ``$STRING`` | No |  |
+| `author` | `array` | No |  |
+| `character` | `array` | No |  |
+| `country` | `string` | No |  |
+| `isbn` | `string` | No |  |
+| `media_type` | `string` | No |  |
+| `name` | `string` | No |  |
+| `number_of_page` | `int` | No |  |
+| `pov_character` | `array` | No |  |
+| `publisher` | `string` | No |  |
+| `released` | `string` | No |  |
+| `url` | `string` | No |  |
 
 ### Operations
 
-#### `list(array $reqmatch, ?array $ctrl = null): mixed`
+#### `list(?array $reqmatch = null, ?array $ctrl = null): mixed`
 
-List entities matching the given criteria. Returns an array. Throws on error.
+List entities matching the given criteria (call with no argument to list all). Returns an array. Throws on error.
 
 ```php
-$results = $client->Book()->list([]);
+$results = $client->Book()->list();
 ```
 
 #### `load(array $reqmatch, ?array $ctrl = null): mixed`
@@ -132,19 +132,19 @@ $result = $client->Book()->load(["id" => "book_id"]);
 
 ### Common Methods
 
-#### `dataGet(): array`
+#### `data_get(): array`
 
 Get the entity data. Returns a copy of the current data.
 
-#### `dataSet($data): void`
+#### `data_set($data): void`
 
 Set the entity data.
 
-#### `matchGet(): array`
+#### `match_get(): array`
 
 Get the entity match criteria.
 
-#### `matchSet($match): void`
+#### `match_set($match): void`
 
 Set the entity match criteria.
 
@@ -153,7 +153,7 @@ Set the entity match criteria.
 Create a new `BookEntity` instance with the same client and
 options.
 
-#### `getName(): string`
+#### `get_name(): string`
 
 Return the entity name.
 
@@ -170,30 +170,30 @@ $character = $client->Character();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `alias` | ``$ARRAY`` | No |  |
-| `allegiance` | ``$ARRAY`` | No |  |
-| `book` | ``$ARRAY`` | No |  |
-| `born` | ``$STRING`` | No |  |
-| `culture` | ``$STRING`` | No |  |
-| `died` | ``$STRING`` | No |  |
-| `father` | ``$STRING`` | No |  |
-| `mother` | ``$STRING`` | No |  |
-| `name` | ``$STRING`` | No |  |
-| `played_by` | ``$ARRAY`` | No |  |
-| `pov_book` | ``$ARRAY`` | No |  |
-| `spouse` | ``$STRING`` | No |  |
-| `title` | ``$ARRAY`` | No |  |
-| `tv_series` | ``$ARRAY`` | No |  |
-| `url` | ``$STRING`` | No |  |
+| `alias` | `array` | No |  |
+| `allegiance` | `array` | No |  |
+| `book` | `array` | No |  |
+| `born` | `string` | No |  |
+| `culture` | `string` | No |  |
+| `died` | `string` | No |  |
+| `father` | `string` | No |  |
+| `mother` | `string` | No |  |
+| `name` | `string` | No |  |
+| `played_by` | `array` | No |  |
+| `pov_book` | `array` | No |  |
+| `spouse` | `string` | No |  |
+| `title` | `array` | No |  |
+| `tv_series` | `array` | No |  |
+| `url` | `string` | No |  |
 
 ### Operations
 
-#### `list(array $reqmatch, ?array $ctrl = null): mixed`
+#### `list(?array $reqmatch = null, ?array $ctrl = null): mixed`
 
-List entities matching the given criteria. Returns an array. Throws on error.
+List entities matching the given criteria (call with no argument to list all). Returns an array. Throws on error.
 
 ```php
-$results = $client->Character()->list([]);
+$results = $client->Character()->list();
 ```
 
 #### `load(array $reqmatch, ?array $ctrl = null): mixed`
@@ -206,19 +206,19 @@ $result = $client->Character()->load(["id" => "character_id"]);
 
 ### Common Methods
 
-#### `dataGet(): array`
+#### `data_get(): array`
 
 Get the entity data. Returns a copy of the current data.
 
-#### `dataSet($data): void`
+#### `data_set($data): void`
 
 Set the entity data.
 
-#### `matchGet(): array`
+#### `match_get(): array`
 
 Get the entity match criteria.
 
-#### `matchSet($match): void`
+#### `match_set($match): void`
 
 Set the entity match criteria.
 
@@ -227,7 +227,7 @@ Set the entity match criteria.
 Create a new `CharacterEntity` instance with the same client and
 options.
 
-#### `getName(): string`
+#### `get_name(): string`
 
 Return the entity name.
 
@@ -244,31 +244,31 @@ $house = $client->House();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `ancestral_weapon` | ``$ARRAY`` | No |  |
-| `cadet_branch` | ``$ARRAY`` | No |  |
-| `coat_of_arm` | ``$STRING`` | No |  |
-| `current_lord` | ``$STRING`` | No |  |
-| `died_out` | ``$STRING`` | No |  |
-| `founded` | ``$STRING`` | No |  |
-| `founder` | ``$STRING`` | No |  |
-| `heir` | ``$STRING`` | No |  |
-| `name` | ``$STRING`` | No |  |
-| `overlord` | ``$STRING`` | No |  |
-| `region` | ``$STRING`` | No |  |
-| `seat` | ``$ARRAY`` | No |  |
-| `sworn_member` | ``$ARRAY`` | No |  |
-| `title` | ``$ARRAY`` | No |  |
-| `url` | ``$STRING`` | No |  |
-| `word` | ``$STRING`` | No |  |
+| `ancestral_weapon` | `array` | No |  |
+| `cadet_branch` | `array` | No |  |
+| `coat_of_arm` | `string` | No |  |
+| `current_lord` | `string` | No |  |
+| `died_out` | `string` | No |  |
+| `founded` | `string` | No |  |
+| `founder` | `string` | No |  |
+| `heir` | `string` | No |  |
+| `name` | `string` | No |  |
+| `overlord` | `string` | No |  |
+| `region` | `string` | No |  |
+| `seat` | `array` | No |  |
+| `sworn_member` | `array` | No |  |
+| `title` | `array` | No |  |
+| `url` | `string` | No |  |
+| `word` | `string` | No |  |
 
 ### Operations
 
-#### `list(array $reqmatch, ?array $ctrl = null): mixed`
+#### `list(?array $reqmatch = null, ?array $ctrl = null): mixed`
 
-List entities matching the given criteria. Returns an array. Throws on error.
+List entities matching the given criteria (call with no argument to list all). Returns an array. Throws on error.
 
 ```php
-$results = $client->House()->list([]);
+$results = $client->House()->list();
 ```
 
 #### `load(array $reqmatch, ?array $ctrl = null): mixed`
@@ -281,19 +281,19 @@ $result = $client->House()->load(["id" => "house_id"]);
 
 ### Common Methods
 
-#### `dataGet(): array`
+#### `data_get(): array`
 
 Get the entity data. Returns a copy of the current data.
 
-#### `dataSet($data): void`
+#### `data_set($data): void`
 
 Set the entity data.
 
-#### `matchGet(): array`
+#### `match_get(): array`
 
 Get the entity match criteria.
 
-#### `matchSet($match): void`
+#### `match_set($match): void`
 
 Set the entity match criteria.
 
@@ -302,7 +302,7 @@ Set the entity match criteria.
 Create a new `HouseEntity` instance with the same client and
 options.
 
-#### `getName(): string`
+#### `get_name(): string`
 
 Return the entity name.
 

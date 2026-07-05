@@ -4,6 +4,11 @@
 
 The Python SDK for the Anapioficeandfire API — an entity-oriented client following Pythonic conventions.
 
+The SDK exposes the API as capitalised, semantic **Entities** — for example `client.Book()` — each
+carrying a small, uniform set of operations (`list`, `load`) instead of raw URL
+paths and query strings. You work with named resources and verbs, which
+keeps the cognitive load low.
+
 > Other languages, the CLI, and MCP server live alongside this one — see
 > the [top-level README](../README.md).
 
@@ -38,7 +43,7 @@ error — iterate it directly.
 
 ```python
 try:
-    books = client.Book().list({})
+    books = client.Book().list()
     for book in books:
         print(book)
 except Exception as err:
@@ -55,6 +60,34 @@ try:
     print(book)
 except Exception as err:
     print(f"load failed: {err}")
+```
+
+
+## Error handling
+
+Entity operations raise on failure, so wrap them in `try` / `except`:
+
+```python
+try:
+    books = client.Book().list()
+    print(books)
+except Exception as err:
+    print(f"list failed: {err}")
+```
+
+`direct()` does **not** raise — it returns the result envelope. Branch
+on `ok`; on failure `status` holds the HTTP status (for error responses)
+and `err` holds a transport error, so read both defensively:
+
+```python
+result = client.direct({
+    "path": "/api/resource/{id}",
+    "method": "GET",
+    "params": {"id": "example_id"},
+})
+
+if not result["ok"]:
+    print("request failed:", result.get("status"), result.get("err"))
 ```
 
 
@@ -75,7 +108,10 @@ if result["ok"]:
     print(result["status"])  # 200
     print(result["data"])    # response body
 else:
-    print(result["err"])     # error value
+    # A non-2xx response carries status + data (the error body); a
+    # transport-level failure carries err instead. Only one is present, so
+    # read both with .get() rather than indexing a key that may be absent.
+    print(result.get("status"), result.get("err"))
 ```
 
 ### Prepare a request without sending it
@@ -101,7 +137,7 @@ Create a mock client for unit testing — no server required:
 client = AnapioficeandfireSDK.test()
 
 # Entity ops return the bare record and raise on error.
-book = client.Book().load({"id": "test01"})
+book = client.Book().list()
 # book contains the mock response record
 ```
 
@@ -190,9 +226,6 @@ All entities share the same interface.
 | --- | --- | --- |
 | `load` | `(reqmatch, ctrl) -> any` | Load a single entity by match criteria. Raises on error. |
 | `list` | `(reqmatch, ctrl) -> list` | List entities matching the criteria. Raises on error. |
-| `create` | `(reqdata, ctrl) -> any` | Create a new entity. Raises on error. |
-| `update` | `(reqdata, ctrl) -> any` | Update an existing entity. Raises on error. |
-| `remove` | `(reqmatch, ctrl) -> any` | Remove an entity. Raises on error. |
 | `data_get` | `() -> dict` | Get entity data. |
 | `data_set` | `(data)` | Set entity data. |
 | `match_get` | `() -> dict` | Get entity match criteria. |
@@ -302,24 +335,24 @@ Create an instance: `book = client.Book()`
 
 | Method | Description |
 | --- | --- |
-| `list(match)` | List entities matching the criteria. |
+| `list()` | List entities, optionally matching the given criteria. |
 | `load(match)` | Load a single entity by match criteria. |
 
 #### Fields
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `author` | ``$ARRAY`` |  |
-| `character` | ``$ARRAY`` |  |
-| `country` | ``$STRING`` |  |
-| `isbn` | ``$STRING`` |  |
-| `media_type` | ``$STRING`` |  |
-| `name` | ``$STRING`` |  |
-| `number_of_page` | ``$INTEGER`` |  |
-| `pov_character` | ``$ARRAY`` |  |
-| `publisher` | ``$STRING`` |  |
-| `released` | ``$STRING`` |  |
-| `url` | ``$STRING`` |  |
+| `author` | `list` |  |
+| `character` | `list` |  |
+| `country` | `str` |  |
+| `isbn` | `str` |  |
+| `media_type` | `str` |  |
+| `name` | `str` |  |
+| `number_of_page` | `int` |  |
+| `pov_character` | `list` |  |
+| `publisher` | `str` |  |
+| `released` | `str` |  |
+| `url` | `str` |  |
 
 #### Example: Load
 
@@ -330,7 +363,7 @@ book = client.Book().load({"id": "book_id"})
 #### Example: List
 
 ```python
-books = client.Book().list({})
+books = client.Book().list()
 ```
 
 
@@ -342,28 +375,28 @@ Create an instance: `character = client.Character()`
 
 | Method | Description |
 | --- | --- |
-| `list(match)` | List entities matching the criteria. |
+| `list()` | List entities, optionally matching the given criteria. |
 | `load(match)` | Load a single entity by match criteria. |
 
 #### Fields
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `alias` | ``$ARRAY`` |  |
-| `allegiance` | ``$ARRAY`` |  |
-| `book` | ``$ARRAY`` |  |
-| `born` | ``$STRING`` |  |
-| `culture` | ``$STRING`` |  |
-| `died` | ``$STRING`` |  |
-| `father` | ``$STRING`` |  |
-| `mother` | ``$STRING`` |  |
-| `name` | ``$STRING`` |  |
-| `played_by` | ``$ARRAY`` |  |
-| `pov_book` | ``$ARRAY`` |  |
-| `spouse` | ``$STRING`` |  |
-| `title` | ``$ARRAY`` |  |
-| `tv_series` | ``$ARRAY`` |  |
-| `url` | ``$STRING`` |  |
+| `alias` | `list` |  |
+| `allegiance` | `list` |  |
+| `book` | `list` |  |
+| `born` | `str` |  |
+| `culture` | `str` |  |
+| `died` | `str` |  |
+| `father` | `str` |  |
+| `mother` | `str` |  |
+| `name` | `str` |  |
+| `played_by` | `list` |  |
+| `pov_book` | `list` |  |
+| `spouse` | `str` |  |
+| `title` | `list` |  |
+| `tv_series` | `list` |  |
+| `url` | `str` |  |
 
 #### Example: Load
 
@@ -374,7 +407,7 @@ character = client.Character().load({"id": "character_id"})
 #### Example: List
 
 ```python
-characters = client.Character().list({})
+characters = client.Character().list()
 ```
 
 
@@ -386,29 +419,29 @@ Create an instance: `house = client.House()`
 
 | Method | Description |
 | --- | --- |
-| `list(match)` | List entities matching the criteria. |
+| `list()` | List entities, optionally matching the given criteria. |
 | `load(match)` | Load a single entity by match criteria. |
 
 #### Fields
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `ancestral_weapon` | ``$ARRAY`` |  |
-| `cadet_branch` | ``$ARRAY`` |  |
-| `coat_of_arm` | ``$STRING`` |  |
-| `current_lord` | ``$STRING`` |  |
-| `died_out` | ``$STRING`` |  |
-| `founded` | ``$STRING`` |  |
-| `founder` | ``$STRING`` |  |
-| `heir` | ``$STRING`` |  |
-| `name` | ``$STRING`` |  |
-| `overlord` | ``$STRING`` |  |
-| `region` | ``$STRING`` |  |
-| `seat` | ``$ARRAY`` |  |
-| `sworn_member` | ``$ARRAY`` |  |
-| `title` | ``$ARRAY`` |  |
-| `url` | ``$STRING`` |  |
-| `word` | ``$STRING`` |  |
+| `ancestral_weapon` | `list` |  |
+| `cadet_branch` | `list` |  |
+| `coat_of_arm` | `str` |  |
+| `current_lord` | `str` |  |
+| `died_out` | `str` |  |
+| `founded` | `str` |  |
+| `founder` | `str` |  |
+| `heir` | `str` |  |
+| `name` | `str` |  |
+| `overlord` | `str` |  |
+| `region` | `str` |  |
+| `seat` | `list` |  |
+| `sworn_member` | `list` |  |
+| `title` | `list` |  |
+| `url` | `str` |  |
+| `word` | `str` |  |
 
 #### Example: Load
 
@@ -419,16 +452,20 @@ house = client.House().load({"id": "house_id"})
 #### Example: List
 
 ```python
-houses = client.House().list({})
+houses = client.House().list()
 ```
 
 
-## Explanation
+## Advanced
+
+> The sections above cover everyday use. The material below explains the
+> SDK's internals — useful when extending it with custom features, but not
+> needed for normal use.
 
 ### The operation pipeline
 
-Every entity operation (load, list, create, update, remove) follows a
-six-stage pipeline. Each stage fires a feature hook before executing:
+Every entity operation follows a six-stage pipeline. Each stage fires a
+feature hook before executing:
 
 ```
 PrePoint → PreSpec → PreRequest → PreResponse → PreResult → PreDone
@@ -445,8 +482,9 @@ PrePoint → PreSpec → PreRequest → PreResponse → PreResult → PreDone
 - **PreDone**: Final stage before returning to the caller. Entity
   state (match, data) is updated here.
 
-If any stage returns an error, the pipeline short-circuits and the
-error is returned to the caller as the second element in the return tuple.
+If any stage errors, the pipeline short-circuits and the error surfaces
+to the caller — see [Error handling](#error-handling) for how that looks
+in this language.
 
 ### Features and hooks
 
@@ -489,14 +527,14 @@ Import entity or utility modules directly only when needed.
 
 ### Entity state
 
-Entity instances are stateful. After a successful `load`, the entity
+Entity instances are stateful. After a successful `list`, the entity
 stores the returned data and match criteria internally.
 
 ```python
 book = client.Book()
-book.load({"id": "example_id"})
+book.list()
 
-# book.data_get() now returns the loaded book data
+# book.data_get() now returns the book data from the last list
 # book.match_get() returns the last match criteria
 ```
 

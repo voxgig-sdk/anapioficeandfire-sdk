@@ -23,7 +23,19 @@ export interface BookLoadMatch {
   id: number
 }
 
-export type BookListMatch = Partial<Book>
+export interface BookListMatch {
+  author?: any[]
+  character?: any[]
+  country?: string
+  isbn?: string
+  media_type?: string
+  name?: string
+  number_of_page?: number
+  pov_character?: any[]
+  publisher?: string
+  released?: string
+  url?: string
+}
 
 export interface Character {
   alias?: any[]
@@ -47,7 +59,23 @@ export interface CharacterLoadMatch {
   id: number
 }
 
-export type CharacterListMatch = Partial<Character>
+export interface CharacterListMatch {
+  alias?: any[]
+  allegiance?: any[]
+  book?: any[]
+  born?: string
+  culture?: string
+  died?: string
+  father?: string
+  mother?: string
+  name?: string
+  played_by?: any[]
+  pov_book?: any[]
+  spouse?: string
+  title?: any[]
+  tv_series?: any[]
+  url?: string
+}
 
 export interface House {
   ancestral_weapon?: any[]
@@ -72,5 +100,22 @@ export interface HouseLoadMatch {
   id: number
 }
 
-export type HouseListMatch = Partial<House>
+export interface HouseListMatch {
+  ancestral_weapon?: any[]
+  cadet_branch?: any[]
+  coat_of_arm?: string
+  current_lord?: string
+  died_out?: string
+  founded?: string
+  founder?: string
+  heir?: string
+  name?: string
+  overlord?: string
+  region?: string
+  seat?: any[]
+  sworn_member?: any[]
+  title?: any[]
+  url?: string
+  word?: string
+}
 

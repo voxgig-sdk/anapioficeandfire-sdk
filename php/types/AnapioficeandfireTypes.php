@@ -34,7 +34,7 @@ class BookLoadMatch
     public int $id;
 }
 
-/** Match filter for Book#list (any subset of Book fields). */
+/** Request payload for Book#list. */
 class BookListMatch
 {
     public ?array $author = null;
@@ -76,7 +76,7 @@ class CharacterLoadMatch
     public int $id;
 }
 
-/** Match filter for Character#list (any subset of Character fields). */
+/** Request payload for Character#list. */
 class CharacterListMatch
 {
     public ?array $alias = null;
@@ -123,7 +123,7 @@ class HouseLoadMatch
     public int $id;
 }
 
-/** Match filter for House#list (any subset of House fields). */
+/** Request payload for House#list. */
 class HouseListMatch
 {
     public ?array $ancestral_weapon = null;

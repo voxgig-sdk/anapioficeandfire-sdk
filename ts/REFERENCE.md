@@ -140,17 +140,17 @@ const book = client.Book()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `author` | ``$ARRAY`` | No |  |
-| `character` | ``$ARRAY`` | No |  |
-| `country` | ``$STRING`` | No |  |
-| `isbn` | ``$STRING`` | No |  |
-| `media_type` | ``$STRING`` | No |  |
-| `name` | ``$STRING`` | No |  |
-| `number_of_page` | ``$INTEGER`` | No |  |
-| `pov_character` | ``$ARRAY`` | No |  |
-| `publisher` | ``$STRING`` | No |  |
-| `released` | ``$STRING`` | No |  |
-| `url` | ``$STRING`` | No |  |
+| `author` | `any[]` | No |  |
+| `character` | `any[]` | No |  |
+| `country` | `string` | No |  |
+| `isbn` | `string` | No |  |
+| `media_type` | `string` | No |  |
+| `name` | `string` | No |  |
+| `number_of_page` | `number` | No |  |
+| `pov_character` | `any[]` | No |  |
+| `publisher` | `string` | No |  |
+| `released` | `string` | No |  |
+| `url` | `string` | No |  |
 
 ### Operations
 
@@ -167,7 +167,7 @@ const results = await client.Book().list()
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.Book().load({ id: 'book_id' })
+const result = await client.Book().load({ id: 1 })
 ```
 
 ### Common Methods
@@ -208,21 +208,21 @@ const character = client.Character()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `alias` | ``$ARRAY`` | No |  |
-| `allegiance` | ``$ARRAY`` | No |  |
-| `book` | ``$ARRAY`` | No |  |
-| `born` | ``$STRING`` | No |  |
-| `culture` | ``$STRING`` | No |  |
-| `died` | ``$STRING`` | No |  |
-| `father` | ``$STRING`` | No |  |
-| `mother` | ``$STRING`` | No |  |
-| `name` | ``$STRING`` | No |  |
-| `played_by` | ``$ARRAY`` | No |  |
-| `pov_book` | ``$ARRAY`` | No |  |
-| `spouse` | ``$STRING`` | No |  |
-| `title` | ``$ARRAY`` | No |  |
-| `tv_series` | ``$ARRAY`` | No |  |
-| `url` | ``$STRING`` | No |  |
+| `alias` | `any[]` | No |  |
+| `allegiance` | `any[]` | No |  |
+| `book` | `any[]` | No |  |
+| `born` | `string` | No |  |
+| `culture` | `string` | No |  |
+| `died` | `string` | No |  |
+| `father` | `string` | No |  |
+| `mother` | `string` | No |  |
+| `name` | `string` | No |  |
+| `played_by` | `any[]` | No |  |
+| `pov_book` | `any[]` | No |  |
+| `spouse` | `string` | No |  |
+| `title` | `any[]` | No |  |
+| `tv_series` | `any[]` | No |  |
+| `url` | `string` | No |  |
 
 ### Operations
 
@@ -239,7 +239,7 @@ const results = await client.Character().list()
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.Character().load({ id: 'character_id' })
+const result = await client.Character().load({ id: 1 })
 ```
 
 ### Common Methods
@@ -280,22 +280,22 @@ const house = client.House()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `ancestral_weapon` | ``$ARRAY`` | No |  |
-| `cadet_branch` | ``$ARRAY`` | No |  |
-| `coat_of_arm` | ``$STRING`` | No |  |
-| `current_lord` | ``$STRING`` | No |  |
-| `died_out` | ``$STRING`` | No |  |
-| `founded` | ``$STRING`` | No |  |
-| `founder` | ``$STRING`` | No |  |
-| `heir` | ``$STRING`` | No |  |
-| `name` | ``$STRING`` | No |  |
-| `overlord` | ``$STRING`` | No |  |
-| `region` | ``$STRING`` | No |  |
-| `seat` | ``$ARRAY`` | No |  |
-| `sworn_member` | ``$ARRAY`` | No |  |
-| `title` | ``$ARRAY`` | No |  |
-| `url` | ``$STRING`` | No |  |
-| `word` | ``$STRING`` | No |  |
+| `ancestral_weapon` | `any[]` | No |  |
+| `cadet_branch` | `any[]` | No |  |
+| `coat_of_arm` | `string` | No |  |
+| `current_lord` | `string` | No |  |
+| `died_out` | `string` | No |  |
+| `founded` | `string` | No |  |
+| `founder` | `string` | No |  |
+| `heir` | `string` | No |  |
+| `name` | `string` | No |  |
+| `overlord` | `string` | No |  |
+| `region` | `string` | No |  |
+| `seat` | `any[]` | No |  |
+| `sworn_member` | `any[]` | No |  |
+| `title` | `any[]` | No |  |
+| `url` | `string` | No |  |
+| `word` | `string` | No |  |
 
 ### Operations
 
@@ -312,7 +312,7 @@ const results = await client.House().list()
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.House().load({ id: 'house_id' })
+const result = await client.House().load({ id: 1 })
 ```
 
 ### Common Methods
