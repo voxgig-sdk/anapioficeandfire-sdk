@@ -6,9 +6,6 @@
     },
     "kit": {
       "config": {
-        "auth": {
-          "prefix": "Bearer"
-        },
         "docs_order": [
           "ts",
           "py",
@@ -845,14 +842,17 @@
           "url": "https://anapioficeandfire.com/"
         },
         "description": "API providing data from the universe of Ice and Fire (Game of Thrones) including characters, houses, and books. Open source and accessible through HTTP with SDKs available in multiple languages.",
+        "meta_source": "https://www.freepublicapis.com",
         "servers": [
           {
             "description": "Production server",
             "url": "https://anapioficeandfire.com/api"
           }
         ],
+        "summary": "API providing data from the universe of Ice and Fire (Game of Thrones) including characters, houses, and books.",
         "title": "AnApiOfIceAndFire",
-        "version": "1.0.0"
+        "version": "1.0.0",
+        "website": "https://anapioficeandfire.com"
       },
       "option": {},
       "target": {
@@ -905,6 +905,9 @@
           },
           "name": "go-cli",
           "phase": {
+            "agentguide": {
+              "active": false
+            },
             "entity": {
               "active": false
             },
@@ -955,6 +958,9 @@
           },
           "name": "go-mcp",
           "phase": {
+            "agentguide": {
+              "active": false
+            },
             "entity": {
               "active": false
             },

@@ -16,9 +16,9 @@ main: {
           url: "https://anapioficeandfire.com/api"
         }
       ]
+      summary: "API providing data from the universe of Ice and Fire (Game of Thrones) including characters, houses, and books."
       title: "AnApiOfIceAndFire"
       version: "1.0.0"
+      website: "https://anapioficeandfire.com"
     }
   }
-}
-

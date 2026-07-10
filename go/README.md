@@ -371,7 +371,7 @@ Create an instance: `book := client.Book(nil)`
 #### Example: Load
 
 ```go
-book, err := client.Book(nil).Load(map[string]any{"id": "book_id"}, nil)
+book, err := client.Book(nil).Load(map[string]any{"id": 1}, nil)
 if err != nil {
     panic(err)
 }
@@ -423,7 +423,7 @@ Create an instance: `character := client.Character(nil)`
 #### Example: Load
 
 ```go
-character, err := client.Character(nil).Load(map[string]any{"id": "character_id"}, nil)
+character, err := client.Character(nil).Load(map[string]any{"id": 1}, nil)
 if err != nil {
     panic(err)
 }
@@ -476,7 +476,7 @@ Create an instance: `house := client.House(nil)`
 #### Example: Load
 
 ```go
-house, err := client.House(nil).Load(map[string]any{"id": "house_id"}, nil)
+house, err := client.House(nil).Load(map[string]any{"id": 1}, nil)
 if err != nil {
     panic(err)
 }

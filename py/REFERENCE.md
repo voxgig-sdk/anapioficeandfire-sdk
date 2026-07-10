@@ -124,7 +124,7 @@ for book in results:
 Load a single entity matching the given criteria. Returns the entity data and raises on error.
 
 ```python
-result = client.Book().load({"id": "book_id"})
+result = client.Book().load({"id": 1})
 ```
 
 ### Common Methods
@@ -199,7 +199,7 @@ for character in results:
 Load a single entity matching the given criteria. Returns the entity data and raises on error.
 
 ```python
-result = client.Character().load({"id": "character_id"})
+result = client.Character().load({"id": 1})
 ```
 
 ### Common Methods
@@ -275,7 +275,7 @@ for house in results:
 Load a single entity matching the given criteria. Returns the entity data and raises on error.
 
 ```python
-result = client.House().load({"id": "house_id"})
+result = client.House().load({"id": 1})
 ```
 
 ### Common Methods
