@@ -1,4 +1,4 @@
--- ProjectName SDK exists test
+-- Anapioficeandfire SDK exists test
 
 local sdk = require("anapioficeandfire_sdk")
 

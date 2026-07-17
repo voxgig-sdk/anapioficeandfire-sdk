@@ -1,4 +1,4 @@
--- ProjectName SDK configuration
+-- Anapioficeandfire SDK configuration
 
 local function make_config()
   return {
