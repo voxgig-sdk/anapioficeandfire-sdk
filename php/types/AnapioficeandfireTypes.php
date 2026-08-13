@@ -15,14 +15,14 @@ declare(strict_types=1);
 /** Book entity data model. */
 class Book
 {
-    public ?array $author = null;
-    public ?array $character = null;
+    public ?array $authors = null;
+    public ?array $characters = null;
     public ?string $country = null;
     public ?string $isbn = null;
-    public ?string $media_type = null;
+    public ?string $mediaType = null;
     public ?string $name = null;
-    public ?int $number_of_page = null;
-    public ?array $pov_character = null;
+    public ?int $numberOfPages = null;
+    public ?array $povCharacters = null;
     public ?string $publisher = null;
     public ?string $released = null;
     public ?string $url = null;
@@ -37,14 +37,14 @@ class BookLoadMatch
 /** Request payload for Book#list. */
 class BookListMatch
 {
-    public ?array $author = null;
-    public ?array $character = null;
+    public ?array $authors = null;
+    public ?array $characters = null;
     public ?string $country = null;
     public ?string $isbn = null;
-    public ?string $media_type = null;
+    public ?string $mediaType = null;
     public ?string $name = null;
-    public ?int $number_of_page = null;
-    public ?array $pov_character = null;
+    public ?int $numberOfPages = null;
+    public ?array $povCharacters = null;
     public ?string $publisher = null;
     public ?string $released = null;
     public ?string $url = null;
@@ -53,20 +53,20 @@ class BookListMatch
 /** Character entity data model. */
 class Character
 {
-    public ?array $alias = null;
-    public ?array $allegiance = null;
-    public ?array $book = null;
+    public ?array $aliases = null;
+    public ?array $allegiances = null;
+    public ?array $books = null;
     public ?string $born = null;
     public ?string $culture = null;
     public ?string $died = null;
     public ?string $father = null;
     public ?string $mother = null;
     public ?string $name = null;
-    public ?array $played_by = null;
-    public ?array $pov_book = null;
+    public ?array $playedBy = null;
+    public ?array $povBooks = null;
     public ?string $spouse = null;
-    public ?array $title = null;
-    public ?array $tv_series = null;
+    public ?array $titles = null;
+    public ?array $tvSeries = null;
     public ?string $url = null;
 }
 
@@ -79,42 +79,42 @@ class CharacterLoadMatch
 /** Request payload for Character#list. */
 class CharacterListMatch
 {
-    public ?array $alias = null;
-    public ?array $allegiance = null;
-    public ?array $book = null;
+    public ?array $aliases = null;
+    public ?array $allegiances = null;
+    public ?array $books = null;
     public ?string $born = null;
     public ?string $culture = null;
     public ?string $died = null;
     public ?string $father = null;
     public ?string $mother = null;
     public ?string $name = null;
-    public ?array $played_by = null;
-    public ?array $pov_book = null;
+    public ?array $playedBy = null;
+    public ?array $povBooks = null;
     public ?string $spouse = null;
-    public ?array $title = null;
-    public ?array $tv_series = null;
+    public ?array $titles = null;
+    public ?array $tvSeries = null;
     public ?string $url = null;
 }
 
 /** House entity data model. */
 class House
 {
-    public ?array $ancestral_weapon = null;
-    public ?array $cadet_branch = null;
-    public ?string $coat_of_arm = null;
-    public ?string $current_lord = null;
-    public ?string $died_out = null;
+    public ?array $ancestralWeapons = null;
+    public ?array $cadetBranches = null;
+    public ?string $coatOfArms = null;
+    public ?string $currentLord = null;
+    public ?string $diedOut = null;
     public ?string $founded = null;
     public ?string $founder = null;
     public ?string $heir = null;
     public ?string $name = null;
     public ?string $overlord = null;
     public ?string $region = null;
-    public ?array $seat = null;
-    public ?array $sworn_member = null;
-    public ?array $title = null;
+    public ?array $seats = null;
+    public ?array $swornMembers = null;
+    public ?array $titles = null;
     public ?string $url = null;
-    public ?string $word = null;
+    public ?string $words = null;
 }
 
 /** Request payload for House#load. */
@@ -126,21 +126,21 @@ class HouseLoadMatch
 /** Request payload for House#list. */
 class HouseListMatch
 {
-    public ?array $ancestral_weapon = null;
-    public ?array $cadet_branch = null;
-    public ?string $coat_of_arm = null;
-    public ?string $current_lord = null;
-    public ?string $died_out = null;
+    public ?array $ancestralWeapons = null;
+    public ?array $cadetBranches = null;
+    public ?string $coatOfArms = null;
+    public ?string $currentLord = null;
+    public ?string $diedOut = null;
     public ?string $founded = null;
     public ?string $founder = null;
     public ?string $heir = null;
     public ?string $name = null;
     public ?string $overlord = null;
     public ?string $region = null;
-    public ?array $seat = null;
-    public ?array $sworn_member = null;
-    public ?array $title = null;
+    public ?array $seats = null;
+    public ?array $swornMembers = null;
+    public ?array $titles = null;
     public ?string $url = null;
-    public ?string $word = null;
+    public ?string $words = null;
 }
 

@@ -1,4 +1,4 @@
-# ProjectName SDK exists test
+# Anapioficeandfire SDK exists test
 
 import pytest
 from anapioficeandfire_sdk import AnapioficeandfireSDK

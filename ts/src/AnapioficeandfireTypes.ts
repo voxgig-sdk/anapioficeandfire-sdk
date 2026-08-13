@@ -6,14 +6,14 @@
 // @voxgig/apidef VALID_CANON). Do not edit by hand.
 
 export interface Book {
-  author?: any[]
-  character?: any[]
+  authors?: any[]
+  characters?: any[]
   country?: string
   isbn?: string
-  media_type?: string
+  mediaType?: string
   name?: string
-  number_of_page?: number
-  pov_character?: any[]
+  numberOfPages?: number
+  povCharacters?: any[]
   publisher?: string
   released?: string
   url?: string
@@ -24,34 +24,34 @@ export interface BookLoadMatch {
 }
 
 export interface BookListMatch {
-  author?: any[]
-  character?: any[]
+  authors?: any[]
+  characters?: any[]
   country?: string
   isbn?: string
-  media_type?: string
+  mediaType?: string
   name?: string
-  number_of_page?: number
-  pov_character?: any[]
+  numberOfPages?: number
+  povCharacters?: any[]
   publisher?: string
   released?: string
   url?: string
 }
 
 export interface Character {
-  alias?: any[]
-  allegiance?: any[]
-  book?: any[]
+  aliases?: any[]
+  allegiances?: any[]
+  books?: any[]
   born?: string
   culture?: string
   died?: string
   father?: string
   mother?: string
   name?: string
-  played_by?: any[]
-  pov_book?: any[]
+  playedBy?: any[]
+  povBooks?: any[]
   spouse?: string
-  title?: any[]
-  tv_series?: any[]
+  titles?: any[]
+  tvSeries?: any[]
   url?: string
 }
 
@@ -60,40 +60,40 @@ export interface CharacterLoadMatch {
 }
 
 export interface CharacterListMatch {
-  alias?: any[]
-  allegiance?: any[]
-  book?: any[]
+  aliases?: any[]
+  allegiances?: any[]
+  books?: any[]
   born?: string
   culture?: string
   died?: string
   father?: string
   mother?: string
   name?: string
-  played_by?: any[]
-  pov_book?: any[]
+  playedBy?: any[]
+  povBooks?: any[]
   spouse?: string
-  title?: any[]
-  tv_series?: any[]
+  titles?: any[]
+  tvSeries?: any[]
   url?: string
 }
 
 export interface House {
-  ancestral_weapon?: any[]
-  cadet_branch?: any[]
-  coat_of_arm?: string
-  current_lord?: string
-  died_out?: string
+  ancestralWeapons?: any[]
+  cadetBranches?: any[]
+  coatOfArms?: string
+  currentLord?: string
+  diedOut?: string
   founded?: string
   founder?: string
   heir?: string
   name?: string
   overlord?: string
   region?: string
-  seat?: any[]
-  sworn_member?: any[]
-  title?: any[]
+  seats?: any[]
+  swornMembers?: any[]
+  titles?: any[]
   url?: string
-  word?: string
+  words?: string
 }
 
 export interface HouseLoadMatch {
@@ -101,21 +101,21 @@ export interface HouseLoadMatch {
 }
 
 export interface HouseListMatch {
-  ancestral_weapon?: any[]
-  cadet_branch?: any[]
-  coat_of_arm?: string
-  current_lord?: string
-  died_out?: string
+  ancestralWeapons?: any[]
+  cadetBranches?: any[]
+  coatOfArms?: string
+  currentLord?: string
+  diedOut?: string
   founded?: string
   founder?: string
   heir?: string
   name?: string
   overlord?: string
   region?: string
-  seat?: any[]
-  sworn_member?: any[]
-  title?: any[]
+  seats?: any[]
+  swornMembers?: any[]
+  titles?: any[]
   url?: string
-  word?: string
+  words?: string
 }
 

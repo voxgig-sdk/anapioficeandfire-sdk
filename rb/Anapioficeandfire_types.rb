@@ -10,10 +10,10 @@
 
 # Book entity data model.
 #
-# @!attribute [rw] author
+# @!attribute [rw] authors
 #   @return [Array, nil]
 #
-# @!attribute [rw] character
+# @!attribute [rw] characters
 #   @return [Array, nil]
 #
 # @!attribute [rw] country
@@ -22,16 +22,16 @@
 # @!attribute [rw] isbn
 #   @return [String, nil]
 #
-# @!attribute [rw] media_type
+# @!attribute [rw] mediaType
 #   @return [String, nil]
 #
 # @!attribute [rw] name
 #   @return [String, nil]
 #
-# @!attribute [rw] number_of_page
+# @!attribute [rw] numberOfPages
 #   @return [Integer, nil]
 #
-# @!attribute [rw] pov_character
+# @!attribute [rw] povCharacters
 #   @return [Array, nil]
 #
 # @!attribute [rw] publisher
@@ -43,14 +43,14 @@
 # @!attribute [rw] url
 #   @return [String, nil]
 Book = Struct.new(
-  :author,
-  :character,
+  :authors,
+  :characters,
   :country,
   :isbn,
-  :media_type,
+  :mediaType,
   :name,
-  :number_of_page,
-  :pov_character,
+  :numberOfPages,
+  :povCharacters,
   :publisher,
   :released,
   :url,
@@ -68,10 +68,10 @@ BookLoadMatch = Struct.new(
 
 # Request payload for Book#list.
 #
-# @!attribute [rw] author
+# @!attribute [rw] authors
 #   @return [Array, nil]
 #
-# @!attribute [rw] character
+# @!attribute [rw] characters
 #   @return [Array, nil]
 #
 # @!attribute [rw] country
@@ -80,16 +80,16 @@ BookLoadMatch = Struct.new(
 # @!attribute [rw] isbn
 #   @return [String, nil]
 #
-# @!attribute [rw] media_type
+# @!attribute [rw] mediaType
 #   @return [String, nil]
 #
 # @!attribute [rw] name
 #   @return [String, nil]
 #
-# @!attribute [rw] number_of_page
+# @!attribute [rw] numberOfPages
 #   @return [Integer, nil]
 #
-# @!attribute [rw] pov_character
+# @!attribute [rw] povCharacters
 #   @return [Array, nil]
 #
 # @!attribute [rw] publisher
@@ -101,14 +101,14 @@ BookLoadMatch = Struct.new(
 # @!attribute [rw] url
 #   @return [String, nil]
 BookListMatch = Struct.new(
-  :author,
-  :character,
+  :authors,
+  :characters,
   :country,
   :isbn,
-  :media_type,
+  :mediaType,
   :name,
-  :number_of_page,
-  :pov_character,
+  :numberOfPages,
+  :povCharacters,
   :publisher,
   :released,
   :url,
@@ -117,13 +117,13 @@ BookListMatch = Struct.new(
 
 # Character entity data model.
 #
-# @!attribute [rw] alias
+# @!attribute [rw] aliases
 #   @return [Array, nil]
 #
-# @!attribute [rw] allegiance
+# @!attribute [rw] allegiances
 #   @return [Array, nil]
 #
-# @!attribute [rw] book
+# @!attribute [rw] books
 #   @return [Array, nil]
 #
 # @!attribute [rw] born
@@ -144,38 +144,38 @@ BookListMatch = Struct.new(
 # @!attribute [rw] name
 #   @return [String, nil]
 #
-# @!attribute [rw] played_by
+# @!attribute [rw] playedBy
 #   @return [Array, nil]
 #
-# @!attribute [rw] pov_book
+# @!attribute [rw] povBooks
 #   @return [Array, nil]
 #
 # @!attribute [rw] spouse
 #   @return [String, nil]
 #
-# @!attribute [rw] title
+# @!attribute [rw] titles
 #   @return [Array, nil]
 #
-# @!attribute [rw] tv_series
+# @!attribute [rw] tvSeries
 #   @return [Array, nil]
 #
 # @!attribute [rw] url
 #   @return [String, nil]
 Character = Struct.new(
-  :alias,
-  :allegiance,
-  :book,
+  :aliases,
+  :allegiances,
+  :books,
   :born,
   :culture,
   :died,
   :father,
   :mother,
   :name,
-  :played_by,
-  :pov_book,
+  :playedBy,
+  :povBooks,
   :spouse,
-  :title,
-  :tv_series,
+  :titles,
+  :tvSeries,
   :url,
   keyword_init: true
 )
@@ -191,13 +191,13 @@ CharacterLoadMatch = Struct.new(
 
 # Request payload for Character#list.
 #
-# @!attribute [rw] alias
+# @!attribute [rw] aliases
 #   @return [Array, nil]
 #
-# @!attribute [rw] allegiance
+# @!attribute [rw] allegiances
 #   @return [Array, nil]
 #
-# @!attribute [rw] book
+# @!attribute [rw] books
 #   @return [Array, nil]
 #
 # @!attribute [rw] born
@@ -218,57 +218,57 @@ CharacterLoadMatch = Struct.new(
 # @!attribute [rw] name
 #   @return [String, nil]
 #
-# @!attribute [rw] played_by
+# @!attribute [rw] playedBy
 #   @return [Array, nil]
 #
-# @!attribute [rw] pov_book
+# @!attribute [rw] povBooks
 #   @return [Array, nil]
 #
 # @!attribute [rw] spouse
 #   @return [String, nil]
 #
-# @!attribute [rw] title
+# @!attribute [rw] titles
 #   @return [Array, nil]
 #
-# @!attribute [rw] tv_series
+# @!attribute [rw] tvSeries
 #   @return [Array, nil]
 #
 # @!attribute [rw] url
 #   @return [String, nil]
 CharacterListMatch = Struct.new(
-  :alias,
-  :allegiance,
-  :book,
+  :aliases,
+  :allegiances,
+  :books,
   :born,
   :culture,
   :died,
   :father,
   :mother,
   :name,
-  :played_by,
-  :pov_book,
+  :playedBy,
+  :povBooks,
   :spouse,
-  :title,
-  :tv_series,
+  :titles,
+  :tvSeries,
   :url,
   keyword_init: true
 )
 
 # House entity data model.
 #
-# @!attribute [rw] ancestral_weapon
+# @!attribute [rw] ancestralWeapons
 #   @return [Array, nil]
 #
-# @!attribute [rw] cadet_branch
+# @!attribute [rw] cadetBranches
 #   @return [Array, nil]
 #
-# @!attribute [rw] coat_of_arm
+# @!attribute [rw] coatOfArms
 #   @return [String, nil]
 #
-# @!attribute [rw] current_lord
+# @!attribute [rw] currentLord
 #   @return [String, nil]
 #
-# @!attribute [rw] died_out
+# @!attribute [rw] diedOut
 #   @return [String, nil]
 #
 # @!attribute [rw] founded
@@ -289,37 +289,37 @@ CharacterListMatch = Struct.new(
 # @!attribute [rw] region
 #   @return [String, nil]
 #
-# @!attribute [rw] seat
+# @!attribute [rw] seats
 #   @return [Array, nil]
 #
-# @!attribute [rw] sworn_member
+# @!attribute [rw] swornMembers
 #   @return [Array, nil]
 #
-# @!attribute [rw] title
+# @!attribute [rw] titles
 #   @return [Array, nil]
 #
 # @!attribute [rw] url
 #   @return [String, nil]
 #
-# @!attribute [rw] word
+# @!attribute [rw] words
 #   @return [String, nil]
 House = Struct.new(
-  :ancestral_weapon,
-  :cadet_branch,
-  :coat_of_arm,
-  :current_lord,
-  :died_out,
+  :ancestralWeapons,
+  :cadetBranches,
+  :coatOfArms,
+  :currentLord,
+  :diedOut,
   :founded,
   :founder,
   :heir,
   :name,
   :overlord,
   :region,
-  :seat,
-  :sworn_member,
-  :title,
+  :seats,
+  :swornMembers,
+  :titles,
   :url,
-  :word,
+  :words,
   keyword_init: true
 )
 
@@ -334,19 +334,19 @@ HouseLoadMatch = Struct.new(
 
 # Request payload for House#list.
 #
-# @!attribute [rw] ancestral_weapon
+# @!attribute [rw] ancestralWeapons
 #   @return [Array, nil]
 #
-# @!attribute [rw] cadet_branch
+# @!attribute [rw] cadetBranches
 #   @return [Array, nil]
 #
-# @!attribute [rw] coat_of_arm
+# @!attribute [rw] coatOfArms
 #   @return [String, nil]
 #
-# @!attribute [rw] current_lord
+# @!attribute [rw] currentLord
 #   @return [String, nil]
 #
-# @!attribute [rw] died_out
+# @!attribute [rw] diedOut
 #   @return [String, nil]
 #
 # @!attribute [rw] founded
@@ -367,37 +367,37 @@ HouseLoadMatch = Struct.new(
 # @!attribute [rw] region
 #   @return [String, nil]
 #
-# @!attribute [rw] seat
+# @!attribute [rw] seats
 #   @return [Array, nil]
 #
-# @!attribute [rw] sworn_member
+# @!attribute [rw] swornMembers
 #   @return [Array, nil]
 #
-# @!attribute [rw] title
+# @!attribute [rw] titles
 #   @return [Array, nil]
 #
 # @!attribute [rw] url
 #   @return [String, nil]
 #
-# @!attribute [rw] word
+# @!attribute [rw] words
 #   @return [String, nil]
 HouseListMatch = Struct.new(
-  :ancestral_weapon,
-  :cadet_branch,
-  :coat_of_arm,
-  :current_lord,
-  :died_out,
+  :ancestralWeapons,
+  :cadetBranches,
+  :coatOfArms,
+  :currentLord,
+  :diedOut,
   :founded,
   :founder,
   :heir,
   :name,
   :overlord,
   :region,
-  :seat,
-  :sworn_member,
-  :title,
+  :seats,
+  :swornMembers,
+  :titles,
   :url,
-  :word,
+  :words,
   keyword_init: true
 )
 

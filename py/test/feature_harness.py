@@ -14,12 +14,12 @@ from __future__ import annotations
 
 from urllib.parse import quote
 
-from config import make_config
-from features import _make_feature
-from core.control import AnapioficeandfireControl
-from core.error import AnapioficeandfireError
-from core.result import AnapioficeandfireResult
-from core.spec import AnapioficeandfireSpec
+from anapioficeandfire_sdk.config import make_config
+from anapioficeandfire_sdk.features import _make_feature
+from anapioficeandfire_sdk.core.control import AnapioficeandfireControl
+from anapioficeandfire_sdk.core.error import AnapioficeandfireError
+from anapioficeandfire_sdk.core.result import AnapioficeandfireResult
+from anapioficeandfire_sdk.core.spec import AnapioficeandfireSpec
 
 
 # True when this SDK was generated with the named feature.

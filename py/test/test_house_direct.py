@@ -3,9 +3,9 @@
 import json
 import pytest
 
-from utility.voxgig_struct import voxgig_struct as vs
+from anapioficeandfire_sdk.utility.voxgig_struct import voxgig_struct as vs
 from anapioficeandfire_sdk import AnapioficeandfireSDK
-from core import helpers
+from anapioficeandfire_sdk.core import helpers
 from test import runner
 
 

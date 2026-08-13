@@ -37,7 +37,7 @@ begin
   # list returns an Array of Book records — iterate directly.
   books = client.Book.list
   books.each do |item|
-    puts "#{item["author"]}"
+    puts "#{item["authors"]}"
   end
 rescue => err
   warn "list failed: #{err}"
@@ -48,7 +48,7 @@ end
 
 ```ruby
 begin
-  # load returns the bare Book record (raises on error).
+  # load returns the ENTITY — call data_get for the Book record (raises on error).
   book = client.Book.load({ "id" => 1 })
   puts book
 rescue => err
@@ -63,7 +63,7 @@ Entity operations raise on failure, so rescue them:
 
 ```ruby
 begin
-  books = client.Book.list()
+  houses = client.House.list()
 rescue => err
   warn "list failed: #{err}"
 end
@@ -131,12 +131,13 @@ data via the `entity` option so offline calls resolve without a live server:
 
 ```ruby
 client = AnapioficeandfireSDK.test({
-  "entity" => { "book" => { "test01" => { "id" => "test01" } } },
+  "entity" => { "house" => { "test01" => { "id" => "test01" } } },
 })
 
-# Entity ops return the bare mock record (raises on error).
-book = client.Book.list()
-puts book
+# Entity ops return the ENTITY (raises on error);
+# call data_get for the mock record.
+house = client.House.list()
+puts house
 ```
 
 ### Use a custom fetch function
@@ -254,14 +255,14 @@ returns a result `Hash` with these keys:
 
 | Field | Description |
 | --- | --- |
-| `author` |  |
-| `character` |  |
+| `authors` |  |
+| `characters` |  |
 | `country` |  |
 | `isbn` |  |
-| `media_type` |  |
+| `mediaType` |  |
 | `name` |  |
-| `number_of_page` |  |
-| `pov_character` |  |
+| `numberOfPages` |  |
+| `povCharacters` |  |
 | `publisher` |  |
 | `released` |  |
 | `url` |  |
@@ -274,20 +275,20 @@ API path: `/books`
 
 | Field | Description |
 | --- | --- |
-| `alias` |  |
-| `allegiance` |  |
-| `book` |  |
+| `aliases` |  |
+| `allegiances` |  |
+| `books` |  |
 | `born` |  |
 | `culture` |  |
 | `died` |  |
 | `father` |  |
 | `mother` |  |
 | `name` |  |
-| `played_by` |  |
-| `pov_book` |  |
+| `playedBy` |  |
+| `povBooks` |  |
 | `spouse` |  |
-| `title` |  |
-| `tv_series` |  |
+| `titles` |  |
+| `tvSeries` |  |
 | `url` |  |
 
 Operations: List, Load.
@@ -298,22 +299,22 @@ API path: `/characters`
 
 | Field | Description |
 | --- | --- |
-| `ancestral_weapon` |  |
-| `cadet_branch` |  |
-| `coat_of_arm` |  |
-| `current_lord` |  |
-| `died_out` |  |
+| `ancestralWeapons` |  |
+| `cadetBranches` |  |
+| `coatOfArms` |  |
+| `currentLord` |  |
+| `diedOut` |  |
 | `founded` |  |
 | `founder` |  |
 | `heir` |  |
 | `name` |  |
 | `overlord` |  |
 | `region` |  |
-| `seat` |  |
-| `sworn_member` |  |
-| `title` |  |
+| `seats` |  |
+| `swornMembers` |  |
+| `titles` |  |
 | `url` |  |
-| `word` |  |
+| `words` |  |
 
 Operations: List, Load.
 
@@ -339,14 +340,14 @@ Create an instance: `book = client.Book`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `author` | `Array` |  |
-| `character` | `Array` |  |
+| `authors` | `Array` |  |
+| `characters` | `Array` |  |
 | `country` | `String` |  |
 | `isbn` | `String` |  |
-| `media_type` | `String` |  |
+| `mediaType` | `String` |  |
 | `name` | `String` |  |
-| `number_of_page` | `Integer` |  |
-| `pov_character` | `Array` |  |
+| `numberOfPages` | `Integer` |  |
+| `povCharacters` | `Array` |  |
 | `publisher` | `String` |  |
 | `released` | `String` |  |
 | `url` | `String` |  |
@@ -354,7 +355,7 @@ Create an instance: `book = client.Book`
 #### Example: Load
 
 ```ruby
-# load returns the bare Book record (raises on error).
+# load returns the ENTITY — call data_get for the Book record (raises on error).
 book = client.Book.load({ "id" => 1 })
 ```
 
@@ -381,26 +382,26 @@ Create an instance: `character = client.Character`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `alias` | `Array` |  |
-| `allegiance` | `Array` |  |
-| `book` | `Array` |  |
+| `aliases` | `Array` |  |
+| `allegiances` | `Array` |  |
+| `books` | `Array` |  |
 | `born` | `String` |  |
 | `culture` | `String` |  |
 | `died` | `String` |  |
 | `father` | `String` |  |
 | `mother` | `String` |  |
 | `name` | `String` |  |
-| `played_by` | `Array` |  |
-| `pov_book` | `Array` |  |
+| `playedBy` | `Array` |  |
+| `povBooks` | `Array` |  |
 | `spouse` | `String` |  |
-| `title` | `Array` |  |
-| `tv_series` | `Array` |  |
+| `titles` | `Array` |  |
+| `tvSeries` | `Array` |  |
 | `url` | `String` |  |
 
 #### Example: Load
 
 ```ruby
-# load returns the bare Character record (raises on error).
+# load returns the ENTITY — call data_get for the Character record (raises on error).
 character = client.Character.load({ "id" => 1 })
 ```
 
@@ -427,27 +428,27 @@ Create an instance: `house = client.House`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `ancestral_weapon` | `Array` |  |
-| `cadet_branch` | `Array` |  |
-| `coat_of_arm` | `String` |  |
-| `current_lord` | `String` |  |
-| `died_out` | `String` |  |
+| `ancestralWeapons` | `Array` |  |
+| `cadetBranches` | `Array` |  |
+| `coatOfArms` | `String` |  |
+| `currentLord` | `String` |  |
+| `diedOut` | `String` |  |
 | `founded` | `String` |  |
 | `founder` | `String` |  |
 | `heir` | `String` |  |
 | `name` | `String` |  |
 | `overlord` | `String` |  |
 | `region` | `String` |  |
-| `seat` | `Array` |  |
-| `sworn_member` | `Array` |  |
-| `title` | `Array` |  |
+| `seats` | `Array` |  |
+| `swornMembers` | `Array` |  |
+| `titles` | `Array` |  |
 | `url` | `String` |  |
-| `word` | `String` |  |
+| `words` | `String` |  |
 
 #### Example: Load
 
 ```ruby
-# load returns the bare House record (raises on error).
+# load returns the ENTITY — call data_get for the House record (raises on error).
 house = client.House.load({ "id" => 1 })
 ```
 
@@ -535,11 +536,11 @@ Entity instances are stateful. After a successful `list`, the entity
 stores the returned data and match criteria internally.
 
 ```ruby
-book = client.Book
-book.list()
+house = client.House
+house.list()
 
-# book.data_get now returns the book data from the last list
-# book.match_get returns the last match criteria
+# house.data_get now returns the house data from the last list
+# house.match_get returns the last match criteria
 ```
 
 Call `make` to create a fresh instance with the same configuration

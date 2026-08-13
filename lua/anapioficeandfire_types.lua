@@ -7,14 +7,14 @@
 -- edit by hand.
 
 ---@class Book
----@field author? table
----@field character? table
+---@field authors? table
+---@field characters? table
 ---@field country? string
 ---@field isbn? string
----@field media_type? string
+---@field mediaType? string
 ---@field name? string
----@field number_of_page? number
----@field pov_character? table
+---@field numberOfPages? number
+---@field povCharacters? table
 ---@field publisher? string
 ---@field released? string
 ---@field url? string
@@ -23,93 +23,93 @@
 ---@field id number
 
 ---@class BookListMatch
----@field author? table
----@field character? table
+---@field authors? table
+---@field characters? table
 ---@field country? string
 ---@field isbn? string
----@field media_type? string
+---@field mediaType? string
 ---@field name? string
----@field number_of_page? number
----@field pov_character? table
+---@field numberOfPages? number
+---@field povCharacters? table
 ---@field publisher? string
 ---@field released? string
 ---@field url? string
 
 ---@class Character
----@field alias? table
----@field allegiance? table
----@field book? table
+---@field aliases? table
+---@field allegiances? table
+---@field books? table
 ---@field born? string
 ---@field culture? string
 ---@field died? string
 ---@field father? string
 ---@field mother? string
 ---@field name? string
----@field played_by? table
----@field pov_book? table
+---@field playedBy? table
+---@field povBooks? table
 ---@field spouse? string
----@field title? table
----@field tv_series? table
+---@field titles? table
+---@field tvSeries? table
 ---@field url? string
 
 ---@class CharacterLoadMatch
 ---@field id number
 
 ---@class CharacterListMatch
----@field alias? table
----@field allegiance? table
----@field book? table
+---@field aliases? table
+---@field allegiances? table
+---@field books? table
 ---@field born? string
 ---@field culture? string
 ---@field died? string
 ---@field father? string
 ---@field mother? string
 ---@field name? string
----@field played_by? table
----@field pov_book? table
+---@field playedBy? table
+---@field povBooks? table
 ---@field spouse? string
----@field title? table
----@field tv_series? table
+---@field titles? table
+---@field tvSeries? table
 ---@field url? string
 
 ---@class House
----@field ancestral_weapon? table
----@field cadet_branch? table
----@field coat_of_arm? string
----@field current_lord? string
----@field died_out? string
+---@field ancestralWeapons? table
+---@field cadetBranches? table
+---@field coatOfArms? string
+---@field currentLord? string
+---@field diedOut? string
 ---@field founded? string
 ---@field founder? string
 ---@field heir? string
 ---@field name? string
 ---@field overlord? string
 ---@field region? string
----@field seat? table
----@field sworn_member? table
----@field title? table
+---@field seats? table
+---@field swornMembers? table
+---@field titles? table
 ---@field url? string
----@field word? string
+---@field words? string
 
 ---@class HouseLoadMatch
 ---@field id number
 
 ---@class HouseListMatch
----@field ancestral_weapon? table
----@field cadet_branch? table
----@field coat_of_arm? string
----@field current_lord? string
----@field died_out? string
+---@field ancestralWeapons? table
+---@field cadetBranches? table
+---@field coatOfArms? string
+---@field currentLord? string
+---@field diedOut? string
 ---@field founded? string
 ---@field founder? string
 ---@field heir? string
 ---@field name? string
 ---@field overlord? string
 ---@field region? string
----@field seat? table
----@field sworn_member? table
----@field title? table
+---@field seats? table
+---@field swornMembers? table
+---@field titles? table
 ---@field url? string
----@field word? string
+---@field words? string
 
 local M = {}
 

@@ -52,7 +52,7 @@ except Exception as err:
 
 ### 3. Load a book
 
-`load()` returns the bare record (a `dict`) and raises on error.
+`load()` returns the ENTITY — call data_get() for the record — and raises on error.
 
 ```python
 try:
@@ -69,8 +69,8 @@ Entity operations raise on failure, so wrap them in `try` / `except`:
 
 ```python
 try:
-    books = client.Book().list()
-    print(books)
+    houses = client.House().list()
+    print(houses)
 except Exception as err:
     print(f"list failed: {err}")
 ```
@@ -136,9 +136,10 @@ Create a mock client for unit testing — no server required:
 ```python
 client = AnapioficeandfireSDK.test()
 
-# Entity ops return the bare record and raise on error.
-book = client.Book().list()
-# book contains the mock response record
+# Entity ops return the ENTITY and raises on error;
+# call data_get() for the record.
+house = client.House().list()
+# house contains the mock response record
 ```
 
 ### Use a custom fetch function
@@ -235,7 +236,7 @@ All entities share the same interface.
 
 ### Result shape
 
-Entity operations return the bare result data (a `dict` for single-entity
+Entity operations return the ENTITY (call data_get() for the record) (a `dict` for single-entity
 ops, a `list` for `list`) and raise on error. Wrap calls in
 `try`/`except` to handle failures.
 
@@ -257,14 +258,14 @@ On error, `ok` is `False` and `err` contains the error value.
 
 | Field | Description |
 | --- | --- |
-| `author` |  |
-| `character` |  |
+| `authors` |  |
+| `characters` |  |
 | `country` |  |
 | `isbn` |  |
-| `media_type` |  |
+| `mediaType` |  |
 | `name` |  |
-| `number_of_page` |  |
-| `pov_character` |  |
+| `numberOfPages` |  |
+| `povCharacters` |  |
 | `publisher` |  |
 | `released` |  |
 | `url` |  |
@@ -277,20 +278,20 @@ API path: `/books`
 
 | Field | Description |
 | --- | --- |
-| `alias` |  |
-| `allegiance` |  |
-| `book` |  |
+| `aliases` |  |
+| `allegiances` |  |
+| `books` |  |
 | `born` |  |
 | `culture` |  |
 | `died` |  |
 | `father` |  |
 | `mother` |  |
 | `name` |  |
-| `played_by` |  |
-| `pov_book` |  |
+| `playedBy` |  |
+| `povBooks` |  |
 | `spouse` |  |
-| `title` |  |
-| `tv_series` |  |
+| `titles` |  |
+| `tvSeries` |  |
 | `url` |  |
 
 Operations: List, Load.
@@ -301,22 +302,22 @@ API path: `/characters`
 
 | Field | Description |
 | --- | --- |
-| `ancestral_weapon` |  |
-| `cadet_branch` |  |
-| `coat_of_arm` |  |
-| `current_lord` |  |
-| `died_out` |  |
+| `ancestralWeapons` |  |
+| `cadetBranches` |  |
+| `coatOfArms` |  |
+| `currentLord` |  |
+| `diedOut` |  |
 | `founded` |  |
 | `founder` |  |
 | `heir` |  |
 | `name` |  |
 | `overlord` |  |
 | `region` |  |
-| `seat` |  |
-| `sworn_member` |  |
-| `title` |  |
+| `seats` |  |
+| `swornMembers` |  |
+| `titles` |  |
 | `url` |  |
-| `word` |  |
+| `words` |  |
 
 Operations: List, Load.
 
@@ -342,14 +343,14 @@ Create an instance: `book = client.Book()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `author` | `list` |  |
-| `character` | `list` |  |
+| `authors` | `list` |  |
+| `characters` | `list` |  |
 | `country` | `str` |  |
 | `isbn` | `str` |  |
-| `media_type` | `str` |  |
+| `mediaType` | `str` |  |
 | `name` | `str` |  |
-| `number_of_page` | `int` |  |
-| `pov_character` | `list` |  |
+| `numberOfPages` | `int` |  |
+| `povCharacters` | `list` |  |
 | `publisher` | `str` |  |
 | `released` | `str` |  |
 | `url` | `str` |  |
@@ -382,20 +383,20 @@ Create an instance: `character = client.Character()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `alias` | `list` |  |
-| `allegiance` | `list` |  |
-| `book` | `list` |  |
+| `aliases` | `list` |  |
+| `allegiances` | `list` |  |
+| `books` | `list` |  |
 | `born` | `str` |  |
 | `culture` | `str` |  |
 | `died` | `str` |  |
 | `father` | `str` |  |
 | `mother` | `str` |  |
 | `name` | `str` |  |
-| `played_by` | `list` |  |
-| `pov_book` | `list` |  |
+| `playedBy` | `list` |  |
+| `povBooks` | `list` |  |
 | `spouse` | `str` |  |
-| `title` | `list` |  |
-| `tv_series` | `list` |  |
+| `titles` | `list` |  |
+| `tvSeries` | `list` |  |
 | `url` | `str` |  |
 
 #### Example: Load
@@ -426,22 +427,22 @@ Create an instance: `house = client.House()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `ancestral_weapon` | `list` |  |
-| `cadet_branch` | `list` |  |
-| `coat_of_arm` | `str` |  |
-| `current_lord` | `str` |  |
-| `died_out` | `str` |  |
+| `ancestralWeapons` | `list` |  |
+| `cadetBranches` | `list` |  |
+| `coatOfArms` | `str` |  |
+| `currentLord` | `str` |  |
+| `diedOut` | `str` |  |
 | `founded` | `str` |  |
 | `founder` | `str` |  |
 | `heir` | `str` |  |
 | `name` | `str` |  |
 | `overlord` | `str` |  |
 | `region` | `str` |  |
-| `seat` | `list` |  |
-| `sworn_member` | `list` |  |
-| `title` | `list` |  |
+| `seats` | `list` |  |
+| `swornMembers` | `list` |  |
+| `titles` | `list` |  |
 | `url` | `str` |  |
-| `word` | `str` |  |
+| `words` | `str` |  |
 
 #### Example: Load
 
@@ -531,11 +532,11 @@ Entity instances are stateful. After a successful `list`, the entity
 stores the returned data and match criteria internally.
 
 ```python
-book = client.Book()
-book.list()
+house = client.House()
+house.list()
 
-# book.data_get() now returns the book data from the last list
-# book.match_get() returns the last match criteria
+# house.data_get() now returns the house data from the last list
+# house.match_get() returns the last match criteria
 ```
 
 Call `make()` to create a fresh instance with the same configuration

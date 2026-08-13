@@ -35,7 +35,9 @@ const client = new AnapioficeandfireSDK()
 
 ### 2. List book records
 
-`list()` resolves to an array of Book objects — iterate it directly:
+`list()` resolves to an array of Book ENTITIES — every operation
+resolves to entities, not raw records. Iterate them directly, and call
+`.data()` on one for the record it holds:
 
 ```ts
 const books = await client.Book().list()
@@ -65,8 +67,8 @@ Entity operations reject on failure, so wrap them in `try` / `catch`:
 
 ```ts
 try {
-  const books = await client.Book().list()
-  console.log(books)
+  const houses = await client.House().list()
+  console.log(houses)
 } catch (err) {
   console.error('list failed:', err)
 }
@@ -132,9 +134,10 @@ Create a mock client for unit testing — no server required:
 ```ts
 const client = AnapioficeandfireSDK.test()
 
-const book = await client.Book().list()
-// book is a bare entity populated with mock response data
-console.log(book)
+const house = await client.House().list()
+// house is the entity, populated with mock response data
+// — call house.data() for the record itself
+console.log(house)
 ```
 
 You can also use the instance method:
@@ -149,7 +152,7 @@ const testClient = client.tester()
 Entity instances remember their last match and data:
 
 ```ts
-const entity = client.Book()
+const entity = client.House()
 
 // First call runs the operation and stores its result
 await entity.list()
@@ -301,14 +304,14 @@ The `prepare()` method returns:
 
 | Field | Description |
 | --- | --- |
-| `author` |  |
-| `character` |  |
+| `authors` |  |
+| `characters` |  |
 | `country` |  |
 | `isbn` |  |
-| `media_type` |  |
+| `mediaType` |  |
 | `name` |  |
-| `number_of_page` |  |
-| `pov_character` |  |
+| `numberOfPages` |  |
+| `povCharacters` |  |
 | `publisher` |  |
 | `released` |  |
 | `url` |  |
@@ -321,20 +324,20 @@ API path: `/books`
 
 | Field | Description |
 | --- | --- |
-| `alias` |  |
-| `allegiance` |  |
-| `book` |  |
+| `aliases` |  |
+| `allegiances` |  |
+| `books` |  |
 | `born` |  |
 | `culture` |  |
 | `died` |  |
 | `father` |  |
 | `mother` |  |
 | `name` |  |
-| `played_by` |  |
-| `pov_book` |  |
+| `playedBy` |  |
+| `povBooks` |  |
 | `spouse` |  |
-| `title` |  |
-| `tv_series` |  |
+| `titles` |  |
+| `tvSeries` |  |
 | `url` |  |
 
 Operations: list, load.
@@ -345,22 +348,22 @@ API path: `/characters`
 
 | Field | Description |
 | --- | --- |
-| `ancestral_weapon` |  |
-| `cadet_branch` |  |
-| `coat_of_arm` |  |
-| `current_lord` |  |
-| `died_out` |  |
+| `ancestralWeapons` |  |
+| `cadetBranches` |  |
+| `coatOfArms` |  |
+| `currentLord` |  |
+| `diedOut` |  |
 | `founded` |  |
 | `founder` |  |
 | `heir` |  |
 | `name` |  |
 | `overlord` |  |
 | `region` |  |
-| `seat` |  |
-| `sworn_member` |  |
-| `title` |  |
+| `seats` |  |
+| `swornMembers` |  |
+| `titles` |  |
 | `url` |  |
-| `word` |  |
+| `words` |  |
 
 Operations: list, load.
 
@@ -386,14 +389,14 @@ Create an instance: `const book = client.Book()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `author` | `any[]` |  |
-| `character` | `any[]` |  |
+| `authors` | `any[]` |  |
+| `characters` | `any[]` |  |
 | `country` | `string` |  |
 | `isbn` | `string` |  |
-| `media_type` | `string` |  |
+| `mediaType` | `string` |  |
 | `name` | `string` |  |
-| `number_of_page` | `number` |  |
-| `pov_character` | `any[]` |  |
+| `numberOfPages` | `number` |  |
+| `povCharacters` | `any[]` |  |
 | `publisher` | `string` |  |
 | `released` | `string` |  |
 | `url` | `string` |  |
@@ -426,20 +429,20 @@ Create an instance: `const character = client.Character()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `alias` | `any[]` |  |
-| `allegiance` | `any[]` |  |
-| `book` | `any[]` |  |
+| `aliases` | `any[]` |  |
+| `allegiances` | `any[]` |  |
+| `books` | `any[]` |  |
 | `born` | `string` |  |
 | `culture` | `string` |  |
 | `died` | `string` |  |
 | `father` | `string` |  |
 | `mother` | `string` |  |
 | `name` | `string` |  |
-| `played_by` | `any[]` |  |
-| `pov_book` | `any[]` |  |
+| `playedBy` | `any[]` |  |
+| `povBooks` | `any[]` |  |
 | `spouse` | `string` |  |
-| `title` | `any[]` |  |
-| `tv_series` | `any[]` |  |
+| `titles` | `any[]` |  |
+| `tvSeries` | `any[]` |  |
 | `url` | `string` |  |
 
 #### Example: Load
@@ -470,22 +473,22 @@ Create an instance: `const house = client.House()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `ancestral_weapon` | `any[]` |  |
-| `cadet_branch` | `any[]` |  |
-| `coat_of_arm` | `string` |  |
-| `current_lord` | `string` |  |
-| `died_out` | `string` |  |
+| `ancestralWeapons` | `any[]` |  |
+| `cadetBranches` | `any[]` |  |
+| `coatOfArms` | `string` |  |
+| `currentLord` | `string` |  |
+| `diedOut` | `string` |  |
 | `founded` | `string` |  |
 | `founder` | `string` |  |
 | `heir` | `string` |  |
 | `name` | `string` |  |
 | `overlord` | `string` |  |
 | `region` | `string` |  |
-| `seat` | `any[]` |  |
-| `sworn_member` | `any[]` |  |
-| `title` | `any[]` |  |
+| `seats` | `any[]` |  |
+| `swornMembers` | `any[]` |  |
+| `titles` | `any[]` |  |
 | `url` | `string` |  |
-| `word` | `string` |  |
+| `words` | `string` |  |
 
 #### Example: Load
 
@@ -569,11 +572,11 @@ stores the returned data and match criteria internally. Subsequent
 calls on the same instance can rely on this state.
 
 ```ts
-const book = client.Book()
-await book.list()
+const house = client.House()
+await house.list()
 
-// book.data() now returns the book data from the last `list`
-// book.match() returns the last match criteria
+// house.data() now returns the house data from the last `list`
+// house.match() returns the last match criteria
 ```
 
 Call `make()` to create a fresh instance with the same configuration

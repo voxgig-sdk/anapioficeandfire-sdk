@@ -63,7 +63,7 @@ describe('CharacterEntity', async () => {
     const character_ref01_ent = client.Character()
     const character_ref01_match: any = {}
 
-    const character_ref01_list = await character_ref01_ent.list(character_ref01_match)
+    const character_ref01_list = (await character_ref01_ent.list(character_ref01_match)).map((e: any) => e.data())
 
 
 

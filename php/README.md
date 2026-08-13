@@ -38,7 +38,7 @@ try {
     // list() returns an array of Book records — iterate directly.
     $books = $client->Book()->list();
     foreach ($books as $item) {
-        echo $item["author"] . "\n";
+        echo $item["authors"] . "\n";
     }
 } catch (\Throwable $err) {
     echo "Error: " . $err->getMessage();
@@ -49,7 +49,7 @@ try {
 
 ```php
 try {
-    // load() returns the bare Book record (throws on error).
+    // load() returns the ENTITY — call data_get() for the Book record (throws on error).
     $book = $client->Book()->load(["id" => 1]);
     print_r($book);
 } catch (\Throwable $err) {
@@ -65,7 +65,7 @@ Entity operations throw a `\Throwable` on failure, so wrap them in
 
 ```php
 try {
-    $books = $client->Book()->list();
+    $houses = $client->House()->list();
 } catch (\Throwable $err) {
     echo "Error: " . $err->getMessage();
 }
@@ -137,12 +137,13 @@ data via the `entity` option so offline calls resolve without a live server:
 
 ```php
 $client = AnapioficeandfireSDK::test([
-    "entity" => ["book" => ["test01" => ["id" => "test01"]]],
+    "entity" => ["house" => ["test01" => ["id" => "test01"]]],
 ]);
 
-// Entity ops return the bare mock record (throws on error).
-$book = $client->Book()->list();
-print_r($book);
+// Entity ops return the ENTITY (throws on error);
+// call data_get() for the mock record.
+$house = $client->House()->list();
+print_r($house);
 ```
 
 ### Use a custom fetch function
@@ -242,7 +243,7 @@ All entities share the same interface.
 
 ### Result shape
 
-Entity operations return the bare result data (an `array` for single-entity
+Entity operations return the ENTITY (call data_get() for the record) (an `array` for single-entity
 ops, a `list` for `list`) and throw on error. Wrap calls in
 `try`/`catch` to handle failures.
 
@@ -264,14 +265,14 @@ On error, `ok` is `false` and `$err` contains the error value.
 
 | Field | Description |
 | --- | --- |
-| `author` |  |
-| `character` |  |
+| `authors` |  |
+| `characters` |  |
 | `country` |  |
 | `isbn` |  |
-| `media_type` |  |
+| `mediaType` |  |
 | `name` |  |
-| `number_of_page` |  |
-| `pov_character` |  |
+| `numberOfPages` |  |
+| `povCharacters` |  |
 | `publisher` |  |
 | `released` |  |
 | `url` |  |
@@ -284,20 +285,20 @@ API path: `/books`
 
 | Field | Description |
 | --- | --- |
-| `alias` |  |
-| `allegiance` |  |
-| `book` |  |
+| `aliases` |  |
+| `allegiances` |  |
+| `books` |  |
 | `born` |  |
 | `culture` |  |
 | `died` |  |
 | `father` |  |
 | `mother` |  |
 | `name` |  |
-| `played_by` |  |
-| `pov_book` |  |
+| `playedBy` |  |
+| `povBooks` |  |
 | `spouse` |  |
-| `title` |  |
-| `tv_series` |  |
+| `titles` |  |
+| `tvSeries` |  |
 | `url` |  |
 
 Operations: List, Load.
@@ -308,22 +309,22 @@ API path: `/characters`
 
 | Field | Description |
 | --- | --- |
-| `ancestral_weapon` |  |
-| `cadet_branch` |  |
-| `coat_of_arm` |  |
-| `current_lord` |  |
-| `died_out` |  |
+| `ancestralWeapons` |  |
+| `cadetBranches` |  |
+| `coatOfArms` |  |
+| `currentLord` |  |
+| `diedOut` |  |
 | `founded` |  |
 | `founder` |  |
 | `heir` |  |
 | `name` |  |
 | `overlord` |  |
 | `region` |  |
-| `seat` |  |
-| `sworn_member` |  |
-| `title` |  |
+| `seats` |  |
+| `swornMembers` |  |
+| `titles` |  |
 | `url` |  |
-| `word` |  |
+| `words` |  |
 
 Operations: List, Load.
 
@@ -349,14 +350,14 @@ Create an instance: `$book = $client->Book();`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `author` | `array` |  |
-| `character` | `array` |  |
+| `authors` | `array` |  |
+| `characters` | `array` |  |
 | `country` | `string` |  |
 | `isbn` | `string` |  |
-| `media_type` | `string` |  |
+| `mediaType` | `string` |  |
 | `name` | `string` |  |
-| `number_of_page` | `int` |  |
-| `pov_character` | `array` |  |
+| `numberOfPages` | `int` |  |
+| `povCharacters` | `array` |  |
 | `publisher` | `string` |  |
 | `released` | `string` |  |
 | `url` | `string` |  |
@@ -364,7 +365,7 @@ Create an instance: `$book = $client->Book();`
 #### Example: Load
 
 ```php
-// load() returns the bare Book record (throws on error).
+// load() returns the ENTITY — call data_get() for the Book record (throws on error).
 $book = $client->Book()->load(["id" => 1]);
 ```
 
@@ -391,26 +392,26 @@ Create an instance: `$character = $client->Character();`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `alias` | `array` |  |
-| `allegiance` | `array` |  |
-| `book` | `array` |  |
+| `aliases` | `array` |  |
+| `allegiances` | `array` |  |
+| `books` | `array` |  |
 | `born` | `string` |  |
 | `culture` | `string` |  |
 | `died` | `string` |  |
 | `father` | `string` |  |
 | `mother` | `string` |  |
 | `name` | `string` |  |
-| `played_by` | `array` |  |
-| `pov_book` | `array` |  |
+| `playedBy` | `array` |  |
+| `povBooks` | `array` |  |
 | `spouse` | `string` |  |
-| `title` | `array` |  |
-| `tv_series` | `array` |  |
+| `titles` | `array` |  |
+| `tvSeries` | `array` |  |
 | `url` | `string` |  |
 
 #### Example: Load
 
 ```php
-// load() returns the bare Character record (throws on error).
+// load() returns the ENTITY — call data_get() for the Character record (throws on error).
 $character = $client->Character()->load(["id" => 1]);
 ```
 
@@ -437,27 +438,27 @@ Create an instance: `$house = $client->House();`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `ancestral_weapon` | `array` |  |
-| `cadet_branch` | `array` |  |
-| `coat_of_arm` | `string` |  |
-| `current_lord` | `string` |  |
-| `died_out` | `string` |  |
+| `ancestralWeapons` | `array` |  |
+| `cadetBranches` | `array` |  |
+| `coatOfArms` | `string` |  |
+| `currentLord` | `string` |  |
+| `diedOut` | `string` |  |
 | `founded` | `string` |  |
 | `founder` | `string` |  |
 | `heir` | `string` |  |
 | `name` | `string` |  |
 | `overlord` | `string` |  |
 | `region` | `string` |  |
-| `seat` | `array` |  |
-| `sworn_member` | `array` |  |
-| `title` | `array` |  |
+| `seats` | `array` |  |
+| `swornMembers` | `array` |  |
+| `titles` | `array` |  |
 | `url` | `string` |  |
-| `word` | `string` |  |
+| `words` | `string` |  |
 
 #### Example: Load
 
 ```php
-// load() returns the bare House record (throws on error).
+// load() returns the ENTITY — call data_get() for the House record (throws on error).
 $house = $client->House()->load(["id" => 1]);
 ```
 
@@ -545,11 +546,11 @@ Entity instances are stateful. After a successful `list`, the entity
 stores the returned data and match criteria internally.
 
 ```php
-$book = $client->Book();
-$book->list();
+$house = $client->House();
+$house->list();
 
-// $book->data_get() now returns the book data from the last list
-// $book->match_get() returns the last match criteria
+// $house->data_get() now returns the house data from the last list
+// $house->match_get() returns the last match criteria
 ```
 
 Call `make()` to create a fresh instance with the same configuration

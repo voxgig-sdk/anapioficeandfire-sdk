@@ -24,6 +24,7 @@ require_relative 'prepare_method'
 require_relative 'prepare_params'
 require_relative 'prepare_path'
 require_relative 'prepare_query'
+require_relative 'graphql'
 require_relative 'result_basic'
 require_relative 'result_body'
 require_relative 'result_headers'
@@ -55,6 +56,8 @@ AnapioficeandfireUtility.registrar = ->(u) {
   u.prepare_params = AnapioficeandfireUtilities::PrepareParams
   u.prepare_path = AnapioficeandfireUtilities::PreparePath
   u.prepare_query = AnapioficeandfireUtilities::PrepareQuery
+  u.graphql_body = AnapioficeandfireUtilities::GraphqlBody
+  u.graphql_errors = AnapioficeandfireUtilities::GraphqlErrors
   u.result_basic = AnapioficeandfireUtilities::ResultBasic
   u.result_body = AnapioficeandfireUtilities::ResultBody
   u.result_headers = AnapioficeandfireUtilities::ResultHeaders

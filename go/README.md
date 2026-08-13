@@ -75,12 +75,12 @@ Every entity operation returns `(value, error)`. Check `err` before
 using the value — there is no exception to catch:
 
 ```go
-books, err := client.Book(nil).List(nil, nil)
+houses, err := client.House(nil).List(nil, nil)
 if err != nil {
     // handle err
     return
 }
-_ = books
+_ = houses
 ```
 
 `Direct` follows the same `(value, error)` convention:
@@ -144,13 +144,13 @@ Create a mock client for unit testing — no server required:
 ```go
 client := sdk.Test()
 
-book, err := client.Book(nil).List(
+house, err := client.House(nil).List(
     nil, nil,
 )
 if err != nil {
     panic(err)
 }
-fmt.Println(book) // the returned mock data
+fmt.Println(house) // the returned mock data
 ```
 
 ### Use a custom fetch function
@@ -271,14 +271,14 @@ Only `Direct()` returns a response envelope — a `map[string]any` with
 
 | Field | Description |
 | --- | --- |
-| `"author"` |  |
-| `"character"` |  |
+| `"authors"` |  |
+| `"characters"` |  |
 | `"country"` |  |
 | `"isbn"` |  |
-| `"media_type"` |  |
+| `"mediaType"` |  |
 | `"name"` |  |
-| `"number_of_page"` |  |
-| `"pov_character"` |  |
+| `"numberOfPages"` |  |
+| `"povCharacters"` |  |
 | `"publisher"` |  |
 | `"released"` |  |
 | `"url"` |  |
@@ -291,20 +291,20 @@ API path: `/books`
 
 | Field | Description |
 | --- | --- |
-| `"alias"` |  |
-| `"allegiance"` |  |
-| `"book"` |  |
+| `"aliases"` |  |
+| `"allegiances"` |  |
+| `"books"` |  |
 | `"born"` |  |
 | `"culture"` |  |
 | `"died"` |  |
 | `"father"` |  |
 | `"mother"` |  |
 | `"name"` |  |
-| `"played_by"` |  |
-| `"pov_book"` |  |
+| `"playedBy"` |  |
+| `"povBooks"` |  |
 | `"spouse"` |  |
-| `"title"` |  |
-| `"tv_series"` |  |
+| `"titles"` |  |
+| `"tvSeries"` |  |
 | `"url"` |  |
 
 Operations: List, Load.
@@ -315,22 +315,22 @@ API path: `/characters`
 
 | Field | Description |
 | --- | --- |
-| `"ancestral_weapon"` |  |
-| `"cadet_branch"` |  |
-| `"coat_of_arm"` |  |
-| `"current_lord"` |  |
-| `"died_out"` |  |
+| `"ancestralWeapons"` |  |
+| `"cadetBranches"` |  |
+| `"coatOfArms"` |  |
+| `"currentLord"` |  |
+| `"diedOut"` |  |
 | `"founded"` |  |
 | `"founder"` |  |
 | `"heir"` |  |
 | `"name"` |  |
 | `"overlord"` |  |
 | `"region"` |  |
-| `"seat"` |  |
-| `"sworn_member"` |  |
-| `"title"` |  |
+| `"seats"` |  |
+| `"swornMembers"` |  |
+| `"titles"` |  |
 | `"url"` |  |
-| `"word"` |  |
+| `"words"` |  |
 
 Operations: List, Load.
 
@@ -356,14 +356,14 @@ Create an instance: `book := client.Book(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `author` | `[]any` |  |
-| `character` | `[]any` |  |
+| `authors` | `[]any` |  |
+| `characters` | `[]any` |  |
 | `country` | `string` |  |
 | `isbn` | `string` |  |
-| `media_type` | `string` |  |
+| `mediaType` | `string` |  |
 | `name` | `string` |  |
-| `number_of_page` | `int` |  |
-| `pov_character` | `[]any` |  |
+| `numberOfPages` | `int` |  |
+| `povCharacters` | `[]any` |  |
 | `publisher` | `string` |  |
 | `released` | `string` |  |
 | `url` | `string` |  |
@@ -404,20 +404,20 @@ Create an instance: `character := client.Character(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `alias` | `[]any` |  |
-| `allegiance` | `[]any` |  |
-| `book` | `[]any` |  |
+| `aliases` | `[]any` |  |
+| `allegiances` | `[]any` |  |
+| `books` | `[]any` |  |
 | `born` | `string` |  |
 | `culture` | `string` |  |
 | `died` | `string` |  |
 | `father` | `string` |  |
 | `mother` | `string` |  |
 | `name` | `string` |  |
-| `played_by` | `[]any` |  |
-| `pov_book` | `[]any` |  |
+| `playedBy` | `[]any` |  |
+| `povBooks` | `[]any` |  |
 | `spouse` | `string` |  |
-| `title` | `[]any` |  |
-| `tv_series` | `[]any` |  |
+| `titles` | `[]any` |  |
+| `tvSeries` | `[]any` |  |
 | `url` | `string` |  |
 
 #### Example: Load
@@ -456,22 +456,22 @@ Create an instance: `house := client.House(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `ancestral_weapon` | `[]any` |  |
-| `cadet_branch` | `[]any` |  |
-| `coat_of_arm` | `string` |  |
-| `current_lord` | `string` |  |
-| `died_out` | `string` |  |
+| `ancestralWeapons` | `[]any` |  |
+| `cadetBranches` | `[]any` |  |
+| `coatOfArms` | `string` |  |
+| `currentLord` | `string` |  |
+| `diedOut` | `string` |  |
 | `founded` | `string` |  |
 | `founder` | `string` |  |
 | `heir` | `string` |  |
 | `name` | `string` |  |
 | `overlord` | `string` |  |
 | `region` | `string` |  |
-| `seat` | `[]any` |  |
-| `sworn_member` | `[]any` |  |
-| `title` | `[]any` |  |
+| `seats` | `[]any` |  |
+| `swornMembers` | `[]any` |  |
+| `titles` | `[]any` |  |
 | `url` | `string` |  |
-| `word` | `string` |  |
+| `words` | `string` |  |
 
 #### Example: Load
 
@@ -567,11 +567,11 @@ Entity instances are stateful. After a successful `List`, the entity
 stores the returned data and match criteria internally.
 
 ```go
-book := client.Book(nil)
-book.List(nil, nil)
+house := client.House(nil)
+house.List(nil, nil)
 
-// book.Data() now returns the book data from the last list
-// book.Match() returns the last match criteria
+// house.Data() now returns the house data from the last list
+// house.Match() returns the last match criteria
 ```
 
 Call `Make()` to create a fresh instance with the same configuration

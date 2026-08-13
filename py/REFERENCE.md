@@ -95,14 +95,14 @@ book = client.Book()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `author` | `list` | No |  |
-| `character` | `list` | No |  |
+| `authors` | `list` | No |  |
+| `characters` | `list` | No |  |
 | `country` | `str` | No |  |
 | `isbn` | `str` | No |  |
-| `media_type` | `str` | No |  |
+| `mediaType` | `str` | No |  |
 | `name` | `str` | No |  |
-| `number_of_page` | `int` | No |  |
-| `pov_character` | `list` | No |  |
+| `numberOfPages` | `int` | No |  |
+| `povCharacters` | `list` | No |  |
 | `publisher` | `str` | No |  |
 | `released` | `str` | No |  |
 | `url` | `str` | No |  |
@@ -166,20 +166,20 @@ character = client.Character()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `alias` | `list` | No |  |
-| `allegiance` | `list` | No |  |
-| `book` | `list` | No |  |
+| `aliases` | `list` | No |  |
+| `allegiances` | `list` | No |  |
+| `books` | `list` | No |  |
 | `born` | `str` | No |  |
 | `culture` | `str` | No |  |
 | `died` | `str` | No |  |
 | `father` | `str` | No |  |
 | `mother` | `str` | No |  |
 | `name` | `str` | No |  |
-| `played_by` | `list` | No |  |
-| `pov_book` | `list` | No |  |
+| `playedBy` | `list` | No |  |
+| `povBooks` | `list` | No |  |
 | `spouse` | `str` | No |  |
-| `title` | `list` | No |  |
-| `tv_series` | `list` | No |  |
+| `titles` | `list` | No |  |
+| `tvSeries` | `list` | No |  |
 | `url` | `str` | No |  |
 
 ### Operations
@@ -241,22 +241,22 @@ house = client.House()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `ancestral_weapon` | `list` | No |  |
-| `cadet_branch` | `list` | No |  |
-| `coat_of_arm` | `str` | No |  |
-| `current_lord` | `str` | No |  |
-| `died_out` | `str` | No |  |
+| `ancestralWeapons` | `list` | No |  |
+| `cadetBranches` | `list` | No |  |
+| `coatOfArms` | `str` | No |  |
+| `currentLord` | `str` | No |  |
+| `diedOut` | `str` | No |  |
 | `founded` | `str` | No |  |
 | `founder` | `str` | No |  |
 | `heir` | `str` | No |  |
 | `name` | `str` | No |  |
 | `overlord` | `str` | No |  |
 | `region` | `str` | No |  |
-| `seat` | `list` | No |  |
-| `sworn_member` | `list` | No |  |
-| `title` | `list` | No |  |
+| `seats` | `list` | No |  |
+| `swornMembers` | `list` | No |  |
+| `titles` | `list` | No |  |
 | `url` | `str` | No |  |
-| `word` | `str` | No |  |
+| `words` | `str` | No |  |
 
 ### Operations
 

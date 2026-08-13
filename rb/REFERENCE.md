@@ -101,14 +101,14 @@ book = client.Book
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `author` | `Array` | No |  |
-| `character` | `Array` | No |  |
+| `authors` | `Array` | No |  |
+| `characters` | `Array` | No |  |
 | `country` | `String` | No |  |
 | `isbn` | `String` | No |  |
-| `media_type` | `String` | No |  |
+| `mediaType` | `String` | No |  |
 | `name` | `String` | No |  |
-| `number_of_page` | `Integer` | No |  |
-| `pov_character` | `Array` | No |  |
+| `numberOfPages` | `Integer` | No |  |
+| `povCharacters` | `Array` | No |  |
 | `publisher` | `String` | No |  |
 | `released` | `String` | No |  |
 | `url` | `String` | No |  |
@@ -171,20 +171,20 @@ character = client.Character
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `alias` | `Array` | No |  |
-| `allegiance` | `Array` | No |  |
-| `book` | `Array` | No |  |
+| `aliases` | `Array` | No |  |
+| `allegiances` | `Array` | No |  |
+| `books` | `Array` | No |  |
 | `born` | `String` | No |  |
 | `culture` | `String` | No |  |
 | `died` | `String` | No |  |
 | `father` | `String` | No |  |
 | `mother` | `String` | No |  |
 | `name` | `String` | No |  |
-| `played_by` | `Array` | No |  |
-| `pov_book` | `Array` | No |  |
+| `playedBy` | `Array` | No |  |
+| `povBooks` | `Array` | No |  |
 | `spouse` | `String` | No |  |
-| `title` | `Array` | No |  |
-| `tv_series` | `Array` | No |  |
+| `titles` | `Array` | No |  |
+| `tvSeries` | `Array` | No |  |
 | `url` | `String` | No |  |
 
 ### Operations
@@ -245,22 +245,22 @@ house = client.House
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `ancestral_weapon` | `Array` | No |  |
-| `cadet_branch` | `Array` | No |  |
-| `coat_of_arm` | `String` | No |  |
-| `current_lord` | `String` | No |  |
-| `died_out` | `String` | No |  |
+| `ancestralWeapons` | `Array` | No |  |
+| `cadetBranches` | `Array` | No |  |
+| `coatOfArms` | `String` | No |  |
+| `currentLord` | `String` | No |  |
+| `diedOut` | `String` | No |  |
 | `founded` | `String` | No |  |
 | `founder` | `String` | No |  |
 | `heir` | `String` | No |  |
 | `name` | `String` | No |  |
 | `overlord` | `String` | No |  |
 | `region` | `String` | No |  |
-| `seat` | `Array` | No |  |
-| `sworn_member` | `Array` | No |  |
-| `title` | `Array` | No |  |
+| `seats` | `Array` | No |  |
+| `swornMembers` | `Array` | No |  |
+| `titles` | `Array` | No |  |
 | `url` | `String` | No |  |
-| `word` | `String` | No |  |
+| `words` | `String` | No |  |
 
 ### Operations
 

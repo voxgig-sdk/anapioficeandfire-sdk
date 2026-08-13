@@ -16,11 +16,11 @@
 import pytest
 
 from projectname_sdk import AnapioficeandfireSDK
-from core.error import AnapioficeandfireError
-from core.result import AnapioficeandfireResult
-from core.response import AnapioficeandfireResponse
-from core.spec import AnapioficeandfireSpec
-from feature.base_feature import AnapioficeandfireBaseFeature
+from projectname_sdk.core.error import AnapioficeandfireError
+from projectname_sdk.core.result import AnapioficeandfireResult
+from projectname_sdk.core.response import AnapioficeandfireResponse
+from projectname_sdk.core.spec import AnapioficeandfireSpec
+from projectname_sdk.feature.base_feature import AnapioficeandfireBaseFeature
 
 
 def _client():

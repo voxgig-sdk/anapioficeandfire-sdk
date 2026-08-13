@@ -6,17 +6,17 @@ main: kit: entity: character: {
 
   fields: [
     {
-      name: "alias"
+      name: "aliases"
       req: false
       type: "`$ARRAY`"
     }
     {
-      name: "allegiance"
+      name: "allegiances"
       req: false
       type: "`$ARRAY`"
     }
     {
-      name: "book"
+      name: "books"
       req: false
       type: "`$ARRAY`"
     }
@@ -51,12 +51,12 @@ main: kit: entity: character: {
       type: "`$STRING`"
     }
     {
-      name: "played_by"
+      name: "playedBy"
       req: false
       type: "`$ARRAY`"
     }
     {
-      name: "pov_book"
+      name: "povBooks"
       req: false
       type: "`$ARRAY`"
     }
@@ -66,12 +66,12 @@ main: kit: entity: character: {
       type: "`$STRING`"
     }
     {
-      name: "title"
+      name: "titles"
       req: false
       type: "`$ARRAY`"
     }
     {
-      name: "tv_series"
+      name: "tvSeries"
       req: false
       type: "`$ARRAY`"
     }

@@ -6,12 +6,12 @@ main: kit: entity: book: {
 
   fields: [
     {
-      name: "author"
+      name: "authors"
       req: false
       type: "`$ARRAY`"
     }
     {
-      name: "character"
+      name: "characters"
       req: false
       type: "`$ARRAY`"
     }
@@ -26,7 +26,7 @@ main: kit: entity: book: {
       type: "`$STRING`"
     }
     {
-      name: "media_type"
+      name: "mediaType"
       req: false
       type: "`$STRING`"
     }
@@ -36,12 +36,12 @@ main: kit: entity: book: {
       type: "`$STRING`"
     }
     {
-      name: "number_of_page"
+      name: "numberOfPages"
       req: false
       type: "`$INTEGER`"
     }
     {
-      name: "pov_character"
+      name: "povCharacters"
       req: false
       type: "`$ARRAY`"
     }

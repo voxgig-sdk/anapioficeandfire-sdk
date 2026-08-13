@@ -23,6 +23,7 @@ require_once __DIR__ . '/MakeUrl.php';
 require_once __DIR__ . '/Param.php';
 require_once __DIR__ . '/PrepareAuth.php';
 require_once __DIR__ . '/PrepareBody.php';
+require_once __DIR__ . '/Graphql.php';
 require_once __DIR__ . '/PrepareHeaders.php';
 require_once __DIR__ . '/PrepareMethod.php';
 require_once __DIR__ . '/PrepareParams.php';
@@ -59,6 +60,8 @@ AnapioficeandfireUtility::setRegistrar(function (AnapioficeandfireUtility $u): v
     $u->prepare_params = [AnapioficeandfirePrepareParams::class, 'call'];
     $u->prepare_path = [AnapioficeandfirePreparePath::class, 'call'];
     $u->prepare_query = [AnapioficeandfirePrepareQuery::class, 'call'];
+    $u->graphql_body = [AnapioficeandfireGraphql::class, 'body'];
+    $u->graphql_errors = [AnapioficeandfireGraphql::class, 'errors'];
     $u->result_basic = [AnapioficeandfireResultBasic::class, 'call'];
     $u->result_body = [AnapioficeandfireResultBody::class, 'call'];
     $u->result_headers = [AnapioficeandfireResultHeaders::class, 'call'];

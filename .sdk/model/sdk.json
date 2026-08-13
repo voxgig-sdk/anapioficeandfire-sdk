@@ -5,6 +5,10 @@
       "desc": ""
     },
     "kit": {
+      "author": {
+        "name": "",
+        "url": ""
+      },
       "config": {
         "docs_order": [
           "ts",
@@ -18,6 +22,7 @@
           "content-type": "application/json"
         }
       },
+      "contributor": {},
       "entity": {
         "book": {
           "active": true,
@@ -27,13 +32,13 @@
           "fields": [
             {
               "active": true,
-              "name": "author",
+              "name": "authors",
               "req": false,
               "type": "`$ARRAY`"
             },
             {
               "active": true,
-              "name": "character",
+              "name": "characters",
               "req": false,
               "type": "`$ARRAY`"
             },
@@ -51,7 +56,7 @@
             },
             {
               "active": true,
-              "name": "media_type",
+              "name": "mediaType",
               "req": false,
               "type": "`$STRING`"
             },
@@ -63,13 +68,13 @@
             },
             {
               "active": true,
-              "name": "number_of_page",
+              "name": "numberOfPages",
               "req": false,
               "type": "`$INTEGER`"
             },
             {
               "active": true,
-              "name": "pov_character",
+              "name": "povCharacters",
               "req": false,
               "type": "`$ARRAY`"
             },
@@ -122,6 +127,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "GET",
                   "orig": "/books",
                   "parts": [
@@ -158,6 +164,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "GET",
                   "orig": "/books/{id}",
                   "parts": [
@@ -189,19 +196,19 @@
           "fields": [
             {
               "active": true,
-              "name": "alias",
+              "name": "aliases",
               "req": false,
               "type": "`$ARRAY`"
             },
             {
               "active": true,
-              "name": "allegiance",
+              "name": "allegiances",
               "req": false,
               "type": "`$ARRAY`"
             },
             {
               "active": true,
-              "name": "book",
+              "name": "books",
               "req": false,
               "type": "`$ARRAY`"
             },
@@ -243,13 +250,13 @@
             },
             {
               "active": true,
-              "name": "played_by",
+              "name": "playedBy",
               "req": false,
               "type": "`$ARRAY`"
             },
             {
               "active": true,
-              "name": "pov_book",
+              "name": "povBooks",
               "req": false,
               "type": "`$ARRAY`"
             },
@@ -261,13 +268,13 @@
             },
             {
               "active": true,
-              "name": "title",
+              "name": "titles",
               "req": false,
               "type": "`$ARRAY`"
             },
             {
               "active": true,
-              "name": "tv_series",
+              "name": "tvSeries",
               "req": false,
               "type": "`$ARRAY`"
             },
@@ -324,6 +331,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "GET",
                   "orig": "/characters",
                   "parts": [
@@ -362,6 +370,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "GET",
                   "orig": "/characters/{id}",
                   "parts": [
@@ -393,31 +402,31 @@
           "fields": [
             {
               "active": true,
-              "name": "ancestral_weapon",
+              "name": "ancestralWeapons",
               "req": false,
               "type": "`$ARRAY`"
             },
             {
               "active": true,
-              "name": "cadet_branch",
+              "name": "cadetBranches",
               "req": false,
               "type": "`$ARRAY`"
             },
             {
               "active": true,
-              "name": "coat_of_arm",
+              "name": "coatOfArms",
               "req": false,
               "type": "`$STRING`"
             },
             {
               "active": true,
-              "name": "current_lord",
+              "name": "currentLord",
               "req": false,
               "type": "`$STRING`"
             },
             {
               "active": true,
-              "name": "died_out",
+              "name": "diedOut",
               "req": false,
               "type": "`$STRING`"
             },
@@ -459,19 +468,19 @@
             },
             {
               "active": true,
-              "name": "seat",
+              "name": "seats",
               "req": false,
               "type": "`$ARRAY`"
             },
             {
               "active": true,
-              "name": "sworn_member",
+              "name": "swornMembers",
               "req": false,
               "type": "`$ARRAY`"
             },
             {
               "active": true,
-              "name": "title",
+              "name": "titles",
               "req": false,
               "type": "`$ARRAY`"
             },
@@ -483,7 +492,7 @@
             },
             {
               "active": true,
-              "name": "word",
+              "name": "words",
               "req": false,
               "type": "`$STRING`"
             }
@@ -534,6 +543,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "GET",
                   "orig": "/houses",
                   "parts": [
@@ -572,6 +582,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "GET",
                   "orig": "/houses/{id}",
                   "parts": [
@@ -855,18 +866,41 @@
         "website": "https://anapioficeandfire.com"
       },
       "option": {},
+      "repo": {
+        "host": "github.com",
+        "path": ""
+      },
       "target": {
         "go": {
           "active": true,
+          "author": {
+            "name": "",
+            "url": ""
+          },
           "comment": {
             "line": "//"
           },
           "deps": {},
           "ext": "go",
+          "feature": {
+            "fullset": [
+              "test/feature_test.go"
+            ],
+            "trim": true
+          },
           "module": {
-            "name": "anapioficeandfire"
+            "goversion": "",
+            "name": "anapioficeandfire",
+            "package": "",
+            "path": ""
           },
           "name": "go",
+          "output": {
+            "adopt": false,
+            "path": "",
+            "repo": "",
+            "sdkrel": ""
+          },
           "publish": {
             "registry": {
               "active": false,
@@ -888,22 +922,40 @@
                 "recipe": "github"
               },
               "via": "port"
-            }
+            },
+            "version": "0.0.1"
           },
           "srcfeature": false,
           "title": "Golang"
         },
         "go-cli": {
           "active": true,
+          "author": {
+            "name": "",
+            "url": ""
+          },
           "comment": {
             "line": "//"
           },
           "deps": {},
           "ext": "go",
+          "feature": {
+            "fullset": [],
+            "trim": true
+          },
           "module": {
-            "name": "anapioficeandfire"
+            "goversion": "",
+            "name": "anapioficeandfire",
+            "package": "",
+            "path": ""
           },
           "name": "go-cli",
+          "output": {
+            "adopt": false,
+            "path": "",
+            "repo": "",
+            "sdkrel": ""
+          },
           "phase": {
             "agentguide": {
               "active": false
@@ -942,21 +994,39 @@
                 "recipe": "github"
               },
               "via": "root"
-            }
+            },
+            "version": "0.0.1"
           },
           "title": "Go CLI"
         },
         "go-mcp": {
           "active": true,
+          "author": {
+            "name": "",
+            "url": ""
+          },
           "comment": {
             "line": "//"
           },
           "deps": {},
           "ext": "go",
+          "feature": {
+            "fullset": [],
+            "trim": true
+          },
           "module": {
-            "name": "anapioficeandfire"
+            "goversion": "",
+            "name": "anapioficeandfire",
+            "package": "",
+            "path": ""
           },
           "name": "go-mcp",
+          "output": {
+            "adopt": false,
+            "path": "",
+            "repo": "",
+            "sdkrel": ""
+          },
           "phase": {
             "agentguide": {
               "active": false
@@ -995,12 +1065,17 @@
                 "recipe": "github"
               },
               "via": "root"
-            }
+            },
+            "version": "0.0.1"
           },
           "title": "Go MCP server"
         },
         "lua": {
           "active": true,
+          "author": {
+            "name": "",
+            "url": ""
+          },
           "comment": {
             "line": "--"
           },
@@ -1012,10 +1087,23 @@
             }
           },
           "ext": "lua",
+          "feature": {
+            "fullset": [],
+            "trim": true
+          },
           "module": {
-            "name": "anapioficeandfire"
+            "goversion": "",
+            "name": "anapioficeandfire",
+            "package": "",
+            "path": ""
           },
           "name": "lua",
+          "output": {
+            "adopt": false,
+            "path": "",
+            "repo": "",
+            "sdkrel": ""
+          },
           "publish": {
             "registry": {
               "active": false,
@@ -1037,22 +1125,40 @@
                 "recipe": "github"
               },
               "via": "port"
-            }
+            },
+            "version": "0.0.1"
           },
           "srcfeature": false,
           "title": "Lua"
         },
         "php": {
           "active": true,
+          "author": {
+            "name": "",
+            "url": ""
+          },
           "comment": {
             "line": "//"
           },
           "deps": {},
           "ext": "php",
+          "feature": {
+            "fullset": [],
+            "trim": true
+          },
           "module": {
-            "name": "anapioficeandfire"
+            "goversion": "",
+            "name": "anapioficeandfire",
+            "package": "",
+            "path": ""
           },
           "name": "php",
+          "output": {
+            "adopt": false,
+            "path": "",
+            "repo": "",
+            "sdkrel": ""
+          },
           "publish": {
             "registry": {
               "active": false,
@@ -1074,13 +1180,18 @@
                 "recipe": "github"
               },
               "via": "port"
-            }
+            },
+            "version": "0.0.1"
           },
           "srcfeature": false,
           "title": "PHP"
         },
         "py": {
           "active": true,
+          "author": {
+            "name": "",
+            "url": ""
+          },
           "comment": {
             "line": "#"
           },
@@ -1092,10 +1203,23 @@
             }
           },
           "ext": "py",
+          "feature": {
+            "fullset": [],
+            "trim": true
+          },
           "module": {
-            "name": "anapioficeandfire"
+            "goversion": "",
+            "name": "anapioficeandfire",
+            "package": "",
+            "path": ""
           },
           "name": "py",
+          "output": {
+            "adopt": false,
+            "path": "",
+            "repo": "",
+            "sdkrel": ""
+          },
           "publish": {
             "registry": {
               "active": false,
@@ -1117,13 +1241,18 @@
                 "recipe": "github"
               },
               "via": "port"
-            }
+            },
+            "version": "0.0.1"
           },
           "srcfeature": false,
           "title": "Python"
         },
         "rb": {
           "active": true,
+          "author": {
+            "name": "",
+            "url": ""
+          },
           "comment": {
             "line": "#"
           },
@@ -1140,10 +1269,23 @@
             }
           },
           "ext": "rb",
+          "feature": {
+            "fullset": [],
+            "trim": true
+          },
           "module": {
-            "name": "anapioficeandfire"
+            "goversion": "",
+            "name": "anapioficeandfire",
+            "package": "",
+            "path": ""
           },
           "name": "rb",
+          "output": {
+            "adopt": false,
+            "path": "",
+            "repo": "",
+            "sdkrel": ""
+          },
           "publish": {
             "registry": {
               "active": false,
@@ -1165,13 +1307,18 @@
                 "recipe": "github"
               },
               "via": "port"
-            }
+            },
+            "version": "0.0.1"
           },
           "srcfeature": false,
           "title": "Ruby"
         },
         "ts": {
           "active": true,
+          "author": {
+            "name": "",
+            "url": ""
+          },
           "base": "node_modules/@voxgig/sdkgen/project/.sdk",
           "comment": {
             "line": "//"
@@ -1194,10 +1341,23 @@
             }
           },
           "ext": "ts",
+          "feature": {
+            "fullset": [],
+            "trim": true
+          },
           "module": {
-            "name": "anapioficeandfire"
+            "goversion": "",
+            "name": "anapioficeandfire",
+            "package": "",
+            "path": ""
           },
           "name": "ts",
+          "output": {
+            "adopt": false,
+            "path": "",
+            "repo": "",
+            "sdkrel": ""
+          },
           "publish": {
             "registry": {
               "active": false,
@@ -1219,9 +1379,17 @@
                 "recipe": "github"
               },
               "via": "port"
-            }
+            },
+            "version": "0.0.1"
           },
           "title": "TypeScript"
+        }
+      },
+      "test": {
+        "live": {
+          "app": false,
+          "base": "",
+          "strict": false
         }
       }
     }

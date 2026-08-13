@@ -63,7 +63,7 @@ describe('HouseEntity', async () => {
     const house_ref01_ent = client.House()
     const house_ref01_match: any = {}
 
-    const house_ref01_list = await house_ref01_ent.list(house_ref01_match)
+    const house_ref01_list = (await house_ref01_ent.list(house_ref01_match)).map((e: any) => e.data())
 
 
 

@@ -62,7 +62,7 @@ Entity operations return `(value, err)`. Check `err` before using
 the value:
 
 ```lua
-local books, err = client:Book():list()
+local houses, err = client:House():list()
 if err then error(err) end
 ```
 
@@ -120,7 +120,7 @@ Create a mock client for unit testing — no server required:
 ```lua
 local client = sdk.test()
 
-local result, err = client:Book():list()
+local result, err = client:House():list()
 -- result is the returned data; err is set on failure
 ```
 
@@ -243,14 +243,14 @@ Only `direct()` returns a response envelope — a `table` with `ok`,
 
 | Field | Description |
 | --- | --- |
-| `author` |  |
-| `character` |  |
+| `authors` |  |
+| `characters` |  |
 | `country` |  |
 | `isbn` |  |
-| `media_type` |  |
+| `mediaType` |  |
 | `name` |  |
-| `number_of_page` |  |
-| `pov_character` |  |
+| `numberOfPages` |  |
+| `povCharacters` |  |
 | `publisher` |  |
 | `released` |  |
 | `url` |  |
@@ -263,20 +263,20 @@ API path: `/books`
 
 | Field | Description |
 | --- | --- |
-| `alias` |  |
-| `allegiance` |  |
-| `book` |  |
+| `aliases` |  |
+| `allegiances` |  |
+| `books` |  |
 | `born` |  |
 | `culture` |  |
 | `died` |  |
 | `father` |  |
 | `mother` |  |
 | `name` |  |
-| `played_by` |  |
-| `pov_book` |  |
+| `playedBy` |  |
+| `povBooks` |  |
 | `spouse` |  |
-| `title` |  |
-| `tv_series` |  |
+| `titles` |  |
+| `tvSeries` |  |
 | `url` |  |
 
 Operations: List, Load.
@@ -287,22 +287,22 @@ API path: `/characters`
 
 | Field | Description |
 | --- | --- |
-| `ancestral_weapon` |  |
-| `cadet_branch` |  |
-| `coat_of_arm` |  |
-| `current_lord` |  |
-| `died_out` |  |
+| `ancestralWeapons` |  |
+| `cadetBranches` |  |
+| `coatOfArms` |  |
+| `currentLord` |  |
+| `diedOut` |  |
 | `founded` |  |
 | `founder` |  |
 | `heir` |  |
 | `name` |  |
 | `overlord` |  |
 | `region` |  |
-| `seat` |  |
-| `sworn_member` |  |
-| `title` |  |
+| `seats` |  |
+| `swornMembers` |  |
+| `titles` |  |
 | `url` |  |
-| `word` |  |
+| `words` |  |
 
 Operations: List, Load.
 
@@ -328,14 +328,14 @@ Create an instance: `local book = client:Book(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `author` | `table` |  |
-| `character` | `table` |  |
+| `authors` | `table` |  |
+| `characters` | `table` |  |
 | `country` | `string` |  |
 | `isbn` | `string` |  |
-| `media_type` | `string` |  |
+| `mediaType` | `string` |  |
 | `name` | `string` |  |
-| `number_of_page` | `number` |  |
-| `pov_character` | `table` |  |
+| `numberOfPages` | `number` |  |
+| `povCharacters` | `table` |  |
 | `publisher` | `string` |  |
 | `released` | `string` |  |
 | `url` | `string` |  |
@@ -368,20 +368,20 @@ Create an instance: `local character = client:Character(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `alias` | `table` |  |
-| `allegiance` | `table` |  |
-| `book` | `table` |  |
+| `aliases` | `table` |  |
+| `allegiances` | `table` |  |
+| `books` | `table` |  |
 | `born` | `string` |  |
 | `culture` | `string` |  |
 | `died` | `string` |  |
 | `father` | `string` |  |
 | `mother` | `string` |  |
 | `name` | `string` |  |
-| `played_by` | `table` |  |
-| `pov_book` | `table` |  |
+| `playedBy` | `table` |  |
+| `povBooks` | `table` |  |
 | `spouse` | `string` |  |
-| `title` | `table` |  |
-| `tv_series` | `table` |  |
+| `titles` | `table` |  |
+| `tvSeries` | `table` |  |
 | `url` | `string` |  |
 
 #### Example: Load
@@ -412,22 +412,22 @@ Create an instance: `local house = client:House(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `ancestral_weapon` | `table` |  |
-| `cadet_branch` | `table` |  |
-| `coat_of_arm` | `string` |  |
-| `current_lord` | `string` |  |
-| `died_out` | `string` |  |
+| `ancestralWeapons` | `table` |  |
+| `cadetBranches` | `table` |  |
+| `coatOfArms` | `string` |  |
+| `currentLord` | `string` |  |
+| `diedOut` | `string` |  |
 | `founded` | `string` |  |
 | `founder` | `string` |  |
 | `heir` | `string` |  |
 | `name` | `string` |  |
 | `overlord` | `string` |  |
 | `region` | `string` |  |
-| `seat` | `table` |  |
-| `sworn_member` | `table` |  |
-| `title` | `table` |  |
+| `seats` | `table` |  |
+| `swornMembers` | `table` |  |
+| `titles` | `table` |  |
 | `url` | `string` |  |
-| `word` | `string` |  |
+| `words` | `string` |  |
 
 #### Example: Load
 
@@ -518,11 +518,11 @@ Entity instances are stateful. After a successful `list`, the entity
 stores the returned data and match criteria internally.
 
 ```lua
-local book = client:Book()
-book:list()
+local house = client:House()
+house:list()
 
--- book:data_get() now returns the book data from the last list
--- book:match_get() returns the last match criteria
+-- house:data_get() now returns the house data from the last list
+-- house:match_get() returns the last match criteria
 ```
 
 Call `make()` to create a fresh instance with the same configuration

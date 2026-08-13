@@ -106,14 +106,14 @@ fmt.Println(book.GetName()) // "book"
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `author` | `[]any` | No |  |
-| `character` | `[]any` | No |  |
+| `authors` | `[]any` | No |  |
+| `characters` | `[]any` | No |  |
 | `country` | `string` | No |  |
 | `isbn` | `string` | No |  |
-| `media_type` | `string` | No |  |
+| `mediaType` | `string` | No |  |
 | `name` | `string` | No |  |
-| `number_of_page` | `int` | No |  |
-| `pov_character` | `[]any` | No |  |
+| `numberOfPages` | `int` | No |  |
+| `povCharacters` | `[]any` | No |  |
 | `publisher` | `string` | No |  |
 | `released` | `string` | No |  |
 | `url` | `string` | No |  |
@@ -179,20 +179,20 @@ fmt.Println(character.GetName()) // "character"
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `alias` | `[]any` | No |  |
-| `allegiance` | `[]any` | No |  |
-| `book` | `[]any` | No |  |
+| `aliases` | `[]any` | No |  |
+| `allegiances` | `[]any` | No |  |
+| `books` | `[]any` | No |  |
 | `born` | `string` | No |  |
 | `culture` | `string` | No |  |
 | `died` | `string` | No |  |
 | `father` | `string` | No |  |
 | `mother` | `string` | No |  |
 | `name` | `string` | No |  |
-| `played_by` | `[]any` | No |  |
-| `pov_book` | `[]any` | No |  |
+| `playedBy` | `[]any` | No |  |
+| `povBooks` | `[]any` | No |  |
 | `spouse` | `string` | No |  |
-| `title` | `[]any` | No |  |
-| `tv_series` | `[]any` | No |  |
+| `titles` | `[]any` | No |  |
+| `tvSeries` | `[]any` | No |  |
 | `url` | `string` | No |  |
 
 ### Operations
@@ -256,22 +256,22 @@ fmt.Println(house.GetName()) // "house"
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `ancestral_weapon` | `[]any` | No |  |
-| `cadet_branch` | `[]any` | No |  |
-| `coat_of_arm` | `string` | No |  |
-| `current_lord` | `string` | No |  |
-| `died_out` | `string` | No |  |
+| `ancestralWeapons` | `[]any` | No |  |
+| `cadetBranches` | `[]any` | No |  |
+| `coatOfArms` | `string` | No |  |
+| `currentLord` | `string` | No |  |
+| `diedOut` | `string` | No |  |
 | `founded` | `string` | No |  |
 | `founder` | `string` | No |  |
 | `heir` | `string` | No |  |
 | `name` | `string` | No |  |
 | `overlord` | `string` | No |  |
 | `region` | `string` | No |  |
-| `seat` | `[]any` | No |  |
-| `sworn_member` | `[]any` | No |  |
-| `title` | `[]any` | No |  |
+| `seats` | `[]any` | No |  |
+| `swornMembers` | `[]any` | No |  |
+| `titles` | `[]any` | No |  |
 | `url` | `string` | No |  |
-| `word` | `string` | No |  |
+| `words` | `string` | No |  |
 
 ### Operations
 

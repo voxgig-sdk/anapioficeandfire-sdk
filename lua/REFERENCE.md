@@ -98,14 +98,14 @@ local book = client:Book(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `author` | `table` | No |  |
-| `character` | `table` | No |  |
+| `authors` | `table` | No |  |
+| `characters` | `table` | No |  |
 | `country` | `string` | No |  |
 | `isbn` | `string` | No |  |
-| `media_type` | `string` | No |  |
+| `mediaType` | `string` | No |  |
 | `name` | `string` | No |  |
-| `number_of_page` | `number` | No |  |
-| `pov_character` | `table` | No |  |
+| `numberOfPages` | `number` | No |  |
+| `povCharacters` | `table` | No |  |
 | `publisher` | `string` | No |  |
 | `released` | `string` | No |  |
 | `url` | `string` | No |  |
@@ -168,20 +168,20 @@ local character = client:Character(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `alias` | `table` | No |  |
-| `allegiance` | `table` | No |  |
-| `book` | `table` | No |  |
+| `aliases` | `table` | No |  |
+| `allegiances` | `table` | No |  |
+| `books` | `table` | No |  |
 | `born` | `string` | No |  |
 | `culture` | `string` | No |  |
 | `died` | `string` | No |  |
 | `father` | `string` | No |  |
 | `mother` | `string` | No |  |
 | `name` | `string` | No |  |
-| `played_by` | `table` | No |  |
-| `pov_book` | `table` | No |  |
+| `playedBy` | `table` | No |  |
+| `povBooks` | `table` | No |  |
 | `spouse` | `string` | No |  |
-| `title` | `table` | No |  |
-| `tv_series` | `table` | No |  |
+| `titles` | `table` | No |  |
+| `tvSeries` | `table` | No |  |
 | `url` | `string` | No |  |
 
 ### Operations
@@ -242,22 +242,22 @@ local house = client:House(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `ancestral_weapon` | `table` | No |  |
-| `cadet_branch` | `table` | No |  |
-| `coat_of_arm` | `string` | No |  |
-| `current_lord` | `string` | No |  |
-| `died_out` | `string` | No |  |
+| `ancestralWeapons` | `table` | No |  |
+| `cadetBranches` | `table` | No |  |
+| `coatOfArms` | `string` | No |  |
+| `currentLord` | `string` | No |  |
+| `diedOut` | `string` | No |  |
 | `founded` | `string` | No |  |
 | `founder` | `string` | No |  |
 | `heir` | `string` | No |  |
 | `name` | `string` | No |  |
 | `overlord` | `string` | No |  |
 | `region` | `string` | No |  |
-| `seat` | `table` | No |  |
-| `sworn_member` | `table` | No |  |
-| `title` | `table` | No |  |
+| `seats` | `table` | No |  |
+| `swornMembers` | `table` | No |  |
+| `titles` | `table` | No |  |
 | `url` | `string` | No |  |
-| `word` | `string` | No |  |
+| `words` | `string` | No |  |
 
 ### Operations
 
