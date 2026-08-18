@@ -40,7 +40,7 @@ class AnapioficeandfireSDK
         $utility = new AnapioficeandfireUtility();
         $this->_utility = $utility;
 
-        $config = AnapioficeandfireConfig::make_config();
+        $config = AnapioficeandfireConfig::shared_config();
 
         $this->_rootctx = ($utility->make_context)([
             "client" => $this,

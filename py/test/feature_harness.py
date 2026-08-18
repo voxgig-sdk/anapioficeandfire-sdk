@@ -14,7 +14,7 @@ from __future__ import annotations
 
 from urllib.parse import quote
 
-from anapioficeandfire_sdk.config import make_config
+from anapioficeandfire_sdk.config import shared_config
 from anapioficeandfire_sdk.features import _make_feature
 from anapioficeandfire_sdk.core.control import AnapioficeandfireControl
 from anapioficeandfire_sdk.core.error import AnapioficeandfireError
@@ -24,7 +24,7 @@ from anapioficeandfire_sdk.core.spec import AnapioficeandfireSpec
 
 # True when this SDK was generated with the named feature.
 def has_feature(name):
-    feature = make_config().get("feature")
+    feature = shared_config().get("feature")
     return isinstance(feature, dict) and feature.get(name) is not None
 
 

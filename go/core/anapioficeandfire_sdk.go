@@ -23,7 +23,7 @@ func NewAnapioficeandfireSDK(options map[string]any) *AnapioficeandfireSDK {
 
 	sdk.utility = NewUtility()
 
-	config := MakeConfig()
+	config := SharedConfig()
 
 	sdk.rootctx = sdk.utility.MakeContext(map[string]any{
 		"client":  sdk,

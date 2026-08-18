@@ -28,7 +28,7 @@ class AnapioficeandfireSDK
     utility = AnapioficeandfireUtility.new
     @_utility = utility
 
-    config = AnapioficeandfireConfig.make_config
+    config = AnapioficeandfireConfig.shared_config
 
     @_rootctx = utility.make_context.call({
       "client" => self,
