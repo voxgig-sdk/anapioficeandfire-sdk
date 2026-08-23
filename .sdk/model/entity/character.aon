@@ -1,0 +1,197 @@
+# Entity: character
+
+main: kit: entity: character: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "aliases"
+      req: false
+      short: "The aliases that this character goes by"
+      type: "`$ARRAY`"
+    }
+    {
+      name: "allegiances"
+      req: false
+      short: "An array of house resource URLs that this character is loyal to"
+      type: "`$ARRAY`"
+    }
+    {
+      name: "books"
+      req: false
+      short: "An array of book resource URLs that this character has been in"
+      type: "`$ARRAY`"
+    }
+    {
+      name: "born"
+      req: false
+      short: "Textual representation of when and where this character was born"
+      type: "`$STRING`"
+    }
+    {
+      name: "culture"
+      req: false
+      short: "The culture that this character belongs to"
+      type: "`$STRING`"
+    }
+    {
+      name: "died"
+      req: false
+      short: "Textual representation of when and where this character died"
+      type: "`$STRING`"
+    }
+    {
+      name: "father"
+      req: false
+      short: "The character resource URL of this character's father"
+      type: "`$STRING`"
+    }
+    {
+      name: "mother"
+      req: false
+      short: "The character resource URL of this character's mother"
+      type: "`$STRING`"
+    }
+    {
+      name: "name"
+      req: false
+      short: "The name of this character"
+      type: "`$STRING`"
+    }
+    {
+      name: "playedBy"
+      req: false
+      short: "An array of actor names that have played this character in the TV show"
+      type: "`$ARRAY`"
+    }
+    {
+      name: "povBooks"
+      req: false
+      short: "An array of book resource URLs that this character has had a POV-chapter in"
+      type: "`$ARRAY`"
+    }
+    {
+      name: "spouse"
+      req: false
+      short: "The character resource URL of this character's spouse"
+      type: "`$STRING`"
+    }
+    {
+      name: "titles"
+      req: false
+      short: "The titles that this character holds"
+      type: "`$ARRAY`"
+    }
+    {
+      name: "tvSeries"
+      req: false
+      short: "An array of season names that this character has been in"
+      type: "`$ARRAY`"
+    }
+    {
+      name: "url"
+      req: false
+      short: "The hypermedia URL of this resource"
+      type: "`$STRING`"
+    }
+  ]
+
+  name: "character"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          args: {
+            query: [
+              {
+                kind: "query"
+                name: "culture"
+                orig: "culture"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                kind: "query"
+                name: "name"
+                orig: "name"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                example: 1
+                kind: "query"
+                name: "page"
+                orig: "page"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                example: 10
+                kind: "query"
+                name: "page_size"
+                orig: "page_size"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/characters"
+          parts: [
+            "characters"
+          ]
+          select: {
+            exist: [
+              "culture"
+              "name"
+              "page"
+              "page_size"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    load: {
+      name: "load"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "id"
+                orig: "id"
+                reqd: true
+                type: "`$INTEGER`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/characters/{id}"
+          parts: [
+            "characters"
+            "{id}"
+          ]
+          select: {
+            exist: [
+              "id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

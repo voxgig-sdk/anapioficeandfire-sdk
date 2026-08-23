@@ -1,93 +1,79 @@
-# Entity: house
+# Entity: book
 
-main: kit: entity: house: {
+main: kit: entity: book: {
 
   alias: field: {}
 
   fields: [
     {
-      name: "ancestralWeapons"
+      name: "authors"
       req: false
+      short: "An array of names of the authors that wrote this book"
       type: "`$ARRAY`"
     }
     {
-      name: "cadetBranches"
+      name: "characters"
       req: false
+      short: "An array of character resource URLs that has been in this book"
       type: "`$ARRAY`"
     }
     {
-      name: "coatOfArms"
+      name: "country"
       req: false
+      short: "The country that this book was published in"
       type: "`$STRING`"
     }
     {
-      name: "currentLord"
+      name: "isbn"
       req: false
+      short: "The International Standard Book Number (ISBN-13) that uniquely identifies this book"
       type: "`$STRING`"
     }
     {
-      name: "diedOut"
+      name: "mediaType"
       req: false
-      type: "`$STRING`"
-    }
-    {
-      name: "founded"
-      req: false
-      type: "`$STRING`"
-    }
-    {
-      name: "founder"
-      req: false
-      type: "`$STRING`"
-    }
-    {
-      name: "heir"
-      req: false
+      short: "The type of media this book was released in"
       type: "`$STRING`"
     }
     {
       name: "name"
       req: false
+      short: "The name of this book"
       type: "`$STRING`"
     }
     {
-      name: "overlord"
+      name: "numberOfPages"
       req: false
+      short: "The number of pages in this book"
+      type: "`$INTEGER`"
+    }
+    {
+      name: "povCharacters"
+      req: false
+      short: "An array of character resource URLs that has had a POV-chapter in this book"
+      type: "`$ARRAY`"
+    }
+    {
+      name: "publisher"
+      req: false
+      short: "The company that published this book"
       type: "`$STRING`"
     }
     {
-      name: "region"
+      name: "released"
       req: false
+      short: "The date (ISO 8601) when this book was released"
       type: "`$STRING`"
-    }
-    {
-      name: "seats"
-      req: false
-      type: "`$ARRAY`"
-    }
-    {
-      name: "swornMembers"
-      req: false
-      type: "`$ARRAY`"
-    }
-    {
-      name: "titles"
-      req: false
-      type: "`$ARRAY`"
     }
     {
       name: "url"
       req: false
-      type: "`$STRING`"
-    }
-    {
-      name: "words"
-      req: false
+      short: "The hypermedia URL of this resource"
       type: "`$STRING`"
     }
   ]
 
-  name: "house"
+  name: "book"
   op: {
     list: {
       name: "list"
@@ -95,13 +81,6 @@ main: kit: entity: house: {
         {
           args: {
             query: [
-              {
-                kind: "query"
-                name: "name"
-                orig: "name"
-                reqd: false
-                type: "`$STRING`"
-              }
               {
                 example: 1
                 kind: "query"
@@ -118,26 +97,17 @@ main: kit: entity: house: {
                 reqd: false
                 type: "`$INTEGER`"
               }
-              {
-                kind: "query"
-                name: "region"
-                orig: "region"
-                reqd: false
-                type: "`$STRING`"
-              }
             ]
           }
           method: "GET"
-          orig: "/houses"
+          orig: "/books"
           parts: [
-            "houses"
+            "books"
           ]
           select: {
             exist: [
-              "name"
               "page"
               "page_size"
-              "region"
             ]
           }
           transform: {
@@ -163,9 +133,9 @@ main: kit: entity: house: {
             ]
           }
           method: "GET"
-          orig: "/houses/{id}"
+          orig: "/books/{id}"
           parts: [
-            "houses"
+            "books"
             "{id}"
           ]
           select: {

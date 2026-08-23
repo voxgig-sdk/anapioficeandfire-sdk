@@ -36,66 +36,77 @@
               "active": true,
               "name": "authors",
               "req": false,
+              "short": "An array of names of the authors that wrote this book",
               "type": "`$ARRAY`"
             },
             {
               "active": true,
               "name": "characters",
               "req": false,
+              "short": "An array of character resource URLs that has been in this book",
               "type": "`$ARRAY`"
             },
             {
               "active": true,
               "name": "country",
               "req": false,
+              "short": "The country that this book was published in",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "isbn",
               "req": false,
+              "short": "The International Standard Book Number (ISBN-13) that uniquely identifies this book",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "mediaType",
               "req": false,
+              "short": "The type of media this book was released in",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "name",
               "req": false,
+              "short": "The name of this book",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "numberOfPages",
               "req": false,
+              "short": "The number of pages in this book",
               "type": "`$INTEGER`"
             },
             {
               "active": true,
               "name": "povCharacters",
               "req": false,
+              "short": "An array of character resource URLs that has had a POV-chapter in this book",
               "type": "`$ARRAY`"
             },
             {
               "active": true,
               "name": "publisher",
               "req": false,
+              "short": "The company that published this book",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "released",
               "req": false,
+              "short": "The date (ISO 8601) when this book was released",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "url",
               "req": false,
+              "short": "The hypermedia URL of this resource",
               "type": "`$STRING`"
             }
           ],
@@ -200,90 +211,105 @@
               "active": true,
               "name": "aliases",
               "req": false,
+              "short": "The aliases that this character goes by",
               "type": "`$ARRAY`"
             },
             {
               "active": true,
               "name": "allegiances",
               "req": false,
+              "short": "An array of house resource URLs that this character is loyal to",
               "type": "`$ARRAY`"
             },
             {
               "active": true,
               "name": "books",
               "req": false,
+              "short": "An array of book resource URLs that this character has been in",
               "type": "`$ARRAY`"
             },
             {
               "active": true,
               "name": "born",
               "req": false,
+              "short": "Textual representation of when and where this character was born",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "culture",
               "req": false,
+              "short": "The culture that this character belongs to",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "died",
               "req": false,
+              "short": "Textual representation of when and where this character died",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "father",
               "req": false,
+              "short": "The character resource URL of this character's father",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "mother",
               "req": false,
+              "short": "The character resource URL of this character's mother",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "name",
               "req": false,
+              "short": "The name of this character",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "playedBy",
               "req": false,
+              "short": "An array of actor names that have played this character in the TV show",
               "type": "`$ARRAY`"
             },
             {
               "active": true,
               "name": "povBooks",
               "req": false,
+              "short": "An array of book resource URLs that this character has had a POV-chapter in",
               "type": "`$ARRAY`"
             },
             {
               "active": true,
               "name": "spouse",
               "req": false,
+              "short": "The character resource URL of this character's spouse",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "titles",
               "req": false,
+              "short": "The titles that this character holds",
               "type": "`$ARRAY`"
             },
             {
               "active": true,
               "name": "tvSeries",
               "req": false,
+              "short": "An array of season names that this character has been in",
               "type": "`$ARRAY`"
             },
             {
               "active": true,
               "name": "url",
               "req": false,
+              "short": "The hypermedia URL of this resource",
               "type": "`$STRING`"
             }
           ],
@@ -406,96 +432,112 @@
               "active": true,
               "name": "ancestralWeapons",
               "req": false,
+              "short": "An array of names of the ancestral weapons of this house",
               "type": "`$ARRAY`"
             },
             {
               "active": true,
               "name": "cadetBranches",
               "req": false,
+              "short": "An array of house resource URLs that was founded from this house",
               "type": "`$ARRAY`"
             },
             {
               "active": true,
               "name": "coatOfArms",
               "req": false,
+              "short": "Text describing the coat of arms of this house",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "currentLord",
               "req": false,
+              "short": "The character resource URL of this house's current lord",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "diedOut",
               "req": false,
+              "short": "The year that this house died out",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "founded",
               "req": false,
+              "short": "The year that this house was founded",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "founder",
               "req": false,
+              "short": "The character resource URL that founded this house",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "heir",
               "req": false,
+              "short": "The character resource URL of this house's heir",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "name",
               "req": false,
+              "short": "The name of this house",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "overlord",
               "req": false,
+              "short": "The house resource URL that this house answers to",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "region",
               "req": false,
+              "short": "The region that this house resides in",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "seats",
               "req": false,
+              "short": "The seats that this house holds",
               "type": "`$ARRAY`"
             },
             {
               "active": true,
               "name": "swornMembers",
               "req": false,
+              "short": "An array of character resource URLs that are sworn to this house",
               "type": "`$ARRAY`"
             },
             {
               "active": true,
               "name": "titles",
               "req": false,
+              "short": "The titles that this house holds",
               "type": "`$ARRAY`"
             },
             {
               "active": true,
               "name": "url",
               "req": false,
+              "short": "The hypermedia URL of this resource",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "words",
               "req": false,
+              "short": "The words of this house",
               "type": "`$STRING`"
             }
           ],

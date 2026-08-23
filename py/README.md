@@ -258,17 +258,17 @@ On error, `ok` is `False` and `err` contains the error value.
 
 | Field | Description |
 | --- | --- |
-| `authors` |  |
-| `characters` |  |
-| `country` |  |
-| `isbn` |  |
-| `mediaType` |  |
-| `name` |  |
-| `numberOfPages` |  |
-| `povCharacters` |  |
-| `publisher` |  |
-| `released` |  |
-| `url` |  |
+| `authors` | An array of names of the authors that wrote this book |
+| `characters` | An array of character resource URLs that has been in this book |
+| `country` | The country that this book was published in |
+| `isbn` | The International Standard Book Number (ISBN-13) that uniquely identifies this book |
+| `mediaType` | The type of media this book was released in |
+| `name` | The name of this book |
+| `numberOfPages` | The number of pages in this book |
+| `povCharacters` | An array of character resource URLs that has had a POV-chapter in this book |
+| `publisher` | The company that published this book |
+| `released` | The date (ISO 8601) when this book was released |
+| `url` | The hypermedia URL of this resource |
 
 Operations: List, Load.
 
@@ -278,21 +278,21 @@ API path: `/books`
 
 | Field | Description |
 | --- | --- |
-| `aliases` |  |
-| `allegiances` |  |
-| `books` |  |
-| `born` |  |
-| `culture` |  |
-| `died` |  |
-| `father` |  |
-| `mother` |  |
-| `name` |  |
-| `playedBy` |  |
-| `povBooks` |  |
-| `spouse` |  |
-| `titles` |  |
-| `tvSeries` |  |
-| `url` |  |
+| `aliases` | The aliases that this character goes by |
+| `allegiances` | An array of house resource URLs that this character is loyal to |
+| `books` | An array of book resource URLs that this character has been in |
+| `born` | Textual representation of when and where this character was born |
+| `culture` | The culture that this character belongs to |
+| `died` | Textual representation of when and where this character died |
+| `father` | The character resource URL of this character's father |
+| `mother` | The character resource URL of this character's mother |
+| `name` | The name of this character |
+| `playedBy` | An array of actor names that have played this character in the TV show |
+| `povBooks` | An array of book resource URLs that this character has had a POV-chapter in |
+| `spouse` | The character resource URL of this character's spouse |
+| `titles` | The titles that this character holds |
+| `tvSeries` | An array of season names that this character has been in |
+| `url` | The hypermedia URL of this resource |
 
 Operations: List, Load.
 
@@ -302,22 +302,22 @@ API path: `/characters`
 
 | Field | Description |
 | --- | --- |
-| `ancestralWeapons` |  |
-| `cadetBranches` |  |
-| `coatOfArms` |  |
-| `currentLord` |  |
-| `diedOut` |  |
-| `founded` |  |
-| `founder` |  |
-| `heir` |  |
-| `name` |  |
-| `overlord` |  |
-| `region` |  |
-| `seats` |  |
-| `swornMembers` |  |
-| `titles` |  |
-| `url` |  |
-| `words` |  |
+| `ancestralWeapons` | An array of names of the ancestral weapons of this house |
+| `cadetBranches` | An array of house resource URLs that was founded from this house |
+| `coatOfArms` | Text describing the coat of arms of this house |
+| `currentLord` | The character resource URL of this house's current lord |
+| `diedOut` | The year that this house died out |
+| `founded` | The year that this house was founded |
+| `founder` | The character resource URL that founded this house |
+| `heir` | The character resource URL of this house's heir |
+| `name` | The name of this house |
+| `overlord` | The house resource URL that this house answers to |
+| `region` | The region that this house resides in |
+| `seats` | The seats that this house holds |
+| `swornMembers` | An array of character resource URLs that are sworn to this house |
+| `titles` | The titles that this house holds |
+| `url` | The hypermedia URL of this resource |
+| `words` | The words of this house |
 
 Operations: List, Load.
 
@@ -343,17 +343,17 @@ Create an instance: `book = client.Book()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `authors` | `list` |  |
-| `characters` | `list` |  |
-| `country` | `str` |  |
-| `isbn` | `str` |  |
-| `mediaType` | `str` |  |
-| `name` | `str` |  |
-| `numberOfPages` | `int` |  |
-| `povCharacters` | `list` |  |
-| `publisher` | `str` |  |
-| `released` | `str` |  |
-| `url` | `str` |  |
+| `authors` | `list` | An array of names of the authors that wrote this book |
+| `characters` | `list` | An array of character resource URLs that has been in this book |
+| `country` | `str` | The country that this book was published in |
+| `isbn` | `str` | The International Standard Book Number (ISBN-13) that uniquely identifies this book |
+| `mediaType` | `str` | The type of media this book was released in |
+| `name` | `str` | The name of this book |
+| `numberOfPages` | `int` | The number of pages in this book |
+| `povCharacters` | `list` | An array of character resource URLs that has had a POV-chapter in this book |
+| `publisher` | `str` | The company that published this book |
+| `released` | `str` | The date (ISO 8601) when this book was released |
+| `url` | `str` | The hypermedia URL of this resource |
 
 #### Example: Load
 
@@ -383,21 +383,21 @@ Create an instance: `character = client.Character()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `aliases` | `list` |  |
-| `allegiances` | `list` |  |
-| `books` | `list` |  |
-| `born` | `str` |  |
-| `culture` | `str` |  |
-| `died` | `str` |  |
-| `father` | `str` |  |
-| `mother` | `str` |  |
-| `name` | `str` |  |
-| `playedBy` | `list` |  |
-| `povBooks` | `list` |  |
-| `spouse` | `str` |  |
-| `titles` | `list` |  |
-| `tvSeries` | `list` |  |
-| `url` | `str` |  |
+| `aliases` | `list` | The aliases that this character goes by |
+| `allegiances` | `list` | An array of house resource URLs that this character is loyal to |
+| `books` | `list` | An array of book resource URLs that this character has been in |
+| `born` | `str` | Textual representation of when and where this character was born |
+| `culture` | `str` | The culture that this character belongs to |
+| `died` | `str` | Textual representation of when and where this character died |
+| `father` | `str` | The character resource URL of this character's father |
+| `mother` | `str` | The character resource URL of this character's mother |
+| `name` | `str` | The name of this character |
+| `playedBy` | `list` | An array of actor names that have played this character in the TV show |
+| `povBooks` | `list` | An array of book resource URLs that this character has had a POV-chapter in |
+| `spouse` | `str` | The character resource URL of this character's spouse |
+| `titles` | `list` | The titles that this character holds |
+| `tvSeries` | `list` | An array of season names that this character has been in |
+| `url` | `str` | The hypermedia URL of this resource |
 
 #### Example: Load
 
@@ -427,22 +427,22 @@ Create an instance: `house = client.House()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `ancestralWeapons` | `list` |  |
-| `cadetBranches` | `list` |  |
-| `coatOfArms` | `str` |  |
-| `currentLord` | `str` |  |
-| `diedOut` | `str` |  |
-| `founded` | `str` |  |
-| `founder` | `str` |  |
-| `heir` | `str` |  |
-| `name` | `str` |  |
-| `overlord` | `str` |  |
-| `region` | `str` |  |
-| `seats` | `list` |  |
-| `swornMembers` | `list` |  |
-| `titles` | `list` |  |
-| `url` | `str` |  |
-| `words` | `str` |  |
+| `ancestralWeapons` | `list` | An array of names of the ancestral weapons of this house |
+| `cadetBranches` | `list` | An array of house resource URLs that was founded from this house |
+| `coatOfArms` | `str` | Text describing the coat of arms of this house |
+| `currentLord` | `str` | The character resource URL of this house's current lord |
+| `diedOut` | `str` | The year that this house died out |
+| `founded` | `str` | The year that this house was founded |
+| `founder` | `str` | The character resource URL that founded this house |
+| `heir` | `str` | The character resource URL of this house's heir |
+| `name` | `str` | The name of this house |
+| `overlord` | `str` | The house resource URL that this house answers to |
+| `region` | `str` | The region that this house resides in |
+| `seats` | `list` | The seats that this house holds |
+| `swornMembers` | `list` | An array of character resource URLs that are sworn to this house |
+| `titles` | `list` | The titles that this house holds |
+| `url` | `str` | The hypermedia URL of this resource |
+| `words` | `str` | The words of this house |
 
 #### Example: Load
 

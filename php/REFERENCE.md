@@ -100,17 +100,17 @@ $book = $client->Book();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `authors` | `array` | No |  |
-| `characters` | `array` | No |  |
-| `country` | `string` | No |  |
-| `isbn` | `string` | No |  |
-| `mediaType` | `string` | No |  |
-| `name` | `string` | No |  |
-| `numberOfPages` | `int` | No |  |
-| `povCharacters` | `array` | No |  |
-| `publisher` | `string` | No |  |
-| `released` | `string` | No |  |
-| `url` | `string` | No |  |
+| `authors` | `array` | No | An array of names of the authors that wrote this book |
+| `characters` | `array` | No | An array of character resource URLs that has been in this book |
+| `country` | `string` | No | The country that this book was published in |
+| `isbn` | `string` | No | The International Standard Book Number (ISBN-13) that uniquely identifies this book |
+| `mediaType` | `string` | No | The type of media this book was released in |
+| `name` | `string` | No | The name of this book |
+| `numberOfPages` | `int` | No | The number of pages in this book |
+| `povCharacters` | `array` | No | An array of character resource URLs that has had a POV-chapter in this book |
+| `publisher` | `string` | No | The company that published this book |
+| `released` | `string` | No | The date (ISO 8601) when this book was released |
+| `url` | `string` | No | The hypermedia URL of this resource |
 
 ### Operations
 
@@ -170,21 +170,21 @@ $character = $client->Character();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `aliases` | `array` | No |  |
-| `allegiances` | `array` | No |  |
-| `books` | `array` | No |  |
-| `born` | `string` | No |  |
-| `culture` | `string` | No |  |
-| `died` | `string` | No |  |
-| `father` | `string` | No |  |
-| `mother` | `string` | No |  |
-| `name` | `string` | No |  |
-| `playedBy` | `array` | No |  |
-| `povBooks` | `array` | No |  |
-| `spouse` | `string` | No |  |
-| `titles` | `array` | No |  |
-| `tvSeries` | `array` | No |  |
-| `url` | `string` | No |  |
+| `aliases` | `array` | No | The aliases that this character goes by |
+| `allegiances` | `array` | No | An array of house resource URLs that this character is loyal to |
+| `books` | `array` | No | An array of book resource URLs that this character has been in |
+| `born` | `string` | No | Textual representation of when and where this character was born |
+| `culture` | `string` | No | The culture that this character belongs to |
+| `died` | `string` | No | Textual representation of when and where this character died |
+| `father` | `string` | No | The character resource URL of this character's father |
+| `mother` | `string` | No | The character resource URL of this character's mother |
+| `name` | `string` | No | The name of this character |
+| `playedBy` | `array` | No | An array of actor names that have played this character in the TV show |
+| `povBooks` | `array` | No | An array of book resource URLs that this character has had a POV-chapter in |
+| `spouse` | `string` | No | The character resource URL of this character's spouse |
+| `titles` | `array` | No | The titles that this character holds |
+| `tvSeries` | `array` | No | An array of season names that this character has been in |
+| `url` | `string` | No | The hypermedia URL of this resource |
 
 ### Operations
 
@@ -244,22 +244,22 @@ $house = $client->House();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `ancestralWeapons` | `array` | No |  |
-| `cadetBranches` | `array` | No |  |
-| `coatOfArms` | `string` | No |  |
-| `currentLord` | `string` | No |  |
-| `diedOut` | `string` | No |  |
-| `founded` | `string` | No |  |
-| `founder` | `string` | No |  |
-| `heir` | `string` | No |  |
-| `name` | `string` | No |  |
-| `overlord` | `string` | No |  |
-| `region` | `string` | No |  |
-| `seats` | `array` | No |  |
-| `swornMembers` | `array` | No |  |
-| `titles` | `array` | No |  |
-| `url` | `string` | No |  |
-| `words` | `string` | No |  |
+| `ancestralWeapons` | `array` | No | An array of names of the ancestral weapons of this house |
+| `cadetBranches` | `array` | No | An array of house resource URLs that was founded from this house |
+| `coatOfArms` | `string` | No | Text describing the coat of arms of this house |
+| `currentLord` | `string` | No | The character resource URL of this house's current lord |
+| `diedOut` | `string` | No | The year that this house died out |
+| `founded` | `string` | No | The year that this house was founded |
+| `founder` | `string` | No | The character resource URL that founded this house |
+| `heir` | `string` | No | The character resource URL of this house's heir |
+| `name` | `string` | No | The name of this house |
+| `overlord` | `string` | No | The house resource URL that this house answers to |
+| `region` | `string` | No | The region that this house resides in |
+| `seats` | `array` | No | The seats that this house holds |
+| `swornMembers` | `array` | No | An array of character resource URLs that are sworn to this house |
+| `titles` | `array` | No | The titles that this house holds |
+| `url` | `string` | No | The hypermedia URL of this resource |
+| `words` | `string` | No | The words of this house |
 
 ### Operations
 

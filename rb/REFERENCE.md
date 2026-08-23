@@ -101,17 +101,17 @@ book = client.Book
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `authors` | `Array` | No |  |
-| `characters` | `Array` | No |  |
-| `country` | `String` | No |  |
-| `isbn` | `String` | No |  |
-| `mediaType` | `String` | No |  |
-| `name` | `String` | No |  |
-| `numberOfPages` | `Integer` | No |  |
-| `povCharacters` | `Array` | No |  |
-| `publisher` | `String` | No |  |
-| `released` | `String` | No |  |
-| `url` | `String` | No |  |
+| `authors` | `Array` | No | An array of names of the authors that wrote this book |
+| `characters` | `Array` | No | An array of character resource URLs that has been in this book |
+| `country` | `String` | No | The country that this book was published in |
+| `isbn` | `String` | No | The International Standard Book Number (ISBN-13) that uniquely identifies this book |
+| `mediaType` | `String` | No | The type of media this book was released in |
+| `name` | `String` | No | The name of this book |
+| `numberOfPages` | `Integer` | No | The number of pages in this book |
+| `povCharacters` | `Array` | No | An array of character resource URLs that has had a POV-chapter in this book |
+| `publisher` | `String` | No | The company that published this book |
+| `released` | `String` | No | The date (ISO 8601) when this book was released |
+| `url` | `String` | No | The hypermedia URL of this resource |
 
 ### Operations
 
@@ -171,21 +171,21 @@ character = client.Character
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `aliases` | `Array` | No |  |
-| `allegiances` | `Array` | No |  |
-| `books` | `Array` | No |  |
-| `born` | `String` | No |  |
-| `culture` | `String` | No |  |
-| `died` | `String` | No |  |
-| `father` | `String` | No |  |
-| `mother` | `String` | No |  |
-| `name` | `String` | No |  |
-| `playedBy` | `Array` | No |  |
-| `povBooks` | `Array` | No |  |
-| `spouse` | `String` | No |  |
-| `titles` | `Array` | No |  |
-| `tvSeries` | `Array` | No |  |
-| `url` | `String` | No |  |
+| `aliases` | `Array` | No | The aliases that this character goes by |
+| `allegiances` | `Array` | No | An array of house resource URLs that this character is loyal to |
+| `books` | `Array` | No | An array of book resource URLs that this character has been in |
+| `born` | `String` | No | Textual representation of when and where this character was born |
+| `culture` | `String` | No | The culture that this character belongs to |
+| `died` | `String` | No | Textual representation of when and where this character died |
+| `father` | `String` | No | The character resource URL of this character's father |
+| `mother` | `String` | No | The character resource URL of this character's mother |
+| `name` | `String` | No | The name of this character |
+| `playedBy` | `Array` | No | An array of actor names that have played this character in the TV show |
+| `povBooks` | `Array` | No | An array of book resource URLs that this character has had a POV-chapter in |
+| `spouse` | `String` | No | The character resource URL of this character's spouse |
+| `titles` | `Array` | No | The titles that this character holds |
+| `tvSeries` | `Array` | No | An array of season names that this character has been in |
+| `url` | `String` | No | The hypermedia URL of this resource |
 
 ### Operations
 
@@ -245,22 +245,22 @@ house = client.House
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `ancestralWeapons` | `Array` | No |  |
-| `cadetBranches` | `Array` | No |  |
-| `coatOfArms` | `String` | No |  |
-| `currentLord` | `String` | No |  |
-| `diedOut` | `String` | No |  |
-| `founded` | `String` | No |  |
-| `founder` | `String` | No |  |
-| `heir` | `String` | No |  |
-| `name` | `String` | No |  |
-| `overlord` | `String` | No |  |
-| `region` | `String` | No |  |
-| `seats` | `Array` | No |  |
-| `swornMembers` | `Array` | No |  |
-| `titles` | `Array` | No |  |
-| `url` | `String` | No |  |
-| `words` | `String` | No |  |
+| `ancestralWeapons` | `Array` | No | An array of names of the ancestral weapons of this house |
+| `cadetBranches` | `Array` | No | An array of house resource URLs that was founded from this house |
+| `coatOfArms` | `String` | No | Text describing the coat of arms of this house |
+| `currentLord` | `String` | No | The character resource URL of this house's current lord |
+| `diedOut` | `String` | No | The year that this house died out |
+| `founded` | `String` | No | The year that this house was founded |
+| `founder` | `String` | No | The character resource URL that founded this house |
+| `heir` | `String` | No | The character resource URL of this house's heir |
+| `name` | `String` | No | The name of this house |
+| `overlord` | `String` | No | The house resource URL that this house answers to |
+| `region` | `String` | No | The region that this house resides in |
+| `seats` | `Array` | No | The seats that this house holds |
+| `swornMembers` | `Array` | No | An array of character resource URLs that are sworn to this house |
+| `titles` | `Array` | No | The titles that this house holds |
+| `url` | `String` | No | The hypermedia URL of this resource |
+| `words` | `String` | No | The words of this house |
 
 ### Operations
 

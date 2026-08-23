@@ -1,88 +1,109 @@
-# Entity: character
+# Entity: house
 
-main: kit: entity: character: {
+main: kit: entity: house: {
 
   alias: field: {}
 
   fields: [
     {
-      name: "aliases"
+      name: "ancestralWeapons"
       req: false
+      short: "An array of names of the ancestral weapons of this house"
       type: "`$ARRAY`"
     }
     {
-      name: "allegiances"
+      name: "cadetBranches"
       req: false
+      short: "An array of house resource URLs that was founded from this house"
       type: "`$ARRAY`"
     }
     {
-      name: "books"
+      name: "coatOfArms"
       req: false
-      type: "`$ARRAY`"
-    }
-    {
-      name: "born"
-      req: false
+      short: "Text describing the coat of arms of this house"
       type: "`$STRING`"
     }
     {
-      name: "culture"
+      name: "currentLord"
       req: false
+      short: "The character resource URL of this house's current lord"
       type: "`$STRING`"
     }
     {
-      name: "died"
+      name: "diedOut"
       req: false
+      short: "The year that this house died out"
       type: "`$STRING`"
     }
     {
-      name: "father"
+      name: "founded"
       req: false
+      short: "The year that this house was founded"
       type: "`$STRING`"
     }
     {
-      name: "mother"
+      name: "founder"
       req: false
+      short: "The character resource URL that founded this house"
+      type: "`$STRING`"
+    }
+    {
+      name: "heir"
+      req: false
+      short: "The character resource URL of this house's heir"
       type: "`$STRING`"
     }
     {
       name: "name"
       req: false
+      short: "The name of this house"
       type: "`$STRING`"
     }
     {
-      name: "playedBy"
+      name: "overlord"
       req: false
-      type: "`$ARRAY`"
-    }
-    {
-      name: "povBooks"
-      req: false
-      type: "`$ARRAY`"
-    }
-    {
-      name: "spouse"
-      req: false
+      short: "The house resource URL that this house answers to"
       type: "`$STRING`"
+    }
+    {
+      name: "region"
+      req: false
+      short: "The region that this house resides in"
+      type: "`$STRING`"
+    }
+    {
+      name: "seats"
+      req: false
+      short: "The seats that this house holds"
+      type: "`$ARRAY`"
+    }
+    {
+      name: "swornMembers"
+      req: false
+      short: "An array of character resource URLs that are sworn to this house"
+      type: "`$ARRAY`"
     }
     {
       name: "titles"
       req: false
-      type: "`$ARRAY`"
-    }
-    {
-      name: "tvSeries"
-      req: false
+      short: "The titles that this house holds"
       type: "`$ARRAY`"
     }
     {
       name: "url"
       req: false
+      short: "The hypermedia URL of this resource"
+      type: "`$STRING`"
+    }
+    {
+      name: "words"
+      req: false
+      short: "The words of this house"
       type: "`$STRING`"
     }
   ]
 
-  name: "character"
+  name: "house"
   op: {
     list: {
       name: "list"
@@ -90,13 +111,6 @@ main: kit: entity: character: {
         {
           args: {
             query: [
-              {
-                kind: "query"
-                name: "culture"
-                orig: "culture"
-                reqd: false
-                type: "`$STRING`"
-              }
               {
                 kind: "query"
                 name: "name"
@@ -120,19 +134,26 @@ main: kit: entity: character: {
                 reqd: false
                 type: "`$INTEGER`"
               }
+              {
+                kind: "query"
+                name: "region"
+                orig: "region"
+                reqd: false
+                type: "`$STRING`"
+              }
             ]
           }
           method: "GET"
-          orig: "/characters"
+          orig: "/houses"
           parts: [
-            "characters"
+            "houses"
           ]
           select: {
             exist: [
-              "culture"
               "name"
               "page"
               "page_size"
+              "region"
             ]
           }
           transform: {
@@ -158,9 +179,9 @@ main: kit: entity: character: {
             ]
           }
           method: "GET"
-          orig: "/characters/{id}"
+          orig: "/houses/{id}"
           parts: [
-            "characters"
+            "houses"
             "{id}"
           ]
           select: {

@@ -11,6 +11,9 @@ func MakeConfig() map[string]any {
 	return map[string]any{
 		"main": map[string]any{
 			"name": "Anapioficeandfire",
+			"slug": "anapioficeandfire",
+			"version": "0.0.1",
+			"target": "go",
 		},
 		"feature": map[string]any{
 			"test": map[string]any{
@@ -35,46 +38,57 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"name": "authors",
+						"short": "An array of names of the authors that wrote this book",
 						"type": "`$ARRAY`",
 					},
 					map[string]any{
 						"name": "characters",
+						"short": "An array of character resource URLs that has been in this book",
 						"type": "`$ARRAY`",
 					},
 					map[string]any{
 						"name": "country",
+						"short": "The country that this book was published in",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "isbn",
+						"short": "The International Standard Book Number (ISBN-13) that uniquely identifies this book",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "mediaType",
+						"short": "The type of media this book was released in",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "name",
+						"short": "The name of this book",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "numberOfPages",
+						"short": "The number of pages in this book",
 						"type": "`$INTEGER`",
 					},
 					map[string]any{
 						"name": "povCharacters",
+						"short": "An array of character resource URLs that has had a POV-chapter in this book",
 						"type": "`$ARRAY`",
 					},
 					map[string]any{
 						"name": "publisher",
+						"short": "The company that published this book",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "released",
+						"short": "The date (ISO 8601) when this book was released",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "url",
+						"short": "The hypermedia URL of this resource",
 						"type": "`$STRING`",
 					},
 				},
@@ -166,62 +180,77 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"name": "aliases",
+						"short": "The aliases that this character goes by",
 						"type": "`$ARRAY`",
 					},
 					map[string]any{
 						"name": "allegiances",
+						"short": "An array of house resource URLs that this character is loyal to",
 						"type": "`$ARRAY`",
 					},
 					map[string]any{
 						"name": "books",
+						"short": "An array of book resource URLs that this character has been in",
 						"type": "`$ARRAY`",
 					},
 					map[string]any{
 						"name": "born",
+						"short": "Textual representation of when and where this character was born",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "culture",
+						"short": "The culture that this character belongs to",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "died",
+						"short": "Textual representation of when and where this character died",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "father",
+						"short": "The character resource URL of this character's father",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "mother",
+						"short": "The character resource URL of this character's mother",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "name",
+						"short": "The name of this character",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "playedBy",
+						"short": "An array of actor names that have played this character in the TV show",
 						"type": "`$ARRAY`",
 					},
 					map[string]any{
 						"name": "povBooks",
+						"short": "An array of book resource URLs that this character has had a POV-chapter in",
 						"type": "`$ARRAY`",
 					},
 					map[string]any{
 						"name": "spouse",
+						"short": "The character resource URL of this character's spouse",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "titles",
+						"short": "The titles that this character holds",
 						"type": "`$ARRAY`",
 					},
 					map[string]any{
 						"name": "tvSeries",
+						"short": "An array of season names that this character has been in",
 						"type": "`$ARRAY`",
 					},
 					map[string]any{
 						"name": "url",
+						"short": "The hypermedia URL of this resource",
 						"type": "`$STRING`",
 					},
 				},
@@ -327,66 +356,82 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"name": "ancestralWeapons",
+						"short": "An array of names of the ancestral weapons of this house",
 						"type": "`$ARRAY`",
 					},
 					map[string]any{
 						"name": "cadetBranches",
+						"short": "An array of house resource URLs that was founded from this house",
 						"type": "`$ARRAY`",
 					},
 					map[string]any{
 						"name": "coatOfArms",
+						"short": "Text describing the coat of arms of this house",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "currentLord",
+						"short": "The character resource URL of this house's current lord",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "diedOut",
+						"short": "The year that this house died out",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "founded",
+						"short": "The year that this house was founded",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "founder",
+						"short": "The character resource URL that founded this house",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "heir",
+						"short": "The character resource URL of this house's heir",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "name",
+						"short": "The name of this house",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "overlord",
+						"short": "The house resource URL that this house answers to",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "region",
+						"short": "The region that this house resides in",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "seats",
+						"short": "The seats that this house holds",
 						"type": "`$ARRAY`",
 					},
 					map[string]any{
 						"name": "swornMembers",
+						"short": "An array of character resource URLs that are sworn to this house",
 						"type": "`$ARRAY`",
 					},
 					map[string]any{
 						"name": "titles",
+						"short": "The titles that this house holds",
 						"type": "`$ARRAY`",
 					},
 					map[string]any{
 						"name": "url",
+						"short": "The hypermedia URL of this resource",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "words",
+						"short": "The words of this house",
 						"type": "`$STRING`",
 					},
 				},
