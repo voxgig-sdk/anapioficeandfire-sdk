@@ -83,9 +83,13 @@ class BookEntityTest < Minitest::Test
     assert book_ref01_list_result.is_a?(Array)
 
     # LOAD
-    book_ref01_match_dt0 = {}
+    book_ref01_match_dt0 = {
+      "id" => book_ref01_data["id"],
+    }
     book_ref01_data_dt0_loaded = book_ref01_ent.load(book_ref01_match_dt0, nil)
-    assert !book_ref01_data_dt0_loaded.nil?
+    book_ref01_data_dt0_load_result = Helpers.to_map(book_ref01_data_dt0_loaded.respond_to?(:data_get) ? book_ref01_data_dt0_loaded.data_get : book_ref01_data_dt0_loaded)
+    assert !book_ref01_data_dt0_load_result.nil?
+    assert_equal book_ref01_data_dt0_load_result["id"], book_ref01_data["id"]
 
   end
 end

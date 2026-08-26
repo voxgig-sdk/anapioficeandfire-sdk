@@ -98,6 +98,7 @@ book = client.Book()
 | `authors` | `list` | No | An array of names of the authors that wrote this book |
 | `characters` | `list` | No | An array of character resource URLs that has been in this book |
 | `country` | `str` | No | The country that this book was published in |
+| `id` | `str` | No |  |
 | `isbn` | `str` | No | The International Standard Book Number (ISBN-13) that uniquely identifies this book |
 | `mediaType` | `str` | No | The type of media this book was released in |
 | `name` | `str` | No | The name of this book |
@@ -173,6 +174,7 @@ character = client.Character()
 | `culture` | `str` | No | The culture that this character belongs to |
 | `died` | `str` | No | Textual representation of when and where this character died |
 | `father` | `str` | No | The character resource URL of this character's father |
+| `id` | `str` | No |  |
 | `mother` | `str` | No | The character resource URL of this character's mother |
 | `name` | `str` | No | The name of this character |
 | `playedBy` | `list` | No | An array of actor names that have played this character in the TV show |
@@ -249,6 +251,7 @@ house = client.House()
 | `founded` | `str` | No | The year that this house was founded |
 | `founder` | `str` | No | The character resource URL that founded this house |
 | `heir` | `str` | No | The character resource URL of this house's heir |
+| `id` | `str` | No |  |
 | `name` | `str` | No | The name of this house |
 | `overlord` | `str` | No | The house resource URL that this house answers to |
 | `region` | `str` | No | The region that this house resides in |

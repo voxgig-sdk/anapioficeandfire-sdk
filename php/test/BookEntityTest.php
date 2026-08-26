@@ -93,9 +93,13 @@ class BookEntityTest extends TestCase
         $this->assertIsArray($book_ref01_list_result);
 
         // LOAD
-        $book_ref01_match_dt0 = [];
+        $book_ref01_match_dt0 = [
+            "id" => $book_ref01_data["id"],
+        ];
         $book_ref01_data_dt0_loaded = $book_ref01_ent->load($book_ref01_match_dt0, null);
-        $this->assertNotNull($book_ref01_data_dt0_loaded);
+        $book_ref01_data_dt0_load_result = Helpers::to_map(is_object($book_ref01_data_dt0_loaded) && method_exists($book_ref01_data_dt0_loaded, 'data_get') ? $book_ref01_data_dt0_loaded->data_get() : $book_ref01_data_dt0_loaded);
+        $this->assertNotNull($book_ref01_data_dt0_load_result);
+        $this->assertEquals($book_ref01_data_dt0_load_result["id"], $book_ref01_data["id"]);
 
     }
 }

@@ -48,6 +48,11 @@ main: kit: entity: character: {
       type: "`$STRING`"
     }
     {
+      name: "id"
+      req: false
+      type: "`$STRING`"
+    }
+    {
       name: "mother"
       req: false
       short: "The character resource URL of this character's mother"
@@ -96,6 +101,11 @@ main: kit: entity: character: {
       type: "`$STRING`"
     }
   ]
+
+  id: {
+    field: "id"
+    name: "id"
+  }
 
   name: "character"
   op: {

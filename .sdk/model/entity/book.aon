@@ -24,6 +24,11 @@ main: kit: entity: book: {
       type: "`$STRING`"
     }
     {
+      name: "id"
+      req: false
+      type: "`$STRING`"
+    }
+    {
       name: "isbn"
       req: false
       short: "The International Standard Book Number (ISBN-13) that uniquely identifies this book"
@@ -72,6 +77,11 @@ main: kit: entity: book: {
       type: "`$STRING`"
     }
   ]
+
+  id: {
+    field: "id"
+    name: "id"
+  }
 
   name: "book"
   op: {

@@ -18,6 +18,7 @@ class Book
     public ?array $authors = null;
     public ?array $characters = null;
     public ?string $country = null;
+    public ?string $id = null;
     public ?string $isbn = null;
     public ?string $mediaType = null;
     public ?string $name = null;
@@ -40,6 +41,7 @@ class BookListMatch
     public ?array $authors = null;
     public ?array $characters = null;
     public ?string $country = null;
+    public ?string $id = null;
     public ?string $isbn = null;
     public ?string $mediaType = null;
     public ?string $name = null;
@@ -60,6 +62,7 @@ class Character
     public ?string $culture = null;
     public ?string $died = null;
     public ?string $father = null;
+    public ?string $id = null;
     public ?string $mother = null;
     public ?string $name = null;
     public ?array $playedBy = null;
@@ -86,6 +89,7 @@ class CharacterListMatch
     public ?string $culture = null;
     public ?string $died = null;
     public ?string $father = null;
+    public ?string $id = null;
     public ?string $mother = null;
     public ?string $name = null;
     public ?array $playedBy = null;
@@ -107,6 +111,7 @@ class House
     public ?string $founded = null;
     public ?string $founder = null;
     public ?string $heir = null;
+    public ?string $id = null;
     public ?string $name = null;
     public ?string $overlord = null;
     public ?string $region = null;
@@ -134,6 +139,7 @@ class HouseListMatch
     public ?string $founded = null;
     public ?string $founder = null;
     public ?string $heir = null;
+    public ?string $id = null;
     public ?string $name = null;
     public ?string $overlord = null;
     public ?string $region = null;

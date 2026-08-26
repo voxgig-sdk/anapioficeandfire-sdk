@@ -4,44 +4,44 @@
       "BOOK00": {
         "authors": [],
         "characters": [],
-        "country": "s70",
-        "isbn": "s71",
-        "mediaType": "s72",
-        "name": "s73",
-        "numberOfPages": "s74",
+        "country": "s7a",
+        "id": "BOOK00",
+        "isbn": "s7c",
+        "mediaType": "s7d",
+        "name": "s7e",
+        "numberOfPages": "s7f",
         "povCharacters": [],
-        "publisher": "s76",
-        "released": "s77",
-        "url": "s78",
-        "id": "BOOK00"
+        "publisher": "s81",
+        "released": "s82",
+        "url": "s83"
       },
       "BOOK01": {
         "authors": [],
         "characters": [],
-        "country": "sde",
-        "isbn": "sdf",
-        "mediaType": "se0",
-        "name": "se1",
-        "numberOfPages": "se2",
+        "country": "sf2",
+        "id": "BOOK01",
+        "isbn": "sf4",
+        "mediaType": "sf5",
+        "name": "sf6",
+        "numberOfPages": "sf7",
         "povCharacters": [],
-        "publisher": "se4",
-        "released": "se5",
-        "url": "se6",
-        "id": "BOOK01"
+        "publisher": "sf9",
+        "released": "sfa",
+        "url": "sfb"
       },
       "BOOK02": {
         "authors": [],
         "characters": [],
-        "country": "s14c",
-        "isbn": "s14d",
-        "mediaType": "s14e",
-        "name": "s14f",
-        "numberOfPages": "s150",
+        "country": "s16a",
+        "id": "BOOK02",
+        "isbn": "s16c",
+        "mediaType": "s16d",
+        "name": "s16e",
+        "numberOfPages": "s16f",
         "povCharacters": [],
-        "publisher": "s152",
-        "released": "s153",
-        "url": "s154",
-        "id": "BOOK02"
+        "publisher": "s171",
+        "released": "s172",
+        "url": "s173"
       }
     }
   },
@@ -50,15 +50,15 @@
       "book_ref01": {
         "authors": [],
         "characters": [],
-        "country": "s1ba",
-        "isbn": "s1bb",
-        "mediaType": "s1bc",
-        "name": "s1bd",
-        "numberOfPages": "s1be",
+        "country": "s1e2",
+        "isbn": "s1e4",
+        "mediaType": "s1e5",
+        "name": "s1e6",
+        "numberOfPages": "s1e7",
         "povCharacters": [],
-        "publisher": "s1c0",
-        "released": "s1c1",
-        "url": "s1c2"
+        "publisher": "s1e9",
+        "released": "s1ea",
+        "url": "s1eb"
       }
     }
   }

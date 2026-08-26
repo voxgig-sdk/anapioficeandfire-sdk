@@ -19,6 +19,9 @@
 # @!attribute [rw] country
 #   @return [String, nil]
 #
+# @!attribute [rw] id
+#   @return [String, nil]
+#
 # @!attribute [rw] isbn
 #   @return [String, nil]
 #
@@ -46,6 +49,7 @@ Book = Struct.new(
   :authors,
   :characters,
   :country,
+  :id,
   :isbn,
   :mediaType,
   :name,
@@ -77,6 +81,9 @@ BookLoadMatch = Struct.new(
 # @!attribute [rw] country
 #   @return [String, nil]
 #
+# @!attribute [rw] id
+#   @return [String, nil]
+#
 # @!attribute [rw] isbn
 #   @return [String, nil]
 #
@@ -104,6 +111,7 @@ BookListMatch = Struct.new(
   :authors,
   :characters,
   :country,
+  :id,
   :isbn,
   :mediaType,
   :name,
@@ -138,6 +146,9 @@ BookListMatch = Struct.new(
 # @!attribute [rw] father
 #   @return [String, nil]
 #
+# @!attribute [rw] id
+#   @return [String, nil]
+#
 # @!attribute [rw] mother
 #   @return [String, nil]
 #
@@ -169,6 +180,7 @@ Character = Struct.new(
   :culture,
   :died,
   :father,
+  :id,
   :mother,
   :name,
   :playedBy,
@@ -212,6 +224,9 @@ CharacterLoadMatch = Struct.new(
 # @!attribute [rw] father
 #   @return [String, nil]
 #
+# @!attribute [rw] id
+#   @return [String, nil]
+#
 # @!attribute [rw] mother
 #   @return [String, nil]
 #
@@ -243,6 +258,7 @@ CharacterListMatch = Struct.new(
   :culture,
   :died,
   :father,
+  :id,
   :mother,
   :name,
   :playedBy,
@@ -280,6 +296,9 @@ CharacterListMatch = Struct.new(
 # @!attribute [rw] heir
 #   @return [String, nil]
 #
+# @!attribute [rw] id
+#   @return [String, nil]
+#
 # @!attribute [rw] name
 #   @return [String, nil]
 #
@@ -312,6 +331,7 @@ House = Struct.new(
   :founded,
   :founder,
   :heir,
+  :id,
   :name,
   :overlord,
   :region,
@@ -358,6 +378,9 @@ HouseLoadMatch = Struct.new(
 # @!attribute [rw] heir
 #   @return [String, nil]
 #
+# @!attribute [rw] id
+#   @return [String, nil]
+#
 # @!attribute [rw] name
 #   @return [String, nil]
 #
@@ -390,6 +413,7 @@ HouseListMatch = Struct.new(
   :founded,
   :founder,
   :heir,
+  :id,
   :name,
   :overlord,
   :region,

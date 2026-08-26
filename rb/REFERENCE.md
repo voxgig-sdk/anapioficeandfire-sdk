@@ -104,6 +104,7 @@ book = client.Book
 | `authors` | `Array` | No | An array of names of the authors that wrote this book |
 | `characters` | `Array` | No | An array of character resource URLs that has been in this book |
 | `country` | `String` | No | The country that this book was published in |
+| `id` | `String` | No |  |
 | `isbn` | `String` | No | The International Standard Book Number (ISBN-13) that uniquely identifies this book |
 | `mediaType` | `String` | No | The type of media this book was released in |
 | `name` | `String` | No | The name of this book |
@@ -178,6 +179,7 @@ character = client.Character
 | `culture` | `String` | No | The culture that this character belongs to |
 | `died` | `String` | No | Textual representation of when and where this character died |
 | `father` | `String` | No | The character resource URL of this character's father |
+| `id` | `String` | No |  |
 | `mother` | `String` | No | The character resource URL of this character's mother |
 | `name` | `String` | No | The name of this character |
 | `playedBy` | `Array` | No | An array of actor names that have played this character in the TV show |
@@ -253,6 +255,7 @@ house = client.House
 | `founded` | `String` | No | The year that this house was founded |
 | `founder` | `String` | No | The character resource URL that founded this house |
 | `heir` | `String` | No | The character resource URL of this house's heir |
+| `id` | `String` | No |  |
 | `name` | `String` | No | The name of this house |
 | `overlord` | `String` | No | The house resource URL that this house answers to |
 | `region` | `String` | No | The region that this house resides in |

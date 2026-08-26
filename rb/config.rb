@@ -28,6 +28,7 @@ module AnapioficeandfireConfig
           "options" => {
             "active" => false,
           },
+          "transport" => "base",
         },
       },
       "options" => {
@@ -57,6 +58,10 @@ module AnapioficeandfireConfig
             {
               "name" => "country",
               "short" => "The country that this book was published in",
+              "type" => "`$STRING`",
+            },
+            {
+              "name" => "id",
               "type" => "`$STRING`",
             },
             {
@@ -219,6 +224,10 @@ module AnapioficeandfireConfig
             {
               "name" => "father",
               "short" => "The character resource URL of this character's father",
+              "type" => "`$STRING`",
+            },
+            {
+              "name" => "id",
               "type" => "`$STRING`",
             },
             {
@@ -400,6 +409,10 @@ module AnapioficeandfireConfig
             {
               "name" => "heir",
               "short" => "The character resource URL of this house's heir",
+              "type" => "`$STRING`",
+            },
+            {
+              "name" => "id",
               "type" => "`$STRING`",
             },
             {

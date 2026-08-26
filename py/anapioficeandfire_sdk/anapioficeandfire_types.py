@@ -20,6 +20,7 @@ class Book(TypedDict, total=False):
     authors: list
     characters: list
     country: str
+    id: str
     isbn: str
     mediaType: str
     name: str
@@ -38,6 +39,7 @@ class BookListMatch(TypedDict, total=False):
     authors: list
     characters: list
     country: str
+    id: str
     isbn: str
     mediaType: str
     name: str
@@ -56,6 +58,7 @@ class Character(TypedDict, total=False):
     culture: str
     died: str
     father: str
+    id: str
     mother: str
     name: str
     playedBy: list
@@ -78,6 +81,7 @@ class CharacterListMatch(TypedDict, total=False):
     culture: str
     died: str
     father: str
+    id: str
     mother: str
     name: str
     playedBy: list
@@ -97,6 +101,7 @@ class House(TypedDict, total=False):
     founded: str
     founder: str
     heir: str
+    id: str
     name: str
     overlord: str
     region: str
@@ -120,6 +125,7 @@ class HouseListMatch(TypedDict, total=False):
     founded: str
     founder: str
     heir: str
+    id: str
     name: str
     overlord: str
     region: str

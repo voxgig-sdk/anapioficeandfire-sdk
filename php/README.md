@@ -38,7 +38,7 @@ try {
     // list() returns an array of Book records — iterate directly.
     $books = $client->Book()->list();
     foreach ($books as $item) {
-        echo $item["authors"] . "\n";
+        echo $item["id"] . " " . $item["authors"] . "\n";
     }
 } catch (\Throwable $err) {
     echo "Error: " . $err->getMessage();
@@ -268,6 +268,7 @@ On error, `ok` is `false` and `$err` contains the error value.
 | `authors` | An array of names of the authors that wrote this book |
 | `characters` | An array of character resource URLs that has been in this book |
 | `country` | The country that this book was published in |
+| `id` |  |
 | `isbn` | The International Standard Book Number (ISBN-13) that uniquely identifies this book |
 | `mediaType` | The type of media this book was released in |
 | `name` | The name of this book |
@@ -292,6 +293,7 @@ API path: `/books`
 | `culture` | The culture that this character belongs to |
 | `died` | Textual representation of when and where this character died |
 | `father` | The character resource URL of this character's father |
+| `id` |  |
 | `mother` | The character resource URL of this character's mother |
 | `name` | The name of this character |
 | `playedBy` | An array of actor names that have played this character in the TV show |
@@ -317,6 +319,7 @@ API path: `/characters`
 | `founded` | The year that this house was founded |
 | `founder` | The character resource URL that founded this house |
 | `heir` | The character resource URL of this house's heir |
+| `id` |  |
 | `name` | The name of this house |
 | `overlord` | The house resource URL that this house answers to |
 | `region` | The region that this house resides in |
@@ -353,6 +356,7 @@ Create an instance: `$book = $client->Book();`
 | `authors` | `array` | An array of names of the authors that wrote this book |
 | `characters` | `array` | An array of character resource URLs that has been in this book |
 | `country` | `string` | The country that this book was published in |
+| `id` | `string` |  |
 | `isbn` | `string` | The International Standard Book Number (ISBN-13) that uniquely identifies this book |
 | `mediaType` | `string` | The type of media this book was released in |
 | `name` | `string` | The name of this book |
@@ -399,6 +403,7 @@ Create an instance: `$character = $client->Character();`
 | `culture` | `string` | The culture that this character belongs to |
 | `died` | `string` | Textual representation of when and where this character died |
 | `father` | `string` | The character resource URL of this character's father |
+| `id` | `string` |  |
 | `mother` | `string` | The character resource URL of this character's mother |
 | `name` | `string` | The name of this character |
 | `playedBy` | `array` | An array of actor names that have played this character in the TV show |
@@ -446,6 +451,7 @@ Create an instance: `$house = $client->House();`
 | `founded` | `string` | The year that this house was founded |
 | `founder` | `string` | The character resource URL that founded this house |
 | `heir` | `string` | The character resource URL of this house's heir |
+| `id` | `string` |  |
 | `name` | `string` | The name of this house |
 | `overlord` | `string` | The house resource URL that this house answers to |
 | `region` | `string` | The region that this house resides in |

@@ -20,6 +20,7 @@ func MakeConfig() map[string]any {
 				"options": map[string]any{
 					"active": false,
 				},
+				"transport": "base",
 			},
 		},
 		"options": map[string]any{
@@ -49,6 +50,10 @@ func MakeConfig() map[string]any {
 					map[string]any{
 						"name": "country",
 						"short": "The country that this book was published in",
+						"type": "`$STRING`",
+					},
+					map[string]any{
+						"name": "id",
 						"type": "`$STRING`",
 					},
 					map[string]any{
@@ -211,6 +216,10 @@ func MakeConfig() map[string]any {
 					map[string]any{
 						"name": "father",
 						"short": "The character resource URL of this character's father",
+						"type": "`$STRING`",
+					},
+					map[string]any{
+						"name": "id",
 						"type": "`$STRING`",
 					},
 					map[string]any{
@@ -392,6 +401,10 @@ func MakeConfig() map[string]any {
 					map[string]any{
 						"name": "heir",
 						"short": "The character resource URL of this house's heir",
+						"type": "`$STRING`",
+					},
+					map[string]any{
+						"name": "id",
 						"type": "`$STRING`",
 					},
 					map[string]any{

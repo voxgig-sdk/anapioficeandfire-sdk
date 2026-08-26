@@ -40,7 +40,8 @@ class Config {
      test:     {
       "options": {
         "active": false
-      }
+      },
+      "transport": "base"
     },
 
   }
@@ -84,6 +85,10 @@ class Config {
         {
           "name": "country",
           "short": "The country that this book was published in",
+          "type": "`$STRING`"
+        },
+        {
+          "name": "id",
           "type": "`$STRING`"
         },
         {
@@ -246,6 +251,10 @@ class Config {
         {
           "name": "father",
           "short": "The character resource URL of this character's father",
+          "type": "`$STRING`"
+        },
+        {
+          "name": "id",
           "type": "`$STRING`"
         },
         {
@@ -427,6 +436,10 @@ class Config {
         {
           "name": "heir",
           "short": "The character resource URL of this house's heir",
+          "type": "`$STRING`"
+        },
+        {
+          "name": "id",
           "type": "`$STRING`"
         },
         {

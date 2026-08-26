@@ -37,6 +37,7 @@ def make_config():
         "options": {
           "active": False,
         },
+        "transport": "base",
       },
         },
         "options": {
@@ -66,6 +67,10 @@ def make_config():
           {
             "name": "country",
             "short": "The country that this book was published in",
+            "type": "`$STRING`",
+          },
+          {
+            "name": "id",
             "type": "`$STRING`",
           },
           {
@@ -228,6 +233,10 @@ def make_config():
           {
             "name": "father",
             "short": "The character resource URL of this character's father",
+            "type": "`$STRING`",
+          },
+          {
+            "name": "id",
             "type": "`$STRING`",
           },
           {
@@ -409,6 +418,10 @@ def make_config():
           {
             "name": "heir",
             "short": "The character resource URL of this house's heir",
+            "type": "`$STRING`",
+          },
+          {
+            "name": "id",
             "type": "`$STRING`",
           },
           {

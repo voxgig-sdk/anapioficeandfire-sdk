@@ -101,6 +101,7 @@ local book = client:Book(nil)
 | `authors` | `table` | No | An array of names of the authors that wrote this book |
 | `characters` | `table` | No | An array of character resource URLs that has been in this book |
 | `country` | `string` | No | The country that this book was published in |
+| `id` | `string` | No |  |
 | `isbn` | `string` | No | The International Standard Book Number (ISBN-13) that uniquely identifies this book |
 | `mediaType` | `string` | No | The type of media this book was released in |
 | `name` | `string` | No | The name of this book |
@@ -175,6 +176,7 @@ local character = client:Character(nil)
 | `culture` | `string` | No | The culture that this character belongs to |
 | `died` | `string` | No | Textual representation of when and where this character died |
 | `father` | `string` | No | The character resource URL of this character's father |
+| `id` | `string` | No |  |
 | `mother` | `string` | No | The character resource URL of this character's mother |
 | `name` | `string` | No | The name of this character |
 | `playedBy` | `table` | No | An array of actor names that have played this character in the TV show |
@@ -250,6 +252,7 @@ local house = client:House(nil)
 | `founded` | `string` | No | The year that this house was founded |
 | `founder` | `string` | No | The character resource URL that founded this house |
 | `heir` | `string` | No | The character resource URL of this house's heir |
+| `id` | `string` | No |  |
 | `name` | `string` | No | The name of this house |
 | `overlord` | `string` | No | The house resource URL that this house answers to |
 | `region` | `string` | No | The region that this house resides in |

@@ -54,6 +54,11 @@ main: kit: entity: house: {
       type: "`$STRING`"
     }
     {
+      name: "id"
+      req: false
+      type: "`$STRING`"
+    }
+    {
       name: "name"
       req: false
       short: "The name of this house"
@@ -102,6 +107,11 @@ main: kit: entity: house: {
       type: "`$STRING`"
     }
   ]
+
+  id: {
+    field: "id"
+    name: "id"
+  }
 
   name: "house"
   op: {

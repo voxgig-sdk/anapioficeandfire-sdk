@@ -9,6 +9,7 @@ export interface Book {
   authors?: any[]
   characters?: any[]
   country?: string
+  id?: string
   isbn?: string
   mediaType?: string
   name?: string
@@ -27,6 +28,7 @@ export interface BookListMatch {
   authors?: any[]
   characters?: any[]
   country?: string
+  id?: string
   isbn?: string
   mediaType?: string
   name?: string
@@ -45,6 +47,7 @@ export interface Character {
   culture?: string
   died?: string
   father?: string
+  id?: string
   mother?: string
   name?: string
   playedBy?: any[]
@@ -67,6 +70,7 @@ export interface CharacterListMatch {
   culture?: string
   died?: string
   father?: string
+  id?: string
   mother?: string
   name?: string
   playedBy?: any[]
@@ -86,6 +90,7 @@ export interface House {
   founded?: string
   founder?: string
   heir?: string
+  id?: string
   name?: string
   overlord?: string
   region?: string
@@ -109,6 +114,7 @@ export interface HouseListMatch {
   founded?: string
   founder?: string
   heir?: string
+  id?: string
   name?: string
   overlord?: string
   region?: string

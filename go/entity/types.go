@@ -17,6 +17,7 @@ type Book struct {
 	Authors *[]any `json:"authors,omitempty"`
 	Characters *[]any `json:"characters,omitempty"`
 	Country *string `json:"country,omitempty"`
+	Id *string `json:"id,omitempty"`
 	Isbn *string `json:"isbn,omitempty"`
 	MediaType *string `json:"mediaType,omitempty"`
 	Name *string `json:"name,omitempty"`
@@ -37,6 +38,7 @@ type BookListMatch struct {
 	Authors *[]any `json:"authors,omitempty"`
 	Characters *[]any `json:"characters,omitempty"`
 	Country *string `json:"country,omitempty"`
+	Id *string `json:"id,omitempty"`
 	Isbn *string `json:"isbn,omitempty"`
 	MediaType *string `json:"mediaType,omitempty"`
 	Name *string `json:"name,omitempty"`
@@ -56,6 +58,7 @@ type Character struct {
 	Culture *string `json:"culture,omitempty"`
 	Died *string `json:"died,omitempty"`
 	Father *string `json:"father,omitempty"`
+	Id *string `json:"id,omitempty"`
 	Mother *string `json:"mother,omitempty"`
 	Name *string `json:"name,omitempty"`
 	PlayedBy *[]any `json:"playedBy,omitempty"`
@@ -80,6 +83,7 @@ type CharacterListMatch struct {
 	Culture *string `json:"culture,omitempty"`
 	Died *string `json:"died,omitempty"`
 	Father *string `json:"father,omitempty"`
+	Id *string `json:"id,omitempty"`
 	Mother *string `json:"mother,omitempty"`
 	Name *string `json:"name,omitempty"`
 	PlayedBy *[]any `json:"playedBy,omitempty"`
@@ -100,6 +104,7 @@ type House struct {
 	Founded *string `json:"founded,omitempty"`
 	Founder *string `json:"founder,omitempty"`
 	Heir *string `json:"heir,omitempty"`
+	Id *string `json:"id,omitempty"`
 	Name *string `json:"name,omitempty"`
 	Overlord *string `json:"overlord,omitempty"`
 	Region *string `json:"region,omitempty"`
@@ -125,6 +130,7 @@ type HouseListMatch struct {
 	Founded *string `json:"founded,omitempty"`
 	Founder *string `json:"founder,omitempty"`
 	Heir *string `json:"heir,omitempty"`
+	Id *string `json:"id,omitempty"`
 	Name *string `json:"name,omitempty"`
 	Overlord *string `json:"overlord,omitempty"`
 	Region *string `json:"region,omitempty"`

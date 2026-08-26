@@ -10,6 +10,7 @@
 ---@field authors? table
 ---@field characters? table
 ---@field country? string
+---@field id? string
 ---@field isbn? string
 ---@field mediaType? string
 ---@field name? string
@@ -26,6 +27,7 @@
 ---@field authors? table
 ---@field characters? table
 ---@field country? string
+---@field id? string
 ---@field isbn? string
 ---@field mediaType? string
 ---@field name? string
@@ -43,6 +45,7 @@
 ---@field culture? string
 ---@field died? string
 ---@field father? string
+---@field id? string
 ---@field mother? string
 ---@field name? string
 ---@field playedBy? table
@@ -63,6 +66,7 @@
 ---@field culture? string
 ---@field died? string
 ---@field father? string
+---@field id? string
 ---@field mother? string
 ---@field name? string
 ---@field playedBy? table
@@ -81,6 +85,7 @@
 ---@field founded? string
 ---@field founder? string
 ---@field heir? string
+---@field id? string
 ---@field name? string
 ---@field overlord? string
 ---@field region? string
@@ -102,6 +107,7 @@
 ---@field founded? string
 ---@field founder? string
 ---@field heir? string
+---@field id? string
 ---@field name? string
 ---@field overlord? string
 ---@field region? string

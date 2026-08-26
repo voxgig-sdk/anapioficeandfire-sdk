@@ -37,7 +37,7 @@ begin
   # list returns an Array of Book records — iterate directly.
   books = client.Book.list
   books.each do |item|
-    puts "#{item["authors"]}"
+    puts "#{item["id"]} #{item["authors"]}"
   end
 rescue => err
   warn "list failed: #{err}"
@@ -258,6 +258,7 @@ returns a result `Hash` with these keys:
 | `authors` | An array of names of the authors that wrote this book |
 | `characters` | An array of character resource URLs that has been in this book |
 | `country` | The country that this book was published in |
+| `id` |  |
 | `isbn` | The International Standard Book Number (ISBN-13) that uniquely identifies this book |
 | `mediaType` | The type of media this book was released in |
 | `name` | The name of this book |
@@ -282,6 +283,7 @@ API path: `/books`
 | `culture` | The culture that this character belongs to |
 | `died` | Textual representation of when and where this character died |
 | `father` | The character resource URL of this character's father |
+| `id` |  |
 | `mother` | The character resource URL of this character's mother |
 | `name` | The name of this character |
 | `playedBy` | An array of actor names that have played this character in the TV show |
@@ -307,6 +309,7 @@ API path: `/characters`
 | `founded` | The year that this house was founded |
 | `founder` | The character resource URL that founded this house |
 | `heir` | The character resource URL of this house's heir |
+| `id` |  |
 | `name` | The name of this house |
 | `overlord` | The house resource URL that this house answers to |
 | `region` | The region that this house resides in |
@@ -343,6 +346,7 @@ Create an instance: `book = client.Book`
 | `authors` | `Array` | An array of names of the authors that wrote this book |
 | `characters` | `Array` | An array of character resource URLs that has been in this book |
 | `country` | `String` | The country that this book was published in |
+| `id` | `String` |  |
 | `isbn` | `String` | The International Standard Book Number (ISBN-13) that uniquely identifies this book |
 | `mediaType` | `String` | The type of media this book was released in |
 | `name` | `String` | The name of this book |
@@ -389,6 +393,7 @@ Create an instance: `character = client.Character`
 | `culture` | `String` | The culture that this character belongs to |
 | `died` | `String` | Textual representation of when and where this character died |
 | `father` | `String` | The character resource URL of this character's father |
+| `id` | `String` |  |
 | `mother` | `String` | The character resource URL of this character's mother |
 | `name` | `String` | The name of this character |
 | `playedBy` | `Array` | An array of actor names that have played this character in the TV show |
@@ -436,6 +441,7 @@ Create an instance: `house = client.House`
 | `founded` | `String` | The year that this house was founded |
 | `founder` | `String` | The character resource URL that founded this house |
 | `heir` | `String` | The character resource URL of this house's heir |
+| `id` | `String` |  |
 | `name` | `String` | The name of this house |
 | `overlord` | `String` | The house resource URL that this house answers to |
 | `region` | `String` | The region that this house resides in |
