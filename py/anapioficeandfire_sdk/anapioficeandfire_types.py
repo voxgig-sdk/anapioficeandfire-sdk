@@ -36,18 +36,8 @@ class BookLoadMatch(TypedDict):
 
 
 class BookListMatch(TypedDict, total=False):
-    authors: list
-    characters: list
-    country: str
-    id: str
-    isbn: str
-    mediaType: str
-    name: str
-    numberOfPages: int
-    povCharacters: list
-    publisher: str
-    released: str
-    url: str
+    page: int
+    page_size: int
 
 
 class Character(TypedDict, total=False):
@@ -74,22 +64,10 @@ class CharacterLoadMatch(TypedDict):
 
 
 class CharacterListMatch(TypedDict, total=False):
-    aliases: list
-    allegiances: list
-    books: list
-    born: str
     culture: str
-    died: str
-    father: str
-    id: str
-    mother: str
     name: str
-    playedBy: list
-    povBooks: list
-    spouse: str
-    titles: list
-    tvSeries: list
-    url: str
+    page: int
+    page_size: int
 
 
 class House(TypedDict, total=False):
@@ -117,20 +95,7 @@ class HouseLoadMatch(TypedDict):
 
 
 class HouseListMatch(TypedDict, total=False):
-    ancestralWeapons: list
-    cadetBranches: list
-    coatOfArms: str
-    currentLord: str
-    diedOut: str
-    founded: str
-    founder: str
-    heir: str
-    id: str
     name: str
-    overlord: str
+    page: int
+    page_size: int
     region: str
-    seats: list
-    swornMembers: list
-    titles: list
-    url: str
-    words: str

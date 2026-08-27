@@ -24,18 +24,8 @@
 ---@field id number
 
 ---@class BookListMatch
----@field authors? table
----@field characters? table
----@field country? string
----@field id? string
----@field isbn? string
----@field mediaType? string
----@field name? string
----@field numberOfPages? number
----@field povCharacters? table
----@field publisher? string
----@field released? string
----@field url? string
+---@field page? number
+---@field page_size? number
 
 ---@class Character
 ---@field aliases? table
@@ -59,22 +49,10 @@
 ---@field id number
 
 ---@class CharacterListMatch
----@field aliases? table
----@field allegiances? table
----@field books? table
----@field born? string
 ---@field culture? string
----@field died? string
----@field father? string
----@field id? string
----@field mother? string
 ---@field name? string
----@field playedBy? table
----@field povBooks? table
----@field spouse? string
----@field titles? table
----@field tvSeries? table
----@field url? string
+---@field page? number
+---@field page_size? number
 
 ---@class House
 ---@field ancestralWeapons? table
@@ -99,23 +77,10 @@
 ---@field id number
 
 ---@class HouseListMatch
----@field ancestralWeapons? table
----@field cadetBranches? table
----@field coatOfArms? string
----@field currentLord? string
----@field diedOut? string
----@field founded? string
----@field founder? string
----@field heir? string
----@field id? string
 ---@field name? string
----@field overlord? string
+---@field page? number
+---@field page_size? number
 ---@field region? string
----@field seats? table
----@field swornMembers? table
----@field titles? table
----@field url? string
----@field words? string
 
 local M = {}
 

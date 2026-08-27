@@ -38,18 +38,8 @@ class BookLoadMatch
 /** Request payload for Book#list. */
 class BookListMatch
 {
-    public ?array $authors = null;
-    public ?array $characters = null;
-    public ?string $country = null;
-    public ?string $id = null;
-    public ?string $isbn = null;
-    public ?string $mediaType = null;
-    public ?string $name = null;
-    public ?int $numberOfPages = null;
-    public ?array $povCharacters = null;
-    public ?string $publisher = null;
-    public ?string $released = null;
-    public ?string $url = null;
+    public ?int $page = null;
+    public ?int $page_size = null;
 }
 
 /** Character entity data model. */
@@ -82,22 +72,10 @@ class CharacterLoadMatch
 /** Request payload for Character#list. */
 class CharacterListMatch
 {
-    public ?array $aliases = null;
-    public ?array $allegiances = null;
-    public ?array $books = null;
-    public ?string $born = null;
     public ?string $culture = null;
-    public ?string $died = null;
-    public ?string $father = null;
-    public ?string $id = null;
-    public ?string $mother = null;
     public ?string $name = null;
-    public ?array $playedBy = null;
-    public ?array $povBooks = null;
-    public ?string $spouse = null;
-    public ?array $titles = null;
-    public ?array $tvSeries = null;
-    public ?string $url = null;
+    public ?int $page = null;
+    public ?int $page_size = null;
 }
 
 /** House entity data model. */
@@ -131,22 +109,9 @@ class HouseLoadMatch
 /** Request payload for House#list. */
 class HouseListMatch
 {
-    public ?array $ancestralWeapons = null;
-    public ?array $cadetBranches = null;
-    public ?string $coatOfArms = null;
-    public ?string $currentLord = null;
-    public ?string $diedOut = null;
-    public ?string $founded = null;
-    public ?string $founder = null;
-    public ?string $heir = null;
-    public ?string $id = null;
     public ?string $name = null;
-    public ?string $overlord = null;
+    public ?int $page = null;
+    public ?int $page_size = null;
     public ?string $region = null;
-    public ?array $seats = null;
-    public ?array $swornMembers = null;
-    public ?array $titles = null;
-    public ?string $url = null;
-    public ?string $words = null;
 }
 

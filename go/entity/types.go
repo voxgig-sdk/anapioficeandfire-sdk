@@ -35,18 +35,8 @@ type BookLoadMatch struct {
 
 // BookListMatch is the typed request payload for Book.ListTyped.
 type BookListMatch struct {
-	Authors *[]any `json:"authors,omitempty"`
-	Characters *[]any `json:"characters,omitempty"`
-	Country *string `json:"country,omitempty"`
-	Id *string `json:"id,omitempty"`
-	Isbn *string `json:"isbn,omitempty"`
-	MediaType *string `json:"mediaType,omitempty"`
-	Name *string `json:"name,omitempty"`
-	NumberOfPages *int `json:"numberOfPages,omitempty"`
-	PovCharacters *[]any `json:"povCharacters,omitempty"`
-	Publisher *string `json:"publisher,omitempty"`
-	Released *string `json:"released,omitempty"`
-	Url *string `json:"url,omitempty"`
+	Page *int `json:"page,omitempty"`
+	PageSize *int `json:"page_size,omitempty"`
 }
 
 // Character is the typed data model for the character entity.
@@ -76,22 +66,10 @@ type CharacterLoadMatch struct {
 
 // CharacterListMatch is the typed request payload for Character.ListTyped.
 type CharacterListMatch struct {
-	Aliases *[]any `json:"aliases,omitempty"`
-	Allegiances *[]any `json:"allegiances,omitempty"`
-	Books *[]any `json:"books,omitempty"`
-	Born *string `json:"born,omitempty"`
 	Culture *string `json:"culture,omitempty"`
-	Died *string `json:"died,omitempty"`
-	Father *string `json:"father,omitempty"`
-	Id *string `json:"id,omitempty"`
-	Mother *string `json:"mother,omitempty"`
 	Name *string `json:"name,omitempty"`
-	PlayedBy *[]any `json:"playedBy,omitempty"`
-	PovBooks *[]any `json:"povBooks,omitempty"`
-	Spouse *string `json:"spouse,omitempty"`
-	Titles *[]any `json:"titles,omitempty"`
-	TvSeries *[]any `json:"tvSeries,omitempty"`
-	Url *string `json:"url,omitempty"`
+	Page *int `json:"page,omitempty"`
+	PageSize *int `json:"page_size,omitempty"`
 }
 
 // House is the typed data model for the house entity.
@@ -122,23 +100,10 @@ type HouseLoadMatch struct {
 
 // HouseListMatch is the typed request payload for House.ListTyped.
 type HouseListMatch struct {
-	AncestralWeapons *[]any `json:"ancestralWeapons,omitempty"`
-	CadetBranches *[]any `json:"cadetBranches,omitempty"`
-	CoatOfArms *string `json:"coatOfArms,omitempty"`
-	CurrentLord *string `json:"currentLord,omitempty"`
-	DiedOut *string `json:"diedOut,omitempty"`
-	Founded *string `json:"founded,omitempty"`
-	Founder *string `json:"founder,omitempty"`
-	Heir *string `json:"heir,omitempty"`
-	Id *string `json:"id,omitempty"`
 	Name *string `json:"name,omitempty"`
-	Overlord *string `json:"overlord,omitempty"`
+	Page *int `json:"page,omitempty"`
+	PageSize *int `json:"page_size,omitempty"`
 	Region *string `json:"region,omitempty"`
-	Seats *[]any `json:"seats,omitempty"`
-	SwornMembers *[]any `json:"swornMembers,omitempty"`
-	Titles *[]any `json:"titles,omitempty"`
-	Url *string `json:"url,omitempty"`
-	Words *string `json:"words,omitempty"`
 }
 
 // asMap turns a typed request/data struct into the map[string]any the

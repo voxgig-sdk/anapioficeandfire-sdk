@@ -72,54 +72,14 @@ BookLoadMatch = Struct.new(
 
 # Request payload for Book#list.
 #
-# @!attribute [rw] authors
-#   @return [Array, nil]
-#
-# @!attribute [rw] characters
-#   @return [Array, nil]
-#
-# @!attribute [rw] country
-#   @return [String, nil]
-#
-# @!attribute [rw] id
-#   @return [String, nil]
-#
-# @!attribute [rw] isbn
-#   @return [String, nil]
-#
-# @!attribute [rw] mediaType
-#   @return [String, nil]
-#
-# @!attribute [rw] name
-#   @return [String, nil]
-#
-# @!attribute [rw] numberOfPages
+# @!attribute [rw] page
 #   @return [Integer, nil]
 #
-# @!attribute [rw] povCharacters
-#   @return [Array, nil]
-#
-# @!attribute [rw] publisher
-#   @return [String, nil]
-#
-# @!attribute [rw] released
-#   @return [String, nil]
-#
-# @!attribute [rw] url
-#   @return [String, nil]
+# @!attribute [rw] page_size
+#   @return [Integer, nil]
 BookListMatch = Struct.new(
-  :authors,
-  :characters,
-  :country,
-  :id,
-  :isbn,
-  :mediaType,
-  :name,
-  :numberOfPages,
-  :povCharacters,
-  :publisher,
-  :released,
-  :url,
+  :page,
+  :page_size,
   keyword_init: true
 )
 
@@ -203,70 +163,22 @@ CharacterLoadMatch = Struct.new(
 
 # Request payload for Character#list.
 #
-# @!attribute [rw] aliases
-#   @return [Array, nil]
-#
-# @!attribute [rw] allegiances
-#   @return [Array, nil]
-#
-# @!attribute [rw] books
-#   @return [Array, nil]
-#
-# @!attribute [rw] born
-#   @return [String, nil]
-#
 # @!attribute [rw] culture
-#   @return [String, nil]
-#
-# @!attribute [rw] died
-#   @return [String, nil]
-#
-# @!attribute [rw] father
-#   @return [String, nil]
-#
-# @!attribute [rw] id
-#   @return [String, nil]
-#
-# @!attribute [rw] mother
 #   @return [String, nil]
 #
 # @!attribute [rw] name
 #   @return [String, nil]
 #
-# @!attribute [rw] playedBy
-#   @return [Array, nil]
+# @!attribute [rw] page
+#   @return [Integer, nil]
 #
-# @!attribute [rw] povBooks
-#   @return [Array, nil]
-#
-# @!attribute [rw] spouse
-#   @return [String, nil]
-#
-# @!attribute [rw] titles
-#   @return [Array, nil]
-#
-# @!attribute [rw] tvSeries
-#   @return [Array, nil]
-#
-# @!attribute [rw] url
-#   @return [String, nil]
+# @!attribute [rw] page_size
+#   @return [Integer, nil]
 CharacterListMatch = Struct.new(
-  :aliases,
-  :allegiances,
-  :books,
-  :born,
   :culture,
-  :died,
-  :father,
-  :id,
-  :mother,
   :name,
-  :playedBy,
-  :povBooks,
-  :spouse,
-  :titles,
-  :tvSeries,
-  :url,
+  :page,
+  :page_size,
   keyword_init: true
 )
 
@@ -354,74 +266,22 @@ HouseLoadMatch = Struct.new(
 
 # Request payload for House#list.
 #
-# @!attribute [rw] ancestralWeapons
-#   @return [Array, nil]
-#
-# @!attribute [rw] cadetBranches
-#   @return [Array, nil]
-#
-# @!attribute [rw] coatOfArms
-#   @return [String, nil]
-#
-# @!attribute [rw] currentLord
-#   @return [String, nil]
-#
-# @!attribute [rw] diedOut
-#   @return [String, nil]
-#
-# @!attribute [rw] founded
-#   @return [String, nil]
-#
-# @!attribute [rw] founder
-#   @return [String, nil]
-#
-# @!attribute [rw] heir
-#   @return [String, nil]
-#
-# @!attribute [rw] id
-#   @return [String, nil]
-#
 # @!attribute [rw] name
 #   @return [String, nil]
 #
-# @!attribute [rw] overlord
-#   @return [String, nil]
+# @!attribute [rw] page
+#   @return [Integer, nil]
+#
+# @!attribute [rw] page_size
+#   @return [Integer, nil]
 #
 # @!attribute [rw] region
 #   @return [String, nil]
-#
-# @!attribute [rw] seats
-#   @return [Array, nil]
-#
-# @!attribute [rw] swornMembers
-#   @return [Array, nil]
-#
-# @!attribute [rw] titles
-#   @return [Array, nil]
-#
-# @!attribute [rw] url
-#   @return [String, nil]
-#
-# @!attribute [rw] words
-#   @return [String, nil]
 HouseListMatch = Struct.new(
-  :ancestralWeapons,
-  :cadetBranches,
-  :coatOfArms,
-  :currentLord,
-  :diedOut,
-  :founded,
-  :founder,
-  :heir,
-  :id,
   :name,
-  :overlord,
+  :page,
+  :page_size,
   :region,
-  :seats,
-  :swornMembers,
-  :titles,
-  :url,
-  :words,
   keyword_init: true
 )
 
