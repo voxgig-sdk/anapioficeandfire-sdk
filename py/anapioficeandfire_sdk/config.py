@@ -1,6 +1,14 @@
 # Anapioficeandfire SDK configuration
 
 
+# The sekreto plugin DEFINITIONS the model selected per feature, imported
+# above by name from the modules the catalogue's active `plugin.def`
+# entries declare. Handed to each feature (secrets builds its Sekreto
+# with them): a provider kind not listed here is unknown to that SDK.
+FEATURE_PLUGINS = {
+}
+
+
 _shared_config = None
 
 
@@ -104,16 +112,22 @@ def make_config():
             "type": "`$STRING`",
           },
           {
+            "format": "date-time",
             "name": "released",
             "short": "The date (ISO 8601) when this book was released",
             "type": "`$STRING`",
           },
           {
+            "format": "uri",
             "name": "url",
             "short": "The hypermedia URL of this resource",
             "type": "`$STRING`",
           },
         ],
+        "id": {
+          "field": "id",
+          "name": "id",
+        },
         "name": "book",
         "op": {
           "list": {
@@ -142,8 +156,10 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/books",
-                "parts": [
-                  "books",
+                "segments": [
+                  {
+                    "lit": "books",
+                  },
                 ],
                 "select": {
                   "exist": [
@@ -155,6 +171,9 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "books",
+                ],
               },
             ],
           },
@@ -177,9 +196,13 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/books/{id}",
-                "parts": [
-                  "books",
-                  "{id}",
+                "segments": [
+                  {
+                    "lit": "books",
+                  },
+                  {
+                    "var": "id",
+                  },
                 ],
                 "select": {
                   "exist": [
@@ -190,6 +213,10 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "books",
+                  "{id}",
+                ],
               },
             ],
           },
@@ -275,11 +302,16 @@ def make_config():
             "type": "`$ARRAY`",
           },
           {
+            "format": "uri",
             "name": "url",
             "short": "The hypermedia URL of this resource",
             "type": "`$STRING`",
           },
         ],
+        "id": {
+          "field": "id",
+          "name": "id",
+        },
         "name": "character",
         "op": {
           "list": {
@@ -320,8 +352,10 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/characters",
-                "parts": [
-                  "characters",
+                "segments": [
+                  {
+                    "lit": "characters",
+                  },
                 ],
                 "select": {
                   "exist": [
@@ -335,6 +369,9 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "characters",
+                ],
               },
             ],
           },
@@ -357,9 +394,13 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/characters/{id}",
-                "parts": [
-                  "characters",
-                  "{id}",
+                "segments": [
+                  {
+                    "lit": "characters",
+                  },
+                  {
+                    "var": "id",
+                  },
                 ],
                 "select": {
                   "exist": [
@@ -370,6 +411,10 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "characters",
+                  "{id}",
+                ],
               },
             ],
           },
@@ -396,6 +441,7 @@ def make_config():
             "type": "`$STRING`",
           },
           {
+            "format": "uri",
             "name": "currentLord",
             "short": "The character resource URL of this house's current lord",
             "type": "`$STRING`",
@@ -411,11 +457,13 @@ def make_config():
             "type": "`$STRING`",
           },
           {
+            "format": "uri",
             "name": "founder",
             "short": "The character resource URL that founded this house",
             "type": "`$STRING`",
           },
           {
+            "format": "uri",
             "name": "heir",
             "short": "The character resource URL of this house's heir",
             "type": "`$STRING`",
@@ -430,6 +478,7 @@ def make_config():
             "type": "`$STRING`",
           },
           {
+            "format": "uri",
             "name": "overlord",
             "short": "The house resource URL that this house answers to",
             "type": "`$STRING`",
@@ -455,6 +504,7 @@ def make_config():
             "type": "`$ARRAY`",
           },
           {
+            "format": "uri",
             "name": "url",
             "short": "The hypermedia URL of this resource",
             "type": "`$STRING`",
@@ -465,6 +515,10 @@ def make_config():
             "type": "`$STRING`",
           },
         ],
+        "id": {
+          "field": "id",
+          "name": "id",
+        },
         "name": "house",
         "op": {
           "list": {
@@ -505,8 +559,10 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/houses",
-                "parts": [
-                  "houses",
+                "segments": [
+                  {
+                    "lit": "houses",
+                  },
                 ],
                 "select": {
                   "exist": [
@@ -520,6 +576,9 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "houses",
+                ],
               },
             ],
           },
@@ -542,9 +601,13 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/houses/{id}",
-                "parts": [
-                  "houses",
-                  "{id}",
+                "segments": [
+                  {
+                    "lit": "houses",
+                  },
+                  {
+                    "var": "id",
+                  },
                 ],
                 "select": {
                   "exist": [
@@ -555,6 +618,10 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "houses",
+                  "{id}",
+                ],
               },
             ],
           },

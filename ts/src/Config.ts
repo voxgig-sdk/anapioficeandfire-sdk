@@ -10,6 +10,17 @@ const FEATURE_CLASS: Record<string, typeof BaseFeature> = {
 }
 
 
+// Per-feature plugin DEFINITIONS (voxgig/plugin `Definition` values), from
+// the model's active plugin groups. A feature that takes a `plugins` option
+// (secrets over sekreto) reads its own entry; a feature with no plugins has
+// none. Named imports above make each definition statically reachable, so
+// an SDK carries exactly the plugin modules its model selects — the same
+// leanness the old side-effect registry imports bought, without a registry.
+const FEATURE_PLUGINS: Record<string, any[]> = {
+  
+}
+
+
 class Config {
 
   makeFeature(this: any, fn: string) {
@@ -122,16 +133,22 @@ class Config {
           "type": "`$STRING`"
         },
         {
+          "format": "date-time",
           "name": "released",
           "short": "The date (ISO 8601) when this book was released",
           "type": "`$STRING`"
         },
         {
+          "format": "uri",
           "name": "url",
           "short": "The hypermedia URL of this resource",
           "type": "`$STRING`"
         }
       ],
+      "id": {
+        "field": "id",
+        "name": "id"
+      },
       "name": "book",
       "op": {
         "list": {
@@ -160,8 +177,10 @@ class Config {
               "kind": "http",
               "method": "GET",
               "orig": "/books",
-              "parts": [
-                "books"
+              "segments": [
+                {
+                  "lit": "books"
+                }
               ],
               "select": {
                 "exist": [
@@ -172,7 +191,10 @@ class Config {
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body`"
-              }
+              },
+              "parts": [
+                "books"
+              ]
             }
           ]
         },
@@ -195,9 +217,13 @@ class Config {
               "kind": "http",
               "method": "GET",
               "orig": "/books/{id}",
-              "parts": [
-                "books",
-                "{id}"
+              "segments": [
+                {
+                  "lit": "books"
+                },
+                {
+                  "var": "id"
+                }
               ],
               "select": {
                 "exist": [
@@ -207,7 +233,11 @@ class Config {
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body`"
-              }
+              },
+              "parts": [
+                "books",
+                "{id}"
+              ]
             }
           ]
         }
@@ -293,11 +323,16 @@ class Config {
           "type": "`$ARRAY`"
         },
         {
+          "format": "uri",
           "name": "url",
           "short": "The hypermedia URL of this resource",
           "type": "`$STRING`"
         }
       ],
+      "id": {
+        "field": "id",
+        "name": "id"
+      },
       "name": "character",
       "op": {
         "list": {
@@ -338,8 +373,10 @@ class Config {
               "kind": "http",
               "method": "GET",
               "orig": "/characters",
-              "parts": [
-                "characters"
+              "segments": [
+                {
+                  "lit": "characters"
+                }
               ],
               "select": {
                 "exist": [
@@ -352,7 +389,10 @@ class Config {
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body`"
-              }
+              },
+              "parts": [
+                "characters"
+              ]
             }
           ]
         },
@@ -375,9 +415,13 @@ class Config {
               "kind": "http",
               "method": "GET",
               "orig": "/characters/{id}",
-              "parts": [
-                "characters",
-                "{id}"
+              "segments": [
+                {
+                  "lit": "characters"
+                },
+                {
+                  "var": "id"
+                }
               ],
               "select": {
                 "exist": [
@@ -387,7 +431,11 @@ class Config {
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body`"
-              }
+              },
+              "parts": [
+                "characters",
+                "{id}"
+              ]
             }
           ]
         }
@@ -414,6 +462,7 @@ class Config {
           "type": "`$STRING`"
         },
         {
+          "format": "uri",
           "name": "currentLord",
           "short": "The character resource URL of this house's current lord",
           "type": "`$STRING`"
@@ -429,11 +478,13 @@ class Config {
           "type": "`$STRING`"
         },
         {
+          "format": "uri",
           "name": "founder",
           "short": "The character resource URL that founded this house",
           "type": "`$STRING`"
         },
         {
+          "format": "uri",
           "name": "heir",
           "short": "The character resource URL of this house's heir",
           "type": "`$STRING`"
@@ -448,6 +499,7 @@ class Config {
           "type": "`$STRING`"
         },
         {
+          "format": "uri",
           "name": "overlord",
           "short": "The house resource URL that this house answers to",
           "type": "`$STRING`"
@@ -473,6 +525,7 @@ class Config {
           "type": "`$ARRAY`"
         },
         {
+          "format": "uri",
           "name": "url",
           "short": "The hypermedia URL of this resource",
           "type": "`$STRING`"
@@ -483,6 +536,10 @@ class Config {
           "type": "`$STRING`"
         }
       ],
+      "id": {
+        "field": "id",
+        "name": "id"
+      },
       "name": "house",
       "op": {
         "list": {
@@ -523,8 +580,10 @@ class Config {
               "kind": "http",
               "method": "GET",
               "orig": "/houses",
-              "parts": [
-                "houses"
+              "segments": [
+                {
+                  "lit": "houses"
+                }
               ],
               "select": {
                 "exist": [
@@ -537,7 +596,10 @@ class Config {
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body`"
-              }
+              },
+              "parts": [
+                "houses"
+              ]
             }
           ]
         },
@@ -560,9 +622,13 @@ class Config {
               "kind": "http",
               "method": "GET",
               "orig": "/houses/{id}",
-              "parts": [
-                "houses",
-                "{id}"
+              "segments": [
+                {
+                  "lit": "houses"
+                },
+                {
+                  "var": "id"
+                }
               ],
               "select": {
                 "exist": [
@@ -572,7 +638,11 @@ class Config {
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body`"
-              }
+              },
+              "parts": [
+                "houses",
+                "{id}"
+              ]
             }
           ]
         }
@@ -588,6 +658,7 @@ class Config {
 const config = new Config()
 
 export {
-  config
+  config,
+  FEATURE_PLUGINS,
 }
 

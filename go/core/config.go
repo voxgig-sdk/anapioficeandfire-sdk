@@ -87,15 +87,21 @@ func MakeConfig() map[string]any {
 						"type": "`$STRING`",
 					},
 					map[string]any{
+						"format": "date-time",
 						"name": "released",
 						"short": "The date (ISO 8601) when this book was released",
 						"type": "`$STRING`",
 					},
 					map[string]any{
+						"format": "uri",
 						"name": "url",
 						"short": "The hypermedia URL of this resource",
 						"type": "`$STRING`",
 					},
+				},
+				"id": map[string]any{
+					"field": "id",
+					"name": "id",
 				},
 				"name": "book",
 				"op": map[string]any{
@@ -125,8 +131,10 @@ func MakeConfig() map[string]any {
 								"kind": "http",
 								"method": "GET",
 								"orig": "/books",
-								"parts": []any{
-									"books",
+								"segments": []any{
+									map[string]any{
+										"lit": "books",
+									},
 								},
 								"select": map[string]any{
 									"exist": []any{
@@ -137,6 +145,9 @@ func MakeConfig() map[string]any {
 								"transform": map[string]any{
 									"req": "`reqdata`",
 									"res": "`body`",
+								},
+								"parts": []any{
+									"books",
 								},
 							},
 						},
@@ -160,9 +171,13 @@ func MakeConfig() map[string]any {
 								"kind": "http",
 								"method": "GET",
 								"orig": "/books/{id}",
-								"parts": []any{
-									"books",
-									"{id}",
+								"segments": []any{
+									map[string]any{
+										"lit": "books",
+									},
+									map[string]any{
+										"var": "id",
+									},
 								},
 								"select": map[string]any{
 									"exist": []any{
@@ -172,6 +187,10 @@ func MakeConfig() map[string]any {
 								"transform": map[string]any{
 									"req": "`reqdata`",
 									"res": "`body`",
+								},
+								"parts": []any{
+									"books",
+									"{id}",
 								},
 							},
 						},
@@ -258,10 +277,15 @@ func MakeConfig() map[string]any {
 						"type": "`$ARRAY`",
 					},
 					map[string]any{
+						"format": "uri",
 						"name": "url",
 						"short": "The hypermedia URL of this resource",
 						"type": "`$STRING`",
 					},
+				},
+				"id": map[string]any{
+					"field": "id",
+					"name": "id",
 				},
 				"name": "character",
 				"op": map[string]any{
@@ -303,8 +327,10 @@ func MakeConfig() map[string]any {
 								"kind": "http",
 								"method": "GET",
 								"orig": "/characters",
-								"parts": []any{
-									"characters",
+								"segments": []any{
+									map[string]any{
+										"lit": "characters",
+									},
 								},
 								"select": map[string]any{
 									"exist": []any{
@@ -317,6 +343,9 @@ func MakeConfig() map[string]any {
 								"transform": map[string]any{
 									"req": "`reqdata`",
 									"res": "`body`",
+								},
+								"parts": []any{
+									"characters",
 								},
 							},
 						},
@@ -340,9 +369,13 @@ func MakeConfig() map[string]any {
 								"kind": "http",
 								"method": "GET",
 								"orig": "/characters/{id}",
-								"parts": []any{
-									"characters",
-									"{id}",
+								"segments": []any{
+									map[string]any{
+										"lit": "characters",
+									},
+									map[string]any{
+										"var": "id",
+									},
 								},
 								"select": map[string]any{
 									"exist": []any{
@@ -352,6 +385,10 @@ func MakeConfig() map[string]any {
 								"transform": map[string]any{
 									"req": "`reqdata`",
 									"res": "`body`",
+								},
+								"parts": []any{
+									"characters",
+									"{id}",
 								},
 							},
 						},
@@ -379,6 +416,7 @@ func MakeConfig() map[string]any {
 						"type": "`$STRING`",
 					},
 					map[string]any{
+						"format": "uri",
 						"name": "currentLord",
 						"short": "The character resource URL of this house's current lord",
 						"type": "`$STRING`",
@@ -394,11 +432,13 @@ func MakeConfig() map[string]any {
 						"type": "`$STRING`",
 					},
 					map[string]any{
+						"format": "uri",
 						"name": "founder",
 						"short": "The character resource URL that founded this house",
 						"type": "`$STRING`",
 					},
 					map[string]any{
+						"format": "uri",
 						"name": "heir",
 						"short": "The character resource URL of this house's heir",
 						"type": "`$STRING`",
@@ -413,6 +453,7 @@ func MakeConfig() map[string]any {
 						"type": "`$STRING`",
 					},
 					map[string]any{
+						"format": "uri",
 						"name": "overlord",
 						"short": "The house resource URL that this house answers to",
 						"type": "`$STRING`",
@@ -438,6 +479,7 @@ func MakeConfig() map[string]any {
 						"type": "`$ARRAY`",
 					},
 					map[string]any{
+						"format": "uri",
 						"name": "url",
 						"short": "The hypermedia URL of this resource",
 						"type": "`$STRING`",
@@ -447,6 +489,10 @@ func MakeConfig() map[string]any {
 						"short": "The words of this house",
 						"type": "`$STRING`",
 					},
+				},
+				"id": map[string]any{
+					"field": "id",
+					"name": "id",
 				},
 				"name": "house",
 				"op": map[string]any{
@@ -488,8 +534,10 @@ func MakeConfig() map[string]any {
 								"kind": "http",
 								"method": "GET",
 								"orig": "/houses",
-								"parts": []any{
-									"houses",
+								"segments": []any{
+									map[string]any{
+										"lit": "houses",
+									},
 								},
 								"select": map[string]any{
 									"exist": []any{
@@ -502,6 +550,9 @@ func MakeConfig() map[string]any {
 								"transform": map[string]any{
 									"req": "`reqdata`",
 									"res": "`body`",
+								},
+								"parts": []any{
+									"houses",
 								},
 							},
 						},
@@ -525,9 +576,13 @@ func MakeConfig() map[string]any {
 								"kind": "http",
 								"method": "GET",
 								"orig": "/houses/{id}",
-								"parts": []any{
-									"houses",
-									"{id}",
+								"segments": []any{
+									map[string]any{
+										"lit": "houses",
+									},
+									map[string]any{
+										"var": "id",
+									},
 								},
 								"select": map[string]any{
 									"exist": []any{
@@ -537,6 +592,10 @@ func MakeConfig() map[string]any {
 								"transform": map[string]any{
 									"req": "`reqdata`",
 									"res": "`body`",
+								},
+								"parts": []any{
+									"houses",
+									"{id}",
 								},
 							},
 						},
@@ -548,6 +607,17 @@ func MakeConfig() map[string]any {
 			},
 		},
 	}
+}
+
+// The plugin definitions the model selected per feature, as []any so a
+// feature package can consume them without core naming its types. Empty
+// when no active feature declares active plugin groups for this target.
+var featurePlugins = map[string][]any{
+}
+
+// FeaturePlugins is the definitions list for one feature's chain.
+func FeaturePlugins(name string) []any {
+	return featurePlugins[name]
 }
 
 var (

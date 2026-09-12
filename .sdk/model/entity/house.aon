@@ -24,6 +24,7 @@ main: kit: entity: house: {
       type: "`$STRING`"
     }
     {
+      format: "uri"
       name: "currentLord"
       req: false
       short: "The character resource URL of this house's current lord"
@@ -42,12 +43,14 @@ main: kit: entity: house: {
       type: "`$STRING`"
     }
     {
+      format: "uri"
       name: "founder"
       req: false
       short: "The character resource URL that founded this house"
       type: "`$STRING`"
     }
     {
+      format: "uri"
       name: "heir"
       req: false
       short: "The character resource URL of this house's heir"
@@ -65,6 +68,7 @@ main: kit: entity: house: {
       type: "`$STRING`"
     }
     {
+      format: "uri"
       name: "overlord"
       req: false
       short: "The house resource URL that this house answers to"
@@ -95,6 +99,7 @@ main: kit: entity: house: {
       type: "`$ARRAY`"
     }
     {
+      format: "uri"
       name: "url"
       req: false
       short: "The hypermedia URL of this resource"
@@ -155,8 +160,10 @@ main: kit: entity: house: {
           }
           method: "GET"
           orig: "/houses"
-          parts: [
-            "houses"
+          segments: [
+            {
+              lit: "houses"
+            }
           ]
           select: {
             exist: [
@@ -190,9 +197,13 @@ main: kit: entity: house: {
           }
           method: "GET"
           orig: "/houses/{id}"
-          parts: [
-            "houses"
-            "{id}"
+          segments: [
+            {
+              lit: "houses"
+            }
+            {
+              var: "id"
+            }
           ]
           select: {
             exist: [

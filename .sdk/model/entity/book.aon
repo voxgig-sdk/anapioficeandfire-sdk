@@ -65,12 +65,14 @@ main: kit: entity: book: {
       type: "`$STRING`"
     }
     {
+      format: "date-time"
       name: "released"
       req: false
       short: "The date (ISO 8601) when this book was released"
       type: "`$STRING`"
     }
     {
+      format: "uri"
       name: "url"
       req: false
       short: "The hypermedia URL of this resource"
@@ -111,8 +113,10 @@ main: kit: entity: book: {
           }
           method: "GET"
           orig: "/books"
-          parts: [
-            "books"
+          segments: [
+            {
+              lit: "books"
+            }
           ]
           select: {
             exist: [
@@ -144,9 +148,13 @@ main: kit: entity: book: {
           }
           method: "GET"
           orig: "/books/{id}"
-          parts: [
-            "books"
-            "{id}"
+          segments: [
+            {
+              lit: "books"
+            }
+            {
+              var: "id"
+            }
           ]
           select: {
             exist: [

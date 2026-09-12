@@ -83,15 +83,21 @@ local function make_config()
             ["type"] = "`$STRING`",
           },
           {
+            ["format"] = "date-time",
             ["name"] = "released",
             ["short"] = "The date (ISO 8601) when this book was released",
             ["type"] = "`$STRING`",
           },
           {
+            ["format"] = "uri",
             ["name"] = "url",
             ["short"] = "The hypermedia URL of this resource",
             ["type"] = "`$STRING`",
           },
+        },
+        ["id"] = {
+          ["field"] = "id",
+          ["name"] = "id",
         },
         ["name"] = "book",
         ["op"] = {
@@ -121,8 +127,10 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/books",
-                ["parts"] = {
-                  "books",
+                ["segments"] = {
+                  {
+                    ["lit"] = "books",
+                  },
                 },
                 ["select"] = {
                   ["exist"] = {
@@ -133,6 +141,9 @@ local function make_config()
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
+                },
+                ["parts"] = {
+                  "books",
                 },
               },
             },
@@ -156,9 +167,13 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/books/{id}",
-                ["parts"] = {
-                  "books",
-                  "{id}",
+                ["segments"] = {
+                  {
+                    ["lit"] = "books",
+                  },
+                  {
+                    ["var"] = "id",
+                  },
                 },
                 ["select"] = {
                   ["exist"] = {
@@ -168,6 +183,10 @@ local function make_config()
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
+                },
+                ["parts"] = {
+                  "books",
+                  "{id}",
                 },
               },
             },
@@ -254,10 +273,15 @@ local function make_config()
             ["type"] = "`$ARRAY`",
           },
           {
+            ["format"] = "uri",
             ["name"] = "url",
             ["short"] = "The hypermedia URL of this resource",
             ["type"] = "`$STRING`",
           },
+        },
+        ["id"] = {
+          ["field"] = "id",
+          ["name"] = "id",
         },
         ["name"] = "character",
         ["op"] = {
@@ -299,8 +323,10 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/characters",
-                ["parts"] = {
-                  "characters",
+                ["segments"] = {
+                  {
+                    ["lit"] = "characters",
+                  },
                 },
                 ["select"] = {
                   ["exist"] = {
@@ -313,6 +339,9 @@ local function make_config()
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
+                },
+                ["parts"] = {
+                  "characters",
                 },
               },
             },
@@ -336,9 +365,13 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/characters/{id}",
-                ["parts"] = {
-                  "characters",
-                  "{id}",
+                ["segments"] = {
+                  {
+                    ["lit"] = "characters",
+                  },
+                  {
+                    ["var"] = "id",
+                  },
                 },
                 ["select"] = {
                   ["exist"] = {
@@ -348,6 +381,10 @@ local function make_config()
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
+                },
+                ["parts"] = {
+                  "characters",
+                  "{id}",
                 },
               },
             },
@@ -375,6 +412,7 @@ local function make_config()
             ["type"] = "`$STRING`",
           },
           {
+            ["format"] = "uri",
             ["name"] = "currentLord",
             ["short"] = "The character resource URL of this house's current lord",
             ["type"] = "`$STRING`",
@@ -390,11 +428,13 @@ local function make_config()
             ["type"] = "`$STRING`",
           },
           {
+            ["format"] = "uri",
             ["name"] = "founder",
             ["short"] = "The character resource URL that founded this house",
             ["type"] = "`$STRING`",
           },
           {
+            ["format"] = "uri",
             ["name"] = "heir",
             ["short"] = "The character resource URL of this house's heir",
             ["type"] = "`$STRING`",
@@ -409,6 +449,7 @@ local function make_config()
             ["type"] = "`$STRING`",
           },
           {
+            ["format"] = "uri",
             ["name"] = "overlord",
             ["short"] = "The house resource URL that this house answers to",
             ["type"] = "`$STRING`",
@@ -434,6 +475,7 @@ local function make_config()
             ["type"] = "`$ARRAY`",
           },
           {
+            ["format"] = "uri",
             ["name"] = "url",
             ["short"] = "The hypermedia URL of this resource",
             ["type"] = "`$STRING`",
@@ -443,6 +485,10 @@ local function make_config()
             ["short"] = "The words of this house",
             ["type"] = "`$STRING`",
           },
+        },
+        ["id"] = {
+          ["field"] = "id",
+          ["name"] = "id",
         },
         ["name"] = "house",
         ["op"] = {
@@ -484,8 +530,10 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/houses",
-                ["parts"] = {
-                  "houses",
+                ["segments"] = {
+                  {
+                    ["lit"] = "houses",
+                  },
                 },
                 ["select"] = {
                   ["exist"] = {
@@ -498,6 +546,9 @@ local function make_config()
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
+                },
+                ["parts"] = {
+                  "houses",
                 },
               },
             },
@@ -521,9 +572,13 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/houses/{id}",
-                ["parts"] = {
-                  "houses",
-                  "{id}",
+                ["segments"] = {
+                  {
+                    ["lit"] = "houses",
+                  },
+                  {
+                    ["var"] = "id",
+                  },
                 },
                 ["select"] = {
                   ["exist"] = {
@@ -533,6 +588,10 @@ local function make_config()
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
+                },
+                ["parts"] = {
+                  "houses",
+                  "{id}",
                 },
               },
             },
