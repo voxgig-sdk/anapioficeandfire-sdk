@@ -28,7 +28,7 @@ loading a specific record.
 ### 1. Create a client
 
 ```ts
-import { AnapioficeandfireSDK } from '@voxgig-sdk/anapioficeandfire'
+import { AnapioficeandfireSDK } from '@voxgig-sdk/anapioficeandfire-sdk'
 
 const client = new AnapioficeandfireSDK()
 ```
@@ -591,7 +591,7 @@ anapioficeandfire/
 Import the SDK from the package root:
 
 ```ts
-import { AnapioficeandfireSDK } from '@voxgig-sdk/anapioficeandfire'
+import { AnapioficeandfireSDK } from '@voxgig-sdk/anapioficeandfire-sdk'
 ```
 
 ### Entity state

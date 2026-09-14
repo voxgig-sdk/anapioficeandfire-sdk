@@ -105,7 +105,7 @@ local results, err = client:House():list()
 
 | Language | Package | Install |
 | --- | --- | --- |
-| TypeScript | `@voxgig-sdk/anapioficeandfire` | publish pending — [install from git tag](https://github.com/voxgig-sdk/anapioficeandfire-sdk/releases) |
+| TypeScript | `@voxgig-sdk/anapioficeandfire-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/anapioficeandfire-sdk/releases) |
 | Python | `voxgig-sdk-anapioficeandfire` | publish pending — [install from git tag](https://github.com/voxgig-sdk/anapioficeandfire-sdk/releases) |
 | PHP | `voxgig-sdk/anapioficeandfire` | publish pending — [install from git tag](https://github.com/voxgig-sdk/anapioficeandfire-sdk/releases) |
 | Golang | `github.com/voxgig-sdk/anapioficeandfire-sdk/go` | `go get github.com/voxgig-sdk/anapioficeandfire-sdk/go@latest` |
@@ -119,7 +119,7 @@ local results, err = client:House():list()
 ### TypeScript
 
 ```ts
-import { AnapioficeandfireSDK } from '@voxgig-sdk/anapioficeandfire'
+import { AnapioficeandfireSDK } from '@voxgig-sdk/anapioficeandfire-sdk'
 
 const client = new AnapioficeandfireSDK()
 
