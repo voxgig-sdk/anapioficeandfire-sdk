@@ -4,7 +4,10 @@ declare(strict_types=1);
 // Anapioficeandfire SDK feature factory
 
 require_once __DIR__ . '/feature/BaseFeature.php';
+require_once __DIR__ . '/feature/RatelimitFeature.php';
+require_once __DIR__ . '/feature/RetryFeature.php';
 require_once __DIR__ . '/feature/TestFeature.php';
+require_once __DIR__ . '/feature/TimeoutFeature.php';
 
 
 class AnapioficeandfireFeatures
@@ -14,8 +17,14 @@ class AnapioficeandfireFeatures
         switch ($name) {
             case "base":
                 return new AnapioficeandfireBaseFeature();
+            case "ratelimit":
+                return new AnapioficeandfireRatelimitFeature();
+            case "retry":
+                return new AnapioficeandfireRetryFeature();
             case "test":
                 return new AnapioficeandfireTestFeature();
+            case "timeout":
+                return new AnapioficeandfireTimeoutFeature();
             default:
                 return new AnapioficeandfireBaseFeature();
         }
@@ -31,7 +40,10 @@ class AnapioficeandfireFeatures
     {
         switch ($name) {
             case "base":
+            case "ratelimit":
+            case "retry":
             case "test":
+            case "timeout":
                 return true;
             default:
                 return false;

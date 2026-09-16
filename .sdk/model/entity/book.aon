@@ -111,6 +111,12 @@ main: kit: entity: book: {
               }
             ]
           }
+          contract: {
+            id: "GET /books"
+            json: "{\"operationId\":\"listBooks\",\"parameters\":[{\"description\":\"Page number for pagination\",\"in\":\"query\",\"name\":\"page\",\"required\":false,\"schema\":{\"default\":1,\"type\":\"integer\"}},{\"description\":\"Number of items per page\",\"in\":\"query\",\"name\":\"pageSize\",\"required\":false,\"schema\":{\"default\":10,\"maximum\":50,\"type\":\"integer\"}}],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"items\":{\"properties\":{\"authors\":{\"description\":\"An array of names of the authors that wrote this book\",\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"characters\":{\"description\":\"An array of character resource URLs that has been in this book\",\"items\":{\"format\":\"uri\",\"type\":\"string\"},\"type\":\"array\"},\"country\":{\"description\":\"The country that this book was published in\",\"type\":\"string\"},\"isbn\":{\"description\":\"The International Standard Book Number (ISBN-13) that uniquely identifies this book\",\"type\":\"string\"},\"mediaType\":{\"description\":\"The type of media this book was released in\",\"type\":\"string\"},\"name\":{\"description\":\"The name of this book\",\"type\":\"string\"},\"numberOfPages\":{\"description\":\"The number of pages in this book\",\"type\":\"integer\"},\"povCharacters\":{\"description\":\"An array of character resource URLs that has had a POV-chapter in this book\",\"items\":{\"format\":\"uri\",\"type\":\"string\"},\"type\":\"array\"},\"publisher\":{\"description\":\"The company that published this book\",\"type\":\"string\"},\"released\":{\"description\":\"The date (ISO 8601) when this book was released\",\"format\":\"date-time\",\"type\":\"string\"},\"url\":{\"description\":\"The hypermedia URL of this resource\",\"format\":\"uri\",\"type\":\"string\"}},\"type\":\"object\"},\"type\":\"array\"}}},\"description\":\"Successful response\"}},\"securitySource\":\"unspecified\"}"
+            source: "openapi3"
+            version: 1
+          }
           method: "GET"
           orig: "/books"
           segments: [
@@ -145,6 +151,12 @@ main: kit: entity: book: {
                 type: "`$INTEGER`"
               }
             ]
+          }
+          contract: {
+            id: "GET /books/{id}"
+            json: "{\"operationId\":\"getBookById\",\"parameters\":[{\"description\":\"ID of the book to retrieve\",\"in\":\"path\",\"name\":\"id\",\"required\":true,\"schema\":{\"type\":\"integer\"}}],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"authors\":{\"description\":\"An array of names of the authors that wrote this book\",\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"characters\":{\"description\":\"An array of character resource URLs that has been in this book\",\"items\":{\"format\":\"uri\",\"type\":\"string\"},\"type\":\"array\"},\"country\":{\"description\":\"The country that this book was published in\",\"type\":\"string\"},\"isbn\":{\"description\":\"The International Standard Book Number (ISBN-13) that uniquely identifies this book\",\"type\":\"string\"},\"mediaType\":{\"description\":\"The type of media this book was released in\",\"type\":\"string\"},\"name\":{\"description\":\"The name of this book\",\"type\":\"string\"},\"numberOfPages\":{\"description\":\"The number of pages in this book\",\"type\":\"integer\"},\"povCharacters\":{\"description\":\"An array of character resource URLs that has had a POV-chapter in this book\",\"items\":{\"format\":\"uri\",\"type\":\"string\"},\"type\":\"array\"},\"publisher\":{\"description\":\"The company that published this book\",\"type\":\"string\"},\"released\":{\"description\":\"The date (ISO 8601) when this book was released\",\"format\":\"date-time\",\"type\":\"string\"},\"url\":{\"description\":\"The hypermedia URL of this resource\",\"format\":\"uri\",\"type\":\"string\"}},\"type\":\"object\"}}},\"description\":\"Successful response\"},\"404\":{\"description\":\"Book not found\"}},\"securitySource\":\"unspecified\"}"
+            source: "openapi3"
+            version: 1
           }
           method: "GET"
           orig: "/books/{id}"

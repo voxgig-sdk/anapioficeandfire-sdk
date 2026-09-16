@@ -1,12 +1,18 @@
 # Anapioficeandfire SDK feature factory
 
 from anapioficeandfire_sdk.feature.base_feature import AnapioficeandfireBaseFeature
+from anapioficeandfire_sdk.feature.ratelimit_feature import AnapioficeandfireRatelimitFeature
+from anapioficeandfire_sdk.feature.retry_feature import AnapioficeandfireRetryFeature
 from anapioficeandfire_sdk.feature.test_feature import AnapioficeandfireTestFeature
+from anapioficeandfire_sdk.feature.timeout_feature import AnapioficeandfireTimeoutFeature
 
 
 _FEATURES = {
     "base": lambda: AnapioficeandfireBaseFeature(),
+    "ratelimit": lambda: AnapioficeandfireRatelimitFeature(),
+    "retry": lambda: AnapioficeandfireRetryFeature(),
     "test": lambda: AnapioficeandfireTestFeature(),
+    "timeout": lambda: AnapioficeandfireTimeoutFeature(),
 }
 
 

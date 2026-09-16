@@ -5,6 +5,8 @@ import * as Fs from 'node:fs'
 
 import { test, describe, afterEach } from 'node:test'
 import assert from 'node:assert'
+import { createLiveTransport } from '../../live-runner'
+import { runLiveEntity } from '../../live-entity'
 
 
 import { AnapioficeandfireSDK, BaseFeature, stdutil } from '../../..'
@@ -47,16 +49,13 @@ describe('HouseEntity', async () => {
 
     const live = 'TRUE' === process.env.ANAPIOFICEANDFIRE_TEST_LIVE
     for (const op of ['list', 'load']) {
-      if (maybeSkipControl(t, 'entityOp', 'house.' + op, live)) return
+      if (!live && maybeSkipControl(t, 'entityOp', 'house.' + op, live)) return
     }
 
+    
     const setup = basicSetup()
-    // The basic flow consumes synthetic IDs and field values from the
-    // fixture (entity TestData.json). Those don't exist on the live API.
-    // Skip live runs unless the user provided a real ENTID env override.
-    if (setup.syntheticOnly) {
-      t.skip('live entity test uses synthetic IDs from fixture — set ANAPIOFICEANDFIRE_TEST_HOUSE_ENTID JSON to run live')
-      return
+    if (setup.live) {
+      return runLiveEntity(setup, {"active":true,"alias":{"field":{}},"fields":[{"active":true,"name":"ancestralWeapons","req":false,"short":"An array of names of the ancestral weapons of this house","type":"`$ARRAY`","index$":0},{"active":true,"name":"cadetBranches","req":false,"short":"An array of house resource URLs that was founded from this house","type":"`$ARRAY`","index$":1},{"active":true,"name":"coatOfArms","req":false,"short":"Text describing the coat of arms of this house","type":"`$STRING`","index$":2},{"active":true,"format":"uri","name":"currentLord","req":false,"short":"The character resource URL of this house's current lord","type":"`$STRING`","index$":3},{"active":true,"name":"diedOut","req":false,"short":"The year that this house died out","type":"`$STRING`","index$":4},{"active":true,"name":"founded","req":false,"short":"The year that this house was founded","type":"`$STRING`","index$":5},{"active":true,"format":"uri","name":"founder","req":false,"short":"The character resource URL that founded this house","type":"`$STRING`","index$":6},{"active":true,"format":"uri","name":"heir","req":false,"short":"The character resource URL of this house's heir","type":"`$STRING`","index$":7},{"active":true,"name":"id","req":false,"type":"`$STRING`","index$":8},{"active":true,"name":"name","req":false,"short":"The name of this house","type":"`$STRING`","index$":9},{"active":true,"format":"uri","name":"overlord","req":false,"short":"The house resource URL that this house answers to","type":"`$STRING`","index$":10},{"active":true,"name":"region","req":false,"short":"The region that this house resides in","type":"`$STRING`","index$":11},{"active":true,"name":"seats","req":false,"short":"The seats that this house holds","type":"`$ARRAY`","index$":12},{"active":true,"name":"swornMembers","req":false,"short":"An array of character resource URLs that are sworn to this house","type":"`$ARRAY`","index$":13},{"active":true,"name":"titles","req":false,"short":"The titles that this house holds","type":"`$ARRAY`","index$":14},{"active":true,"format":"uri","name":"url","req":false,"short":"The hypermedia URL of this resource","type":"`$STRING`","index$":15},{"active":true,"name":"words","req":false,"short":"The words of this house","type":"`$STRING`","index$":16}],"id":{"field":"id","name":"id"},"name":"house","op":{"list":{"input":"data","name":"list","points":[{"active":true,"args":{"query":[{"active":true,"kind":"query","name":"name","orig":"name","reqd":false,"type":"`$STRING`","index$":0},{"active":true,"example":1,"kind":"query","name":"page","orig":"page","reqd":false,"type":"`$INTEGER`","index$":1},{"active":true,"example":10,"kind":"query","name":"page_size","orig":"page_size","reqd":false,"type":"`$INTEGER`","index$":2},{"active":true,"kind":"query","name":"region","orig":"region","reqd":false,"type":"`$STRING`","index$":3}]},"contract":{"id":"GET /houses","json":"{\"operationId\":\"listHouses\",\"parameters\":[{\"description\":\"Page number for pagination\",\"in\":\"query\",\"name\":\"page\",\"required\":false,\"schema\":{\"default\":1,\"type\":\"integer\"}},{\"description\":\"Number of items per page\",\"in\":\"query\",\"name\":\"pageSize\",\"required\":false,\"schema\":{\"default\":10,\"maximum\":50,\"type\":\"integer\"}},{\"description\":\"Filter by house name\",\"in\":\"query\",\"name\":\"name\",\"required\":false,\"schema\":{\"type\":\"string\"}},{\"description\":\"Filter by region\",\"in\":\"query\",\"name\":\"region\",\"required\":false,\"schema\":{\"type\":\"string\"}}],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"items\":{\"properties\":{\"ancestralWeapons\":{\"description\":\"An array of names of the ancestral weapons of this house\",\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"cadetBranches\":{\"description\":\"An array of house resource URLs that was founded from this house\",\"items\":{\"format\":\"uri\",\"type\":\"string\"},\"type\":\"array\"},\"coatOfArms\":{\"description\":\"Text describing the coat of arms of this house\",\"type\":\"string\"},\"currentLord\":{\"description\":\"The character resource URL of this house's current lord\",\"format\":\"uri\",\"type\":\"string\"},\"diedOut\":{\"description\":\"The year that this house died out\",\"type\":\"string\"},\"founded\":{\"description\":\"The year that this house was founded\",\"type\":\"string\"},\"founder\":{\"description\":\"The character resource URL that founded this house\",\"format\":\"uri\",\"type\":\"string\"},\"heir\":{\"description\":\"The character resource URL of this house's heir\",\"format\":\"uri\",\"type\":\"string\"},\"name\":{\"description\":\"The name of this house\",\"type\":\"string\"},\"overlord\":{\"description\":\"The house resource URL that this house answers to\",\"format\":\"uri\",\"type\":\"string\"},\"region\":{\"description\":\"The region that this house resides in\",\"type\":\"string\"},\"seats\":{\"description\":\"The seats that this house holds\",\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"swornMembers\":{\"description\":\"An array of character resource URLs that are sworn to this house\",\"items\":{\"format\":\"uri\",\"type\":\"string\"},\"type\":\"array\"},\"titles\":{\"description\":\"The titles that this house holds\",\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"url\":{\"description\":\"The hypermedia URL of this resource\",\"format\":\"uri\",\"type\":\"string\"},\"words\":{\"description\":\"The words of this house\",\"type\":\"string\"}},\"type\":\"object\"},\"type\":\"array\"}}},\"description\":\"Successful response\"}},\"securitySource\":\"unspecified\"}","source":"openapi3","version":1},"kind":"http","method":"GET","orig":"/houses","segments":[{"lit":"houses"}],"select":{"exist":["name","page","page_size","region"]},"transform":{"req":"`reqdata`","res":"`body`"},"index$":0}],"key$":"list"},"load":{"input":"data","name":"load","points":[{"active":true,"args":{"params":[{"active":true,"kind":"param","name":"id","orig":"id","reqd":true,"type":"`$INTEGER`","index$":0}]},"contract":{"id":"GET /houses/{id}","json":"{\"operationId\":\"getHouseById\",\"parameters\":[{\"description\":\"ID of the house to retrieve\",\"in\":\"path\",\"name\":\"id\",\"required\":true,\"schema\":{\"type\":\"integer\"}}],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"ancestralWeapons\":{\"description\":\"An array of names of the ancestral weapons of this house\",\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"cadetBranches\":{\"description\":\"An array of house resource URLs that was founded from this house\",\"items\":{\"format\":\"uri\",\"type\":\"string\"},\"type\":\"array\"},\"coatOfArms\":{\"description\":\"Text describing the coat of arms of this house\",\"type\":\"string\"},\"currentLord\":{\"description\":\"The character resource URL of this house's current lord\",\"format\":\"uri\",\"type\":\"string\"},\"diedOut\":{\"description\":\"The year that this house died out\",\"type\":\"string\"},\"founded\":{\"description\":\"The year that this house was founded\",\"type\":\"string\"},\"founder\":{\"description\":\"The character resource URL that founded this house\",\"format\":\"uri\",\"type\":\"string\"},\"heir\":{\"description\":\"The character resource URL of this house's heir\",\"format\":\"uri\",\"type\":\"string\"},\"name\":{\"description\":\"The name of this house\",\"type\":\"string\"},\"overlord\":{\"description\":\"The house resource URL that this house answers to\",\"format\":\"uri\",\"type\":\"string\"},\"region\":{\"description\":\"The region that this house resides in\",\"type\":\"string\"},\"seats\":{\"description\":\"The seats that this house holds\",\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"swornMembers\":{\"description\":\"An array of character resource URLs that are sworn to this house\",\"items\":{\"format\":\"uri\",\"type\":\"string\"},\"type\":\"array\"},\"titles\":{\"description\":\"The titles that this house holds\",\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"url\":{\"description\":\"The hypermedia URL of this resource\",\"format\":\"uri\",\"type\":\"string\"},\"words\":{\"description\":\"The words of this house\",\"type\":\"string\"}},\"type\":\"object\"}}},\"description\":\"Successful response\"},\"404\":{\"description\":\"House not found\"}},\"securitySource\":\"unspecified\"}","source":"openapi3","version":1},"kind":"http","method":"GET","orig":"/houses/{id}","segments":[{"lit":"houses"},{"var":"id"}],"select":{"exist":["id"]},"transform":{"req":"`reqdata`","res":"`body`"},"index$":0}],"key$":"load"}},"relations":{"ancestors":[]},"key$":"house","name__orig":"house","Name":"House","name_":"house","name-":"house","NAME":"HOUSE","index$":2}, {"active":true,"entity":"house","key$":"BasicHouseFlow","kind":"basic","name":"BasicHouseFlow","param":{},"step":[{"active":true,"data":{},"input":{},"match":{},"op":"list","spec":[],"valid":[{"apply":"ItemExists","def":{"ref":"house_ref01"}}],"index$":0},{"active":true,"data":{},"input":{"ref":"house_ref01","srcdatavar":"house_ref01_data","suffix":"_dt0"},"match":{"id":"house01"},"op":"load","spec":[],"valid":[{"apply":"TextFieldMark","def":{"mark":"Mark01-house_ref01"}}],"index$":1}]}, 'House')
     }
     const client = setup.client
     const struct = setup.struct
@@ -116,13 +115,6 @@ function basicSetup(extra?: any) {
       }]
     })
 
-  // Detect whether the user provided a real ENTID JSON via env var. The
-  // basic flow consumes synthetic IDs from the fixture file; without an
-  // override those synthetic IDs reach the live API and 4xx. Surface this
-  // to the test so it can skip rather than fail.
-  const idmapEnvVal = process.env['ANAPIOFICEANDFIRE_TEST_HOUSE_ENTID']
-  const idmapOverridden = null != idmapEnvVal && idmapEnvVal.trim().startsWith('{')
-
   const env = envOverride({
     'ANAPIOFICEANDFIRE_TEST_HOUSE_ENTID': idmap,
     'ANAPIOFICEANDFIRE_TEST_LIVE': 'FALSE',
@@ -133,7 +125,13 @@ function basicSetup(extra?: any) {
 
   const live = 'TRUE' === env.ANAPIOFICEANDFIRE_TEST_LIVE
 
+  const transport = createLiveTransport()
   if (live) {
+    const rawIds = process.env['ANAPIOFICEANDFIRE_TEST_HOUSE_ENTID']
+    idmap = rawIds && rawIds.trim() ? JSON.parse(rawIds) : {}
+    if (!idmap || Array.isArray(idmap) || typeof idmap !== 'object') {
+      throw new Error('Live ENTID must be a JSON object')
+    }
     client = new AnapioficeandfireSDK(merge([
       // FIRST, so the generated fields below win: sdk-test-control.json's
       // test.client.options adds to the live client, it does not redirect it.
@@ -145,7 +143,8 @@ function basicSetup(extra?: any) {
       // argument at all - so a bare 'extra' silently discarded the apikey
       // and server values above and handed the SDK undefined. Harmless
       // while there was nothing in that object; not harmless now.
-      extra || {}
+      extra || {},
+      { system: { fetch: transport.fetch } }
     ]))
   }
 
@@ -158,7 +157,7 @@ function basicSetup(extra?: any) {
     data: entityData,
     explain: 'TRUE' === env.ANAPIOFICEANDFIRE_TEST_EXPLAIN,
     live,
-    syntheticOnly: live && !idmapOverridden,
+    transport,
     now: Date.now(),
   }
 

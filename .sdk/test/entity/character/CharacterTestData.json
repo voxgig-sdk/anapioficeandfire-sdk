@@ -77,5 +77,324 @@
         "url": "s28f"
       }
     }
+  },
+  "requests": {
+    "GET /characters": {
+      "provenance": "operation-contract",
+      "contract": {
+        "operationId": "listCharacters",
+        "parameters": [
+          {
+            "description": "Page number for pagination",
+            "in": "query",
+            "name": "page",
+            "required": false,
+            "schema": {
+              "default": 1,
+              "type": "integer"
+            }
+          },
+          {
+            "description": "Number of items per page",
+            "in": "query",
+            "name": "pageSize",
+            "required": false,
+            "schema": {
+              "default": 10,
+              "maximum": 50,
+              "type": "integer"
+            }
+          },
+          {
+            "description": "Filter by character name",
+            "in": "query",
+            "name": "name",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "Filter by culture",
+            "in": "query",
+            "name": "culture",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "protocol": "http",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "items": {
+                    "properties": {
+                      "aliases": {
+                        "description": "The aliases that this character goes by",
+                        "items": {
+                          "type": "string"
+                        },
+                        "type": "array"
+                      },
+                      "allegiances": {
+                        "description": "An array of house resource URLs that this character is loyal to",
+                        "items": {
+                          "format": "uri",
+                          "type": "string"
+                        },
+                        "type": "array"
+                      },
+                      "books": {
+                        "description": "An array of book resource URLs that this character has been in",
+                        "items": {
+                          "format": "uri",
+                          "type": "string"
+                        },
+                        "type": "array"
+                      },
+                      "born": {
+                        "description": "Textual representation of when and where this character was born",
+                        "type": "string"
+                      },
+                      "culture": {
+                        "description": "The culture that this character belongs to",
+                        "type": "string"
+                      },
+                      "died": {
+                        "description": "Textual representation of when and where this character died",
+                        "type": "string"
+                      },
+                      "father": {
+                        "description": "The character resource URL of this character's father",
+                        "type": "string"
+                      },
+                      "mother": {
+                        "description": "The character resource URL of this character's mother",
+                        "type": "string"
+                      },
+                      "name": {
+                        "description": "The name of this character",
+                        "type": "string"
+                      },
+                      "playedBy": {
+                        "description": "An array of actor names that have played this character in the TV show",
+                        "items": {
+                          "type": "string"
+                        },
+                        "type": "array"
+                      },
+                      "povBooks": {
+                        "description": "An array of book resource URLs that this character has had a POV-chapter in",
+                        "items": {
+                          "format": "uri",
+                          "type": "string"
+                        },
+                        "type": "array"
+                      },
+                      "spouse": {
+                        "description": "The character resource URL of this character's spouse",
+                        "type": "string"
+                      },
+                      "titles": {
+                        "description": "The titles that this character holds",
+                        "items": {
+                          "type": "string"
+                        },
+                        "type": "array"
+                      },
+                      "tvSeries": {
+                        "description": "An array of season names that this character has been in",
+                        "items": {
+                          "type": "string"
+                        },
+                        "type": "array"
+                      },
+                      "url": {
+                        "description": "The hypermedia URL of this resource",
+                        "format": "uri",
+                        "type": "string"
+                      }
+                    },
+                    "type": "object"
+                  },
+                  "type": "array"
+                }
+              }
+            },
+            "description": "Successful response"
+          }
+        },
+        "securitySource": "unspecified"
+      }
+    },
+    "GET /characters/{id}": {
+      "provenance": "operation-contract",
+      "contract": {
+        "operationId": "getCharacterById",
+        "parameters": [
+          {
+            "description": "ID of the character to retrieve",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "protocol": "http",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "example": {
+                  "aliases": [
+                    "Lord Snow",
+                    "Ned Stark's Bastard",
+                    "The Snow of Winterfell",
+                    "The Crow-Come-Over",
+                    "The 998th Lord Commander of the Night's Watch",
+                    "The Bastard of Winterfell",
+                    "The Black Bastard of the Wall",
+                    "Lord Crow"
+                  ],
+                  "allegiances": [
+                    "https://anapioficeandfire.com/api/houses/362"
+                  ],
+                  "books": [
+                    "https://anapioficeandfire.com/api/books/5"
+                  ],
+                  "born": "In 283 AC",
+                  "culture": "Northmen",
+                  "died": "",
+                  "father": "",
+                  "mother": "",
+                  "name": "Jon Snow",
+                  "playedBy": [
+                    "Kit Harington"
+                  ],
+                  "povBooks": [
+                    "https://anapioficeandfire.com/api/books/1",
+                    "https://anapioficeandfire.com/api/books/2",
+                    "https://anapioficeandfire.com/api/books/3",
+                    "https://anapioficeandfire.com/api/books/8"
+                  ],
+                  "spouse": "",
+                  "titles": [
+                    "Lord Commander of the Night's Watch"
+                  ],
+                  "tvSeries": [
+                    "Season 1",
+                    "Season 2",
+                    "Season 3",
+                    "Season 4",
+                    "Season 5"
+                  ],
+                  "url": "https://anapioficeandfire.com/api/characters/583"
+                },
+                "schema": {
+                  "properties": {
+                    "aliases": {
+                      "description": "The aliases that this character goes by",
+                      "items": {
+                        "type": "string"
+                      },
+                      "type": "array"
+                    },
+                    "allegiances": {
+                      "description": "An array of house resource URLs that this character is loyal to",
+                      "items": {
+                        "format": "uri",
+                        "type": "string"
+                      },
+                      "type": "array"
+                    },
+                    "books": {
+                      "description": "An array of book resource URLs that this character has been in",
+                      "items": {
+                        "format": "uri",
+                        "type": "string"
+                      },
+                      "type": "array"
+                    },
+                    "born": {
+                      "description": "Textual representation of when and where this character was born",
+                      "type": "string"
+                    },
+                    "culture": {
+                      "description": "The culture that this character belongs to",
+                      "type": "string"
+                    },
+                    "died": {
+                      "description": "Textual representation of when and where this character died",
+                      "type": "string"
+                    },
+                    "father": {
+                      "description": "The character resource URL of this character's father",
+                      "type": "string"
+                    },
+                    "mother": {
+                      "description": "The character resource URL of this character's mother",
+                      "type": "string"
+                    },
+                    "name": {
+                      "description": "The name of this character",
+                      "type": "string"
+                    },
+                    "playedBy": {
+                      "description": "An array of actor names that have played this character in the TV show",
+                      "items": {
+                        "type": "string"
+                      },
+                      "type": "array"
+                    },
+                    "povBooks": {
+                      "description": "An array of book resource URLs that this character has had a POV-chapter in",
+                      "items": {
+                        "format": "uri",
+                        "type": "string"
+                      },
+                      "type": "array"
+                    },
+                    "spouse": {
+                      "description": "The character resource URL of this character's spouse",
+                      "type": "string"
+                    },
+                    "titles": {
+                      "description": "The titles that this character holds",
+                      "items": {
+                        "type": "string"
+                      },
+                      "type": "array"
+                    },
+                    "tvSeries": {
+                      "description": "An array of season names that this character has been in",
+                      "items": {
+                        "type": "string"
+                      },
+                      "type": "array"
+                    },
+                    "url": {
+                      "description": "The hypermedia URL of this resource",
+                      "format": "uri",
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Successful response"
+          },
+          "404": {
+            "description": "Character not found"
+          }
+        },
+        "securitySource": "unspecified"
+      }
+    }
   }
 }
